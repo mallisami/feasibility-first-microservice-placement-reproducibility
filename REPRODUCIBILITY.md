@@ -94,7 +94,7 @@ python audit_check_risk_ranking.py
 Directory:
 
 ```text
-RESULTS/post-manuscript/shared-airtime-boundary-20260930/
+RESULTS/followup_validation/shared-airtime-boundary-20260930/
 ```
 
 Purpose:
@@ -159,7 +159,7 @@ Contains the original live binding-state Kubernetes evaluation and its frozen pr
 Directory:
 
 ```text
-RESULTS/post-manuscript/multihost-k3s-n5-20261001/
+RESULTS/followup_validation/multihost-k3s-n5-20261001/
 ```
 
 The replication uses three distinct VM/OS-backed Kubernetes hosts, one per logical rack.
@@ -221,7 +221,7 @@ The archived replication uses fresh seeds 111–130 at 16, 20, and 24 replicas u
 Directory:
 
 ```text
-RESULTS/se8_corrected_campaign/
+RESULTS/controller_safety_and_fault_path/
 ```
 
 Contains the frozen protocol, trial-level evidence, relocation/calibration records, and controller execution/abstention safety results.
@@ -233,7 +233,7 @@ Contains the frozen protocol, trial-level evidence, relocation/calibration recor
 Directory:
 
 ```text
-ANALYSIS/current_manuscript/
+ANALYSIS/derived_diagnostics/
 ```
 
 This directory contains deterministic analyses derived from frozen candidate sets:
@@ -245,15 +245,15 @@ This directory contains deterministic analyses derived from frozen candidate set
 A combined recomputation entry point is:
 
 ```bash
-python ANALYSIS/current_manuscript/recompute_derived_diagnostics.py
+python ANALYSIS/derived_diagnostics/recompute_derived_diagnostics.py
 ```
 
 The component analyses can also be run independently:
 
 ```bash
-python ANALYSIS/current_manuscript/critical_load_analysis.py
-python ANALYSIS/current_manuscript/pareto_analysis.py
-python ANALYSIS/current_manuscript/exact_penalty_bound.py
+python ANALYSIS/derived_diagnostics/critical_load_analysis.py
+python ANALYSIS/derived_diagnostics/pareto_analysis.py
+python ANALYSIS/derived_diagnostics/exact_penalty_bound.py
 ```
 
 The E1 utilization/delivery reanalysis is located at:
@@ -305,7 +305,7 @@ EXTENSION_STUDIES/.../PROTOCOL_FROZEN.md
 The multi-host k3s execution records are under:
 
 ```text
-RESULTS/post-manuscript/multihost-k3s-n5-20261001/
+RESULTS/followup_validation/multihost-k3s-n5-20261001/
 ```
 
 Because live-system timings are environment-sensitive, the paper separates mechanism/correctness claims from environment-specific performance observations.

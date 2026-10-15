@@ -1,12 +1,12 @@
 # Results index
 
-This directory contains the raw and derived result families for the MAPE-CAP-WS reproducibility package. Historical experiment results are retained, and post-manuscript studies are additive.
+This directory contains the raw and derived result families for the MAPE-CAP-WS reproducibility package. Historical experiment results are retained, and follow-up validation studies are additive.
 
-## Completed post-manuscript evidence
+## Completed follow-up validation evidence
 
 ### Shared-airtime packet-level construct validation — 30 September 2026
 
-`post-manuscript/shared-airtime-boundary-20260930/run-20260930T163137Z/`
+`followup_validation/shared-airtime-boundary-20260930/run-20260930T163137Z/`
 
 - 18/18 calibration cells accepted;
 - 108/108 science cells accepted;
@@ -17,7 +17,7 @@ This directory contains the raw and derived result families for the MAPE-CAP-WS 
 
 ### Three-host Kubernetes N5 replication — 1 October 2026
 
-`post-manuscript/multihost-k3s-n5-20261001/run-20261001T151036Z/`
+`followup_validation/multihost-k3s-n5-20261001/run-20261001T151036Z/`
 
 - six-cell engineering pilot passed;
 - 60/60 science cells accepted on first attempt;

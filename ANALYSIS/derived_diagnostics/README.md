@@ -37,15 +37,15 @@ Using `V(x)=max(0,U_max(x)-1)` at the primary load, `R_J/delta` has median **6.2
 From the package root, run either the one-pass engine:
 
 ```bash
-python ANALYSIS/current_manuscript/recompute_derived_diagnostics.py . ANALYSIS/current_manuscript/_recomputed
+python ANALYSIS/derived_diagnostics/recompute_derived_diagnostics.py . ANALYSIS/derived_diagnostics/_recomputed
 ```
 
 or the individual convenience scripts:
 
 ```bash
-python ANALYSIS/current_manuscript/critical_load_analysis.py
-python ANALYSIS/current_manuscript/pareto_analysis.py
-python ANALYSIS/current_manuscript/exact_penalty_bound.py
+python ANALYSIS/derived_diagnostics/critical_load_analysis.py
+python ANALYSIS/derived_diagnostics/pareto_analysis.py
+python ANALYSIS/derived_diagnostics/exact_penalty_bound.py
 ```
 
 ## Evidence boundary

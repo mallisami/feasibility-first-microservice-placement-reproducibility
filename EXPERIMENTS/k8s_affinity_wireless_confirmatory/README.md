@@ -8,7 +8,7 @@ The experiment imports the repository's authoritative sources directly:
 
 - planner/model code: `../../implementation/code/mape_cap_bplus/`
 - wireless trace table: `../../RESULTS/calibration/external/ns3_simulation_backed_traces.csv`
-- prior prospective computational confirmation: `../../RESULTS/post-manuscript/affinity-wireless-computational-confirmation-20260915/`
+- prior prospective computational confirmation: `../../RESULTS/followup_validation/affinity-wireless-computational-confirmation-20260915/`
 
 There is intentionally **no duplicated `mape_cap_bplus` package, copied wireless-trace CSV, superseded protocol, amendment file, or nested previous ZIP** in this experiment directory.
 

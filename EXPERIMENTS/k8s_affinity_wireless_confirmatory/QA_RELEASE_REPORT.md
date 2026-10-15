@@ -14,7 +14,7 @@ The experiment contains no copied planner package, copied wireless-state table, 
 
 - `implementation/code/mape_cap_bplus/` — authoritative B+ source imported directly at runtime.
 - `RESULTS/calibration/external/ns3_simulation_backed_traces.csv` — authoritative wireless trace table.
-- `RESULTS/post-manuscript/affinity-wireless-computational-confirmation-20260915/` — retained prospective computational mechanism confirmation.
+- `RESULTS/followup_validation/affinity-wireless-computational-confirmation-20260915/` — retained prospective computational mechanism confirmation.
 - `EXPERIMENTS/k8s_affinity_wireless_confirmatory/protocol/LIVE_CONFIRMATORY_PROTOCOL_FROZEN.md` — the only authoritative live-confirmatory protocol.
 
 ## Pre-execution QA corrections incorporated into the single protocol

@@ -63,14 +63,14 @@ Key evidence:
 - `EXPERIMENTS/E1_E2_E3_validation_campaigns/E1_ns3_persistent_degradation/`
 - `EXPERIMENTS/E1_E2_E3_validation_campaigns/E2_scale_admission/`
 - `EXPERIMENTS/E1_E2_E3_validation_campaigns/E3_published_score_replay/`
-- `ANALYSIS/current_manuscript/`
+- `ANALYSIS/derived_diagnostics/`
 
 ### RQ2 — Application effects in binding and nonbinding regimes
 
 Key evidence:
 
 - `EXTENSION_STUDIES/N5_live_binding_state/`
-- `RESULTS/post-manuscript/multihost-k3s-n5-20261001/`
+- `RESULTS/followup_validation/multihost-k3s-n5-20261001/`
 - `ANALYSIS/multihost_k3s/`
 
 The repository retains negative/nonbinding evidence as well as the selected binding-state results.
@@ -82,7 +82,7 @@ Key evidence:
 - `RESULTS/audit/randomized_exact_vs_exhaustive_120_reproducible.json`
 - `EXTENSION_STUDIES/N4_solver_scaling/`
 - `ANALYSIS/solver_replication_20seed/`
-- `RESULTS/se8_corrected_campaign/`
+- `RESULTS/controller_safety_and_fault_path/`
 
 Exact optimality is claimed only where certified. Bounded-LNS outputs outside that range are treated as admissible/incumbent evidence rather than approximation guarantees.
 
