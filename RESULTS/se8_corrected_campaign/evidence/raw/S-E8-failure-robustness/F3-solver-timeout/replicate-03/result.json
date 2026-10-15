@@ -1,0 +1,305 @@
+{
+  "actual_placement": {
+    "adservice": "mcb-k137-worker",
+    "cartservice": "mcb-k137-worker2",
+    "checkoutservice": "mcb-k137-worker2",
+    "currencyservice": "mcb-k137-worker2",
+    "emailservice": "mcb-k137-worker3",
+    "frontend": "mcb-k137-worker2",
+    "paymentservice": "mcb-k137-worker",
+    "productcatalogservice": "mcb-k137-worker2",
+    "recommendationservice": "mcb-k137-worker2",
+    "redis-cart": "mcb-k137-worker",
+    "shippingservice": "mcb-k137-worker"
+  },
+  "candidate_placement": null,
+  "completed_utc": "2026-09-18T19:56:31.807372Z",
+  "detection_latency_s": 0.011371,
+  "detection_timestamp": "2026-09-18T19:56:15.857804Z",
+  "elapsed_s": 0.11211390699963886,
+  "experiment": "S-E8",
+  "failure_reason": "ExactSolveError: MILP returned no solution: status=1, message=Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)",
+  "fallback_action": "retain_previous_on_timeout",
+  "fault_injection_timestamp": "2026-09-18T19:56:15.846433Z",
+  "fault_type": "F3-solver-timeout",
+  "health": {
+    "healthy": true,
+    "pods": [
+      {
+        "app": "adservice",
+        "phase": "Running",
+        "pod": "adservice-694ff6d6fb-d972w",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "cartservice",
+        "phase": "Running",
+        "pod": "cartservice-bcffb7655-szb5v",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "checkoutservice",
+        "phase": "Running",
+        "pod": "checkoutservice-77f8946b54-lljnm",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "currencyservice",
+        "phase": "Running",
+        "pod": "currencyservice-7f66f4b96-x5hzh",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "emailservice",
+        "phase": "Running",
+        "pod": "emailservice-5684bbb45b-9kbnw",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "frontend",
+        "phase": "Running",
+        "pod": "frontend-774979fc8d-wf7pb",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-cc6c8697d-8kzv7",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "paymentservice",
+        "phase": "Running",
+        "pod": "paymentservice-6576b64848-qbjfl",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "productcatalogservice",
+        "phase": "Running",
+        "pod": "productcatalogservice-7f6b5c96b6-x8bgw",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "recommendationservice",
+        "phase": "Running",
+        "pod": "recommendationservice-dc8cb86fb-pll5l",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "redis-cart",
+        "phase": "Running",
+        "pod": "redis-cart-6f67d5c97-nl6g5",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "shippingservice",
+        "phase": "Running",
+        "pod": "shippingservice-6cd6f7c768-k5tzx",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  "post_fault": {
+    "application": {
+      "application": {
+        "error_rate": 0.0,
+        "errors": 0,
+        "evidence_type": "frontend-structured-request-log",
+        "mean_ms": 9.348837209302326,
+        "operations": {
+          "GET /": 5,
+          "GET /cart": 11,
+          "GET /product/0PUK6V6EV0": 2,
+          "GET /product/1YMWWN1N4O": 4,
+          "GET /product/2ZYFJ3GM2N": 1,
+          "GET /product/66VCHSJNUP": 3,
+          "GET /product/6E92ZMYYFZ": 3,
+          "GET /product/9SIQT8TOJO": 1,
+          "GET /product/L9ECAV7KIM": 2,
+          "GET /product/OLJCESPC7Z": 3,
+          "POST /cart": 6,
+          "POST /cart/checkout": 1,
+          "POST /setCurrency": 1
+        },
+        "p50_ms": 10.0,
+        "p95_ms": 16.0,
+        "p99_ms": 19.0,
+        "requests": 43,
+        "response_bytes": 389134,
+        "throughput_requests_per_second": 2.8666666666666667
+      },
+      "resources": {
+        "max_cpu_cores": 0.237733286,
+        "max_memory_mib": 366.859375,
+        "mean_cpu_cores": 0.1614961515,
+        "mean_memory_mib": 366.3310546875,
+        "network_bytes_per_second": 114645.06666666667,
+        "network_rx_bytes": 908204,
+        "network_tx_bytes": 811472
+      }
+    },
+    "resources": {
+      "captured_utc": "2026-09-18T19:56:15.958565Z",
+      "disk_free_gib": 111.31296920776367,
+      "docker_available": true,
+      "docker_driver": "overlayfs",
+      "docker_mem_total_gib": 15.566009521484375,
+      "docker_server_version": "29.1.3",
+      "host_available_gib": 13.072021484375,
+      "host_total_gib": 15.566009521484375,
+      "kubernetes_available": true,
+      "kubernetes_version": {
+        "clientVersion": {
+          "buildDate": "2026-08-26T10:48:06Z",
+          "compiler": "gc",
+          "gitCommit": "f54c212e3a2f75d674b717a9b29052b20b60aefc",
+          "gitTreeState": "clean",
+          "gitVersion": "v1.37.0",
+          "goVersion": "go1.26.6",
+          "major": "1",
+          "minor": "37",
+          "platform": "linux/amd64"
+        },
+        "kustomizeVersion": "v5.8.1",
+        "serverVersion": {
+          "buildDate": "2026-08-26T10:44:25Z",
+          "compiler": "gc",
+          "emulationMajor": "1",
+          "emulationMinor": "37",
+          "gitCommit": "f54c212e3a2f75d674b717a9b29052b20b60aefc",
+          "gitTreeState": "clean",
+          "gitVersion": "v1.37.0",
+          "goVersion": "go1.26.6",
+          "major": "1",
+          "minCompatibilityMajor": "1",
+          "minCompatibilityMinor": "36",
+          "minor": "37",
+          "platform": "linux/amd64"
+        }
+      },
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+    }
+  },
+  "pre_fault": {
+    "application": {
+      "application": {
+        "error_rate": 0.0,
+        "errors": 0,
+        "evidence_type": "frontend-structured-request-log",
+        "mean_ms": 9.82,
+        "operations": {
+          "GET /": 6,
+          "GET /cart": 10,
+          "GET /product/0PUK6V6EV0": 3,
+          "GET /product/1YMWWN1N4O": 1,
+          "GET /product/2ZYFJ3GM2N": 3,
+          "GET /product/66VCHSJNUP": 2,
+          "GET /product/6E92ZMYYFZ": 3,
+          "GET /product/9SIQT8TOJO": 4,
+          "GET /product/OLJCESPC7Z": 2,
+          "POST /cart": 7,
+          "POST /cart/checkout": 3,
+          "POST /setCurrency": 6
+        },
+        "p50_ms": 10.0,
+        "p95_ms": 21.0,
+        "p99_ms": 24.0,
+        "requests": 50,
+        "response_bytes": 377882,
+        "throughput_requests_per_second": 3.3333333333333335
+      },
+      "resources": {
+        "max_cpu_cores": 0.377744147,
+        "max_memory_mib": 366.046875,
+        "mean_cpu_cores": 0.29423168375,
+        "mean_memory_mib": 354.2763671875,
+        "network_bytes_per_second": 46094.13333333333,
+        "network_rx_bytes": 470529,
+        "network_tx_bytes": 220883
+      }
+    },
+    "resources": {
+      "captured_utc": "2026-09-18T19:56:00.058815Z",
+      "disk_free_gib": 111.31307983398438,
+      "docker_available": true,
+      "docker_driver": "overlayfs",
+      "docker_mem_total_gib": 15.566009521484375,
+      "docker_server_version": "29.1.3",
+      "host_available_gib": 13.092975616455078,
+      "host_total_gib": 15.566009521484375,
+      "kubernetes_available": true,
+      "kubernetes_version": {
+        "clientVersion": {
+          "buildDate": "2026-08-26T10:48:06Z",
+          "compiler": "gc",
+          "gitCommit": "f54c212e3a2f75d674b717a9b29052b20b60aefc",
+          "gitTreeState": "clean",
+          "gitVersion": "v1.37.0",
+          "goVersion": "go1.26.6",
+          "major": "1",
+          "minor": "37",
+          "platform": "linux/amd64"
+        },
+        "kustomizeVersion": "v5.8.1",
+        "serverVersion": {
+          "buildDate": "2026-08-26T10:44:25Z",
+          "compiler": "gc",
+          "emulationMajor": "1",
+          "emulationMinor": "37",
+          "gitCommit": "f54c212e3a2f75d674b717a9b29052b20b60aefc",
+          "gitTreeState": "clean",
+          "gitVersion": "v1.37.0",
+          "goVersion": "go1.26.6",
+          "major": "1",
+          "minCompatibilityMajor": "1",
+          "minCompatibilityMinor": "36",
+          "minor": "37",
+          "platform": "linux/amd64"
+        }
+      },
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+    }
+  },
+  "previous_placement": {
+    "adservice": "mcb-k137-worker",
+    "cartservice": "mcb-k137-worker2",
+    "checkoutservice": "mcb-k137-worker2",
+    "currencyservice": "mcb-k137-worker2",
+    "emailservice": "mcb-k137-worker3",
+    "frontend": "mcb-k137-worker2",
+    "paymentservice": "mcb-k137-worker",
+    "productcatalogservice": "mcb-k137-worker2",
+    "recommendationservice": "mcb-k137-worker2",
+    "redis-cart": "mcb-k137-worker",
+    "shippingservice": "mcb-k137-worker"
+  },
+  "replicate": 3,
+  "run_id": "S-E8:F3-solver-timeout:rep3",
+  "solver_state": {
+    "error": "MILP returned no solution: status=1, message=Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)",
+    "incumbent_found": false,
+    "timeout_caught": true
+  },
+  "verdict": {
+    "controller_recovered": true,
+    "failure_logged": true,
+    "feasible_incumbent_misreported_as_optimal": false,
+    "infeasible_placement_executed": false,
+    "invalid_placement_executed": false,
+    "last_valid_placement_preserved": true,
+    "safe": true,
+    "unbounded_relocation_loop": false
+  }
+}

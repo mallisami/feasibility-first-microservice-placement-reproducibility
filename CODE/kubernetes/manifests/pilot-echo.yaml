@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo
+  namespace: mape-cap-bplus-pilot
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: echo
+  template:
+    metadata:
+      labels:
+        app: echo
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchLabels:
+                  app: echo
+              topologyKey: kubernetes.io/hostname
+      containers:
+        - name: echo
+          image: hashicorp/http-echo:1.0.0
+          args: ["-text=MAPE-CAP-BPlus-pilot"]
+          ports:
+            - containerPort: 5678
+          resources:
+            requests:
+              cpu: 50m
+              memory: 32Mi
+            limits:
+              cpu: 250m
+              memory: 128Mi
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 5678
+            initialDelaySeconds: 1
+            periodSeconds: 2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: echo
+  namespace: mape-cap-bplus-pilot
+spec:
+  selector:
+    app: echo
+  ports:
+    - port: 80
+      targetPort: 5678
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: echo-pdb
+  namespace: mape-cap-bplus-pilot
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: echo

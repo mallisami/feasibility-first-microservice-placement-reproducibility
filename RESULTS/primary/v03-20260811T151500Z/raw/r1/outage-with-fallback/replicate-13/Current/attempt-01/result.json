@@ -1,0 +1,215 @@
+{
+  "acceptance_gate_version": 2,
+  "accepted": true,
+  "application": {
+    "condition_events": [
+      {
+        "applied_utc": "2026-08-11T22:51:09.683841Z",
+        "condition": "outage-with-fallback",
+        "destination_node": "mape-cap-bplus-worker3",
+        "initial": {
+          "loss_pct": 100.0,
+          "phase": "outage",
+          "scope": "one-directed-worker-path"
+        },
+        "scheduled": {
+          "after_seconds": 5,
+          "delay_ms": 8,
+          "loss_pct": 0.0,
+          "phase": "fallback",
+          "rate_mbit": 50
+        },
+        "source_node": "mape-cap-bplus-worker2"
+      },
+      {
+        "elapsed_seconds": 5.542791599989869,
+        "event": "fallback-path-active"
+      }
+    ],
+    "error_rate": 0.0,
+    "errors": 0,
+    "evidence_type": "frontend-structured-request-log",
+    "mean_ms": 27.61111111111111,
+    "operations": {
+      "GET /": 9,
+      "GET /cart": 8,
+      "GET /product/0PUK6V6EV0": 3,
+      "GET /product/1YMWWN1N4O": 1,
+      "GET /product/2ZYFJ3GM2N": 6,
+      "GET /product/66VCHSJNUP": 1,
+      "GET /product/6E92ZMYYFZ": 1,
+      "GET /product/9SIQT8TOJO": 7,
+      "GET /product/L9ECAV7KIM": 3,
+      "GET /product/LS4PSXUNUM": 3,
+      "GET /product/OLJCESPC7Z": 2,
+      "POST /cart": 3,
+      "POST /cart/checkout": 1,
+      "POST /setCurrency": 6
+    },
+    "p50_ms": 14.0,
+    "p95_ms": 114.0,
+    "p99_ms": 191.0,
+    "requests": 54,
+    "response_bytes": 439214,
+    "slo_threshold_ms": 500.0,
+    "slo_violations": 0,
+    "successes": 54,
+    "throughput_requests_per_second": 2.7,
+    "timeouts": 0
+  },
+  "completed_utc": "2026-08-11T22:51:31.060404Z",
+  "condition": "outage-with-fallback",
+  "duration_seconds": 20,
+  "health": {
+    "healthy": true,
+    "pods": [
+      {
+        "app": "adservice",
+        "phase": "Running",
+        "pod": "adservice-8449d6fd59-shmjv",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "cartservice",
+        "phase": "Running",
+        "pod": "cartservice-84df5d58b9-qvz9c",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "checkoutservice",
+        "phase": "Running",
+        "pod": "checkoutservice-74cb487bc7-79ffx",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "currencyservice",
+        "phase": "Running",
+        "pod": "currencyservice-797c6d498-s9jbl",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "emailservice",
+        "phase": "Running",
+        "pod": "emailservice-85fc477565-gwnsr",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "frontend",
+        "phase": "Running",
+        "pod": "frontend-784bcb9c6b-m66xp",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-784f5549d7-p79zm",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "opentelemetrycollector",
+        "phase": "Running",
+        "pod": "opentelemetrycollector-6c64897995-rgszv",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "paymentservice",
+        "phase": "Running",
+        "pod": "paymentservice-5c8696564b-vvb77",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "productcatalogservice",
+        "phase": "Running",
+        "pod": "productcatalogservice-5bc9584b9b-ln4kp",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "recommendationservice",
+        "phase": "Running",
+        "pod": "recommendationservice-5d9dff5844-jxfh9",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "redis-cart",
+        "phase": "Running",
+        "pod": "redis-cart-685b4664c5-xpk69",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "shippingservice",
+        "phase": "Running",
+        "pod": "shippingservice-54d9744856-r4ssw",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  "initial_placement": {
+    "adservice": "mape-cap-bplus-worker2",
+    "cartservice": "mape-cap-bplus-worker3",
+    "checkoutservice": "mape-cap-bplus-worker3",
+    "currencyservice": "mape-cap-bplus-worker3",
+    "emailservice": "mape-cap-bplus-worker",
+    "frontend": "mape-cap-bplus-worker3",
+    "paymentservice": "mape-cap-bplus-worker2",
+    "productcatalogservice": "mape-cap-bplus-worker3",
+    "recommendationservice": "mape-cap-bplus-worker3",
+    "redis-cart": "mape-cap-bplus-worker2",
+    "shippingservice": "mape-cap-bplus-worker2"
+  },
+  "method": "Current",
+  "placement": {
+    "adservice": "mape-cap-bplus-worker2",
+    "cartservice": "mape-cap-bplus-worker3",
+    "checkoutservice": "mape-cap-bplus-worker3",
+    "currencyservice": "mape-cap-bplus-worker3",
+    "emailservice": "mape-cap-bplus-worker",
+    "frontend": "mape-cap-bplus-worker3",
+    "paymentservice": "mape-cap-bplus-worker2",
+    "productcatalogservice": "mape-cap-bplus-worker3",
+    "recommendationservice": "mape-cap-bplus-worker3",
+    "redis-cart": "mape-cap-bplus-worker2",
+    "shippingservice": "mape-cap-bplus-worker2"
+  },
+  "planner": {
+    "cvar_delay_cost": 646.9533333333334,
+    "expected_delay_cost": 646.9533333333334,
+    "feasible": true,
+    "objective": 1617.3833333333334,
+    "relocation_cost": 0.0,
+    "slo_slack": 0.0,
+    "solver": {}
+  },
+  "planner_runtime_seconds": 2.09989957511425e-06,
+  "relocation": {
+    "changed_services": [],
+    "failed_health_probes": 0,
+    "probe_timeline": [],
+    "recovery_seconds": null,
+    "relocations": 0,
+    "rollout_seconds": 2.800021320581436e-06
+  },
+  "replicate": 13,
+  "resources": {
+    "max_cpu_cores": 0.108359334,
+    "max_memory_mib": 631.86328125,
+    "mean_cpu_cores": 0.1011514478,
+    "mean_memory_mib": 630.3046875,
+    "network_bytes_per_second": 126310.1,
+    "network_rx_bytes": 1253684,
+    "network_tx_bytes": 1272518
+  },
+  "run_id": "r1:outage-with-fallback:rep13:Current"
+}

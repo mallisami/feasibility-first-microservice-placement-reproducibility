@@ -1,0 +1,186 @@
+{
+  "accepted_evidence": true,
+  "application": {
+    "error_rate": 0.0,
+    "errors": 0,
+    "p95_ms": 78.0,
+    "p99_ms": 150.0,
+    "requests": 178,
+    "rps": null,
+    "slo_violations": 0,
+    "timeouts": 0
+  },
+  "completed_utc": "2026-08-15T02:31:44.282883Z",
+  "condition": "hotspot",
+  "health": {
+    "healthy": true,
+    "pods": [
+      {
+        "app": "adservice",
+        "phase": "Running",
+        "pod": "adservice-54767574d5-gdqk4",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "cartservice",
+        "phase": "Running",
+        "pod": "cartservice-58f459bd9d-2cjjz",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "checkoutservice",
+        "phase": "Running",
+        "pod": "checkoutservice-5d7bd54c-sd856",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "currencyservice",
+        "phase": "Running",
+        "pod": "currencyservice-6b6c97b445-tpxd8",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "emailservice",
+        "phase": "Running",
+        "pod": "emailservice-68b9558ddd-pbvjt",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "frontend",
+        "phase": "Running",
+        "pod": "frontend-7985cccb7f-w8sg8",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-756566cb75-64hvv",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "paymentservice",
+        "phase": "Running",
+        "pod": "paymentservice-674d88dbc5-cnbsj",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "productcatalogservice",
+        "phase": "Running",
+        "pod": "productcatalogservice-77f65fcc4d-bzfq5",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "recommendationservice",
+        "phase": "Running",
+        "pod": "recommendationservice-7f5855768f-gp2tg",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "redis-cart",
+        "phase": "Running",
+        "pod": "redis-cart-7b7cdbdfcb-tcbz7",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "shippingservice",
+        "phase": "Running",
+        "pod": "shippingservice-5d95db8d6f-9w7zb",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  "initial_placement": {
+    "adservice": "mape-cap-bplus-worker2",
+    "cartservice": "mape-cap-bplus-worker3",
+    "checkoutservice": "mape-cap-bplus-worker3",
+    "currencyservice": "mape-cap-bplus-worker3",
+    "emailservice": "mape-cap-bplus-worker",
+    "frontend": "mape-cap-bplus-worker3",
+    "paymentservice": "mape-cap-bplus-worker2",
+    "productcatalogservice": "mape-cap-bplus-worker3",
+    "recommendationservice": "mape-cap-bplus-worker3",
+    "redis-cart": "mape-cap-bplus-worker2",
+    "shippingservice": "mape-cap-bplus-worker2"
+  },
+  "method": "BPlus-Exact",
+  "placement": {
+    "adservice": "mape-cap-bplus-worker2",
+    "cartservice": "mape-cap-bplus-worker3",
+    "checkoutservice": "mape-cap-bplus-worker3",
+    "currencyservice": "mape-cap-bplus-worker3",
+    "emailservice": "mape-cap-bplus-worker",
+    "frontend": "mape-cap-bplus-worker3",
+    "paymentservice": "mape-cap-bplus-worker2",
+    "productcatalogservice": "mape-cap-bplus-worker3",
+    "recommendationservice": "mape-cap-bplus-worker3",
+    "redis-cart": "mape-cap-bplus-worker2",
+    "shippingservice": "mape-cap-bplus-worker2"
+  },
+  "planner": {
+    "cvar_delay_cost": 1623.4866666666671,
+    "expected_delay_cost": 1623.4866666666671,
+    "feasible": true,
+    "objective": 4058.7166666666676,
+    "relocation_cost": 0.0,
+    "slo_slack": 0.0,
+    "solver": {
+      "constraint_count": 454,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "mip_dual_bound": 4058.716666666667,
+      "mip_gap": 0.0,
+      "mip_node_count": 1,
+      "placement_evaluation": {
+        "cvar_delay_cost": 1623.4866666666671,
+        "expected_delay_cost": 1623.4866666666671,
+        "feasible": true,
+        "reasons": [],
+        "relocation_cost": 0.0,
+        "scenario_airtime_by_group": {
+          "stable": {}
+        },
+        "scenario_delay_costs": {
+          "stable": 1623.4866666666671
+        },
+        "slo_slack": 0.0,
+        "total_objective": 4058.7166666666676
+      },
+      "proven_optimal": true,
+      "solver": "scipy.optimize.milp/HiGHS",
+      "solver_objective": 4058.716666666667,
+      "status": 0,
+      "variable_count": 185
+    }
+  },
+  "planner_runtime_seconds": 0.07537589999992633,
+  "relocation": {
+    "changed_services": [],
+    "failed_health_probes": 0,
+    "probe_timeline": [],
+    "recovery_seconds": null,
+    "relocations": 0,
+    "rollout_seconds": 2.3999964469112456e-06
+  },
+  "replicate": 2,
+  "resources": {
+    "max_cpu_cores": 0.412519362,
+    "max_memory_mib": 383.3359375,
+    "mean_cpu_cores": 0.37489770380000004,
+    "mean_memory_mib": 375.06875,
+    "network_bytes_per_second": 224238.8,
+    "network_rx_bytes": 2658878,
+    "network_tx_bytes": 1825898
+  },
+  "run_id": "S-E4:hotspot:rep2:BPlus-Exact"
+}

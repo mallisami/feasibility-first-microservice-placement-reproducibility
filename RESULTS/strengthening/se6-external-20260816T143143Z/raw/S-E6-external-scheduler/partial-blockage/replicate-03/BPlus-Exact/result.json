@@ -1,0 +1,813 @@
+{
+  "P50": 17.0,
+  "P95": 144.0,
+  "P99": 285.0,
+  "accepted_evidence": true,
+  "application": {
+    "downtime_seconds": null,
+    "error_rate": 0.0,
+    "errors": 0,
+    "p50_ms": 17.0,
+    "p95_ms": 144.0,
+    "p99_ms": 285.0,
+    "requests": 62,
+    "rps": null,
+    "slo_violations": 0,
+    "timeouts": 22
+  },
+  "completed_utc": "2026-08-16T22:46:46.219147Z",
+  "condition": "partial-blockage",
+  "downtime": null,
+  "errors": 0,
+  "health": {
+    "healthy": true,
+    "pods": [
+      {
+        "app": "adservice",
+        "phase": "Running",
+        "pod": "adservice-994d876bd-45zfc",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "cartservice",
+        "phase": "Running",
+        "pod": "cartservice-7bfddd595b-9lnjv",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "checkoutservice",
+        "phase": "Running",
+        "pod": "checkoutservice-6d9db69856-5bg22",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "currencyservice",
+        "phase": "Running",
+        "pod": "currencyservice-67d9598896-dd5x8",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "emailservice",
+        "phase": "Running",
+        "pod": "emailservice-5c9f9f74cf-gwrwm",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "frontend",
+        "phase": "Running",
+        "pod": "frontend-595998c7b8-dsmgx",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-756566cb75-qt7dx",
+        "ready": true,
+        "restarts": 6
+      },
+      {
+        "app": "opentelemetrycollector",
+        "phase": "Running",
+        "pod": "opentelemetrycollector-5c859fbd49-hcd29",
+        "ready": true,
+        "restarts": 12
+      },
+      {
+        "app": "paymentservice",
+        "phase": "Running",
+        "pod": "paymentservice-6c698659f5-42nrm",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "productcatalogservice",
+        "phase": "Running",
+        "pod": "productcatalogservice-554b7dbd-9tjjm",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "recommendationservice",
+        "phase": "Running",
+        "pod": "recommendationservice-7467f47c74-zx5bh",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "redis-cart",
+        "phase": "Running",
+        "pod": "redis-cart-75555d976f-85xl9",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "shippingservice",
+        "phase": "Running",
+        "pod": "shippingservice-6c77ff4998-mpmn2",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  "independent_feasibility_evaluation": true,
+  "initial_placement": {
+    "adservice": "mape-cap-bplus-worker",
+    "cartservice": "mape-cap-bplus-worker2",
+    "checkoutservice": "mape-cap-bplus-worker2",
+    "currencyservice": "mape-cap-bplus-worker2",
+    "emailservice": "mape-cap-bplus-worker3",
+    "frontend": "mape-cap-bplus-worker2",
+    "paymentservice": "mape-cap-bplus-worker",
+    "productcatalogservice": "mape-cap-bplus-worker2",
+    "recommendationservice": "mape-cap-bplus-worker2",
+    "redis-cart": "mape-cap-bplus-worker",
+    "shippingservice": "mape-cap-bplus-worker"
+  },
+  "kubernetes_events": [
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:44Z",
+      "message": "Successfully pulled image \"gcr.io/google-samples/microservices-demo/cartservice:v0.10.1\" in 896ms (896ms including waiting). Image size: 16963182 bytes.",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:44Z",
+      "message": "Created pod: redis-cart-75555d976f-85xl9",
+      "reason": "SuccessfulCreate",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:44Z",
+      "message": "Created pod: shippingservice-6c77ff4998-mpmn2",
+      "reason": "SuccessfulCreate",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:44Z",
+      "message": "Created pod: recommendationservice-7467f47c74-zx5bh",
+      "reason": "SuccessfulCreate",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:44Z",
+      "message": "Successfully assigned online-boutique/shippingservice-6c77ff4998-mpmn2 to mape-cap-bplus-worker",
+      "reason": "Scheduled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:44Z",
+      "message": "Container created",
+      "reason": "Created",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:44Z",
+      "message": "Successfully pulled image \"gcr.io/google-samples/microservices-demo/adservice:v0.10.1\" in 965ms (965ms including waiting). Image size: 98555677 bytes.",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:44Z",
+      "message": "Successfully assigned online-boutique/redis-cart-75555d976f-85xl9 to mape-cap-bplus-worker",
+      "reason": "Scheduled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:44Z",
+      "message": "Created pod: paymentservice-6c698659f5-42nrm",
+      "reason": "SuccessfulCreate",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:44Z",
+      "message": "Created pod: productcatalogservice-554b7dbd-9tjjm",
+      "reason": "SuccessfulCreate",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:44Z",
+      "message": "Pulling image \"gcr.io/google-samples/microservices-demo/paymentservice:v0.10.1\"",
+      "reason": "Pulling",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:44Z",
+      "message": "Successfully assigned online-boutique/paymentservice-6c698659f5-42nrm to mape-cap-bplus-worker",
+      "reason": "Scheduled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:44Z",
+      "message": "Pulling image \"gcr.io/google-samples/microservices-demo/frontend:v0.10.1\"",
+      "reason": "Pulling",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:44Z",
+      "message": "Pulling image \"gcr.io/google-samples/microservices-demo/emailservice:v0.10.1\"",
+      "reason": "Pulling",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:44Z",
+      "message": "Pulling image \"gcr.io/google-samples/microservices-demo/productcatalogservice:v0.10.1\"",
+      "reason": "Pulling",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:45Z",
+      "message": "Successfully pulled image \"gcr.io/google-samples/microservices-demo/emailservice:v0.10.1\" in 892ms (892ms including waiting). Image size: 85656624 bytes.",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:45Z",
+      "message": "Successfully pulled image \"gcr.io/google-samples/microservices-demo/paymentservice:v0.10.1\" in 1.052s (1.252s including waiting). Image size: 44948497 bytes.",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:45Z",
+      "message": "Container created",
+      "reason": "Created",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:45Z",
+      "message": "Container created",
+      "reason": "Created",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:45Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:45Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:45Z",
+      "message": "Pulling image \"gcr.io/google-samples/microservices-demo/recommendationservice:v0.10.1\"",
+      "reason": "Pulling",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:45Z",
+      "message": "Pulling image \"gcr.io/google-samples/microservices-demo/shippingservice:v0.10.1\"",
+      "reason": "Pulling",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:45Z",
+      "message": "Successfully pulled image \"gcr.io/google-samples/microservices-demo/checkoutservice:v0.10.1\" in 981ms (1.781s including waiting). Image size: 11064202 bytes.",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:45Z",
+      "message": "Container created",
+      "reason": "Created",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:45Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:45Z",
+      "message": "Pulling image \"redis:7-alpine\"",
+      "reason": "Pulling",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:46Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:46Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:47Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:47Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:47Z",
+      "message": "Container created",
+      "reason": "Created",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:47Z",
+      "message": "Readiness probe failed: timeout: failed to connect service \"10.244.3.15:5050\" within 1s: context deadline exceeded",
+      "reason": "Unhealthy",
+      "type": "Warning"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:47Z",
+      "message": "Deleted pod: checkoutservice-7987f95f87-9bdrl",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 2,
+      "last": "2026-08-16T22:45:47Z",
+      "message": "Readiness probe failed: timeout: failed to connect service \"10.244.2.38:8080\" within 1s: context deadline exceeded",
+      "reason": "Unhealthy",
+      "type": "Warning"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:47Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:47Z",
+      "message": "Successfully pulled image \"gcr.io/google-samples/microservices-demo/shippingservice:v0.10.1\" in 1.298s (1.882s including waiting). Image size: 10679939 bytes.",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:47Z",
+      "message": "Successfully pulled image \"gcr.io/google-samples/microservices-demo/currencyservice:v0.10.1\" in 1.314s (2.954s including waiting). Image size: 46586779 bytes.",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:47Z",
+      "message": "Container created",
+      "reason": "Created",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:48Z",
+      "message": "Container created",
+      "reason": "Created",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:48Z",
+      "message": "Deleted pod: shippingservice-67b9b79cd6-gq82x",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:48Z",
+      "message": "Readiness probe failed: timeout: failed to connect service \"10.244.1.25:50051\" within 1s: context deadline exceeded",
+      "reason": "Unhealthy",
+      "type": "Warning"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:48Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:48Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 2,
+      "last": "2026-08-16T22:45:48Z",
+      "message": "Readiness probe failed: timeout: failed to connect service \"10.244.1.23:50051\" within 1s: context deadline exceeded",
+      "reason": "Unhealthy",
+      "type": "Warning"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:48Z",
+      "message": "Successfully pulled image \"gcr.io/google-samples/microservices-demo/frontend:v0.10.1\" in 965ms (3.706s including waiting). Image size: 16438918 bytes.",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:49Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:49Z",
+      "message": "Readiness probe failed: dial tcp 10.244.1.24:6379: connect: connection refused",
+      "reason": "Unhealthy",
+      "type": "Warning"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:49Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 2,
+      "last": "2026-08-16T22:45:49Z",
+      "message": "Readiness probe failed: timeout: failed to connect service \"10.244.3.16:7000\" within 1s: context deadline exceeded",
+      "reason": "Unhealthy",
+      "type": "Warning"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:49Z",
+      "message": "Container created",
+      "reason": "Created",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:49Z",
+      "message": "Successfully pulled image \"gcr.io/google-samples/microservices-demo/productcatalogservice:v0.10.1\" in 893ms (4.257s including waiting). Image size: 14283083 bytes.",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:49Z",
+      "message": "Successfully pulled image \"redis:7-alpine\" in 1.782s (3.664s including waiting). Image size: 16274952 bytes.",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:49Z",
+      "message": "Container created",
+      "reason": "Created",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:49Z",
+      "message": "Successfully pulled image \"gcr.io/google-samples/microservices-demo/recommendationservice:v0.10.1\" in 883ms (4.894s including waiting). Image size: 85026632 bytes.",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:50Z",
+      "message": "Stopping container redis",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:50Z",
+      "message": "Readiness probe failed: timeout: failed to connect service \"10.244.3.18:3550\" within 1s: context deadline exceeded",
+      "reason": "Unhealthy",
+      "type": "Warning"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:50Z",
+      "message": "Deleted pod: productcatalogservice-86c9957cf5-6hpc8",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:50Z",
+      "message": "Container created",
+      "reason": "Created",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:50Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:50Z",
+      "message": "Deleted pod: redis-cart-5b994b846c-hjwg4",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:50Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:51Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:51Z",
+      "message": "Deleted pod: emailservice-85d64b979f-hn842",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 2,
+      "last": "2026-08-16T22:45:52Z",
+      "message": "Readiness probe failed: timeout: failed to connect service \"10.244.3.19:8080\" within 1s: context deadline exceeded",
+      "reason": "Unhealthy",
+      "type": "Warning"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:54Z",
+      "message": "Liveness probe failed: timeout: failed to connect service \"10.244.3.16:7000\" within 1s: context deadline exceeded",
+      "reason": "Unhealthy",
+      "type": "Warning"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:56Z",
+      "message": "Deleted pod: recommendationservice-66bc76dc97-sj2h7",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:56Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:57Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:57Z",
+      "message": "Deleted pod: paymentservice-5694c669-9hzd9",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:58Z",
+      "message": "Deleted pod: frontend-757556dcc-dbxxc",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:58Z",
+      "message": "Deleted pod: currencyservice-54d4f8cbd7-4v69h",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:58Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:45:58Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:46:00Z",
+      "message": "Readiness probe failed: Get \"http://10.244.1.19:8080/_healthz\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)",
+      "reason": "Unhealthy",
+      "type": "Warning"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:46:04Z",
+      "message": "Liveness probe failed: timeout: health rpc did not complete within 1s",
+      "reason": "Unhealthy",
+      "type": "Warning"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:46:06Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:46:06Z",
+      "message": "Deleted pod: cartservice-58c6bfd785-xz9g7",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:46:16Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-08-16T22:46:16Z",
+      "message": "Deleted pod: adservice-5b4b548b66-7pnhk",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    }
+  ],
+  "planner": {
+    "cvar_delay_cost": 646.9533333333334,
+    "expected_delay_cost": 646.9533333333334,
+    "feasible": true,
+    "objective": 1617.3833333333334,
+    "relocation_cost": 0.0,
+    "slo_slack": 0.0,
+    "solver": {
+      "constraint_count": 455,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "mip_dual_bound": 1617.383333333333,
+      "mip_gap": 0.0,
+      "mip_node_count": 1,
+      "placement_evaluation": {
+        "cvar_delay_cost": 646.9533333333334,
+        "expected_delay_cost": 646.9533333333334,
+        "feasible": true,
+        "reasons": [],
+        "relocation_cost": 0.0,
+        "scenario_airtime_by_group": {
+          "blockage": {},
+          "stable": {}
+        },
+        "scenario_delay_costs": {
+          "blockage": 646.9533333333334,
+          "stable": 646.9533333333334
+        },
+        "slo_slack": 0.0,
+        "total_objective": 1617.3833333333334
+      },
+      "proven_optimal": true,
+      "solver": "scipy.optimize.milp/HiGHS",
+      "solver_objective": 1617.383333333333,
+      "status": 0,
+      "variable_count": 186
+    }
+  },
+  "planner_runtime_seconds": 0.03260279999813065,
+  "planning_feasible": true,
+  "planning_objective": 1617.3833333333334,
+  "pod_placement": {
+    "adservice": "mape-cap-bplus-worker",
+    "cartservice": "mape-cap-bplus-worker2",
+    "checkoutservice": "mape-cap-bplus-worker2",
+    "currencyservice": "mape-cap-bplus-worker2",
+    "emailservice": "mape-cap-bplus-worker3",
+    "frontend": "mape-cap-bplus-worker2",
+    "paymentservice": "mape-cap-bplus-worker",
+    "productcatalogservice": "mape-cap-bplus-worker2",
+    "recommendationservice": "mape-cap-bplus-worker2",
+    "redis-cart": "mape-cap-bplus-worker",
+    "shippingservice": "mape-cap-bplus-worker"
+  },
+  "relocation": {
+    "changed_services": [],
+    "failed_health_probes": 0,
+    "probe_timeline": [],
+    "recovery_seconds": null,
+    "relocations": 0,
+    "rollout_seconds": 2.2999884095042944e-06
+  },
+  "replicate": 3,
+  "resource_snapshot": {
+    "captured_utc": "2026-08-16T22:46:44.293037Z",
+    "disk_free_gib": 83.84219741821289,
+    "docker_available": true,
+    "docker_driver": "overlayfs",
+    "docker_mem_total_gib": 11.681270599365234,
+    "docker_server_version": "29.7.2",
+    "host_available_gib": 2.182159423828125,
+    "host_total_gib": 15.73318862915039,
+    "kubernetes_available": true,
+    "kubernetes_version": {
+      "clientVersion": {
+        "buildDate": "2026-05-12T09:54:35Z",
+        "compiler": "gc",
+        "gitCommit": "756939600b9a7180fc2df6550a4585b638875e67",
+        "gitTreeState": "clean",
+        "gitVersion": "v1.36.1",
+        "goVersion": "go1.26.2",
+        "major": "1",
+        "minor": "36",
+        "platform": "windows/amd64"
+      },
+      "kustomizeVersion": "v5.8.1",
+      "serverVersion": {
+        "buildDate": "2026-05-12T09:51:34Z",
+        "compiler": "gc",
+        "emulationMajor": "1",
+        "emulationMinor": "36",
+        "gitCommit": "756939600b9a7180fc2df6550a4585b638875e67",
+        "gitTreeState": "clean",
+        "gitVersion": "v1.36.1",
+        "goVersion": "go1.26.2",
+        "major": "1",
+        "minCompatibilityMajor": "1",
+        "minCompatibilityMinor": "35",
+        "minor": "36",
+        "platform": "linux/amd64"
+      }
+    },
+    "python": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]"
+  },
+  "resources": {
+    "max_cpu_cores": 0.262987149,
+    "max_memory_mib": 531.5078125,
+    "mean_cpu_cores": 0.2068203192,
+    "mean_memory_mib": 521.05625,
+    "network_bytes_per_second": 149868.55,
+    "network_rx_bytes": 1215799,
+    "network_tx_bytes": 1781572
+  },
+  "run_id": "S-E6:partial-blockage:rep3:BPlus-Exact",
+  "scheduler": "BPlus-Exact",
+  "scheduler_image": "in-process",
+  "scheduler_version": "local",
+  "solver_status": null,
+  "solver_wall_time": 0.03260279999813065,
+  "throughput_rps": null
+}

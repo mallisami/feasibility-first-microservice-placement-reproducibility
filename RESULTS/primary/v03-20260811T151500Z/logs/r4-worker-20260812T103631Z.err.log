@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r4.py", line 317, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r4.py", line 313, in main
+    return campaign(args.run_root.resolve(), args.timeout_seconds)
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r4.py", line 294, in campaign
+    row = run_cell(run_root, *values, timeout)
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r4.py", line 224, in run_cell
+    image_evidence = {"requested": image_state, **uncached_target()}
+                                                  ~~~~~~~~~~~~~~~^^
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r4.py", line 164, in uncached_target
+    docker(TARGET, "crictl", "rmi", IMAGE)
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r1.py", line 129, in docker
+    return run(["docker", "exec", node, *args], check=check, timeout=30)
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r1.py", line 124, in run
+    raise RuntimeError(f"command failed ({result.returncode}): {' '.join(args)}\n{result.stderr[-2000:]}")
+RuntimeError: command failed (1): docker exec mape-cap-bplus-worker2 crictl rmi redis:7-alpine
+E0812 10:40:51.845418   76899 log.go:32] "RemoveImage from image service failed" err="rpc error: code = DeadlineExceeded desc = stream terminated by RST_STREAM with error code: CANCEL" image="redis:7-alpine"
+error of removing image "redis:7-alpine": rpc error: code = DeadlineExceeded desc = stream terminated by RST_STREAM with error code: CANCEL
+

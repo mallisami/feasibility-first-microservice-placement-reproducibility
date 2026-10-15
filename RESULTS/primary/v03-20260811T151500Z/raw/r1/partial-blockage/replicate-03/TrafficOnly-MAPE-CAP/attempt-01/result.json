@@ -1,0 +1,233 @@
+{
+  "acceptance_gate_version": 2,
+  "accepted": true,
+  "application": {
+    "condition_events": [
+      {
+        "applied_utc": "2026-08-11T18:25:46.596478Z",
+        "condition": "partial-blockage",
+        "destination_node": "mape-cap-bplus-worker2",
+        "initial": {
+          "delay_ms": 80,
+          "loss_pct": 5.0,
+          "rate_mbit": 20,
+          "scope": "one-directed-worker-path"
+        },
+        "source_node": "mape-cap-bplus-worker"
+      }
+    ],
+    "error_rate": 0.0,
+    "errors": 0,
+    "evidence_type": "frontend-structured-request-log",
+    "mean_ms": 228.89655172413794,
+    "operations": {
+      "GET /": 3,
+      "GET /cart": 14,
+      "GET /product/0PUK6V6EV0": 3,
+      "GET /product/1YMWWN1N4O": 5,
+      "GET /product/2ZYFJ3GM2N": 2,
+      "GET /product/66VCHSJNUP": 1,
+      "GET /product/6E92ZMYYFZ": 2,
+      "GET /product/9SIQT8TOJO": 1,
+      "GET /product/L9ECAV7KIM": 3,
+      "GET /product/LS4PSXUNUM": 8,
+      "GET /product/OLJCESPC7Z": 5,
+      "POST /cart": 7,
+      "POST /cart/checkout": 1,
+      "POST /setCurrency": 3
+    },
+    "p50_ms": 14.0,
+    "p95_ms": 4023.0,
+    "p99_ms": 4101.0,
+    "requests": 58,
+    "response_bytes": 514624,
+    "slo_threshold_ms": 500.0,
+    "slo_violations": 3,
+    "successes": 58,
+    "throughput_requests_per_second": 2.9,
+    "timeouts": 0
+  },
+  "completed_utc": "2026-08-11T18:26:08.100325Z",
+  "condition": "partial-blockage",
+  "duration_seconds": 20,
+  "health": {
+    "healthy": true,
+    "pods": [
+      {
+        "app": "adservice",
+        "phase": "Running",
+        "pod": "adservice-75f8b55c6d-gg44t",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "cartservice",
+        "phase": "Running",
+        "pod": "cartservice-7647574884-h7cg5",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "checkoutservice",
+        "phase": "Running",
+        "pod": "checkoutservice-6c4db9c45b-7rck7",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "currencyservice",
+        "phase": "Running",
+        "pod": "currencyservice-6b54584cf-llkk5",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "emailservice",
+        "phase": "Running",
+        "pod": "emailservice-8866875bc-wgpfs",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "frontend",
+        "phase": "Running",
+        "pod": "frontend-7d47d7d9d5-d26dw",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-784f5549d7-p79zm",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "opentelemetrycollector",
+        "phase": "Running",
+        "pod": "opentelemetrycollector-6c64897995-rgszv",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "paymentservice",
+        "phase": "Running",
+        "pod": "paymentservice-bf4b9cf67-gp7dp",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "productcatalogservice",
+        "phase": "Running",
+        "pod": "productcatalogservice-5999466d7c-jxb8b",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "recommendationservice",
+        "phase": "Running",
+        "pod": "recommendationservice-64f6d58f45-vtmpf",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "redis-cart",
+        "phase": "Running",
+        "pod": "redis-cart-6b6b78bccd-rhd76",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "shippingservice",
+        "phase": "Running",
+        "pod": "shippingservice-fd4b75c9-znb7h",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  "initial_placement": {
+    "adservice": "mape-cap-bplus-worker3",
+    "cartservice": "mape-cap-bplus-worker",
+    "checkoutservice": "mape-cap-bplus-worker",
+    "currencyservice": "mape-cap-bplus-worker",
+    "emailservice": "mape-cap-bplus-worker2",
+    "frontend": "mape-cap-bplus-worker",
+    "paymentservice": "mape-cap-bplus-worker3",
+    "productcatalogservice": "mape-cap-bplus-worker",
+    "recommendationservice": "mape-cap-bplus-worker",
+    "redis-cart": "mape-cap-bplus-worker3",
+    "shippingservice": "mape-cap-bplus-worker3"
+  },
+  "method": "TrafficOnly-MAPE-CAP",
+  "placement": {
+    "adservice": "mape-cap-bplus-worker3",
+    "cartservice": "mape-cap-bplus-worker",
+    "checkoutservice": "mape-cap-bplus-worker",
+    "currencyservice": "mape-cap-bplus-worker",
+    "emailservice": "mape-cap-bplus-worker2",
+    "frontend": "mape-cap-bplus-worker",
+    "paymentservice": "mape-cap-bplus-worker3",
+    "productcatalogservice": "mape-cap-bplus-worker",
+    "recommendationservice": "mape-cap-bplus-worker",
+    "redis-cart": "mape-cap-bplus-worker3",
+    "shippingservice": "mape-cap-bplus-worker3"
+  },
+  "planner": {
+    "cvar_delay_cost": 1153.6200000000003,
+    "expected_delay_cost": 1001.6200000000002,
+    "feasible": true,
+    "objective": 2732.0500000000006,
+    "relocation_cost": 0.0,
+    "slo_slack": 0.0,
+    "solver": {
+      "constraint_count": 453,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "mip_dual_bound": 1916.3666666666666,
+      "mip_gap": 0.0,
+      "mip_node_count": 1,
+      "placement_evaluation": {
+        "cvar_delay_cost": 1916.366666666667,
+        "expected_delay_cost": 1916.366666666667,
+        "feasible": true,
+        "reasons": [],
+        "relocation_cost": 0.0,
+        "scenario_airtime_by_group": {
+          "blockage": {},
+          "stable": {}
+        },
+        "scenario_delay_costs": {
+          "blockage": 1916.366666666667,
+          "stable": 1916.366666666667
+        },
+        "slo_slack": 0.0,
+        "total_objective": 1916.366666666667
+      },
+      "proven_optimal": true,
+      "solver": "scipy.optimize.milp/HiGHS",
+      "solver_objective": 1916.3666666666666,
+      "status": 0,
+      "variable_count": 186
+    }
+  },
+  "planner_runtime_seconds": 0.02174240001477301,
+  "relocation": {
+    "changed_services": [],
+    "failed_health_probes": 0,
+    "probe_timeline": [],
+    "recovery_seconds": null,
+    "relocations": 0,
+    "rollout_seconds": 2.300017513334751e-06
+  },
+  "replicate": 3,
+  "resources": {
+    "max_cpu_cores": 0.134706011,
+    "max_memory_mib": 562.953125,
+    "mean_cpu_cores": 0.11171663379999999,
+    "mean_memory_mib": 561.43828125,
+    "network_bytes_per_second": 162611.05,
+    "network_rx_bytes": 1569020,
+    "network_tx_bytes": 1683201
+  },
+  "run_id": "r1:partial-blockage:rep3:TrafficOnly-MAPE-CAP"
+}

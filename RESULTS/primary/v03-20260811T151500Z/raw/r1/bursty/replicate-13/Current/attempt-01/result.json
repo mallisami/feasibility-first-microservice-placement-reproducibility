@@ -1,0 +1,236 @@
+{
+  "acceptance_gate_version": 2,
+  "accepted": true,
+  "application": {
+    "condition_events": [
+      {
+        "applied_utc": "2026-08-12T03:36:56.740337Z",
+        "condition": "bursty",
+        "destination_node": "mape-cap-bplus-worker3",
+        "initial": {
+          "delay_ms": 0,
+          "loss_pct": 0.0,
+          "rate_mbit": 1000,
+          "scope": "stable"
+        },
+        "source_node": "mape-cap-bplus-worker2"
+      },
+      {
+        "elapsed_seconds": 11.042785299941897,
+        "event": "load-burst-up",
+        "replicas": 4
+      },
+      {
+        "elapsed_seconds": 17.235341200022958,
+        "event": "load-burst-down",
+        "replicas": 1
+      }
+    ],
+    "error_rate": 0.0,
+    "errors": 0,
+    "evidence_type": "frontend-structured-request-log",
+    "mean_ms": 131.07692307692307,
+    "operations": {
+      "GET /": 25,
+      "GET /cart": 19,
+      "GET /product/0PUK6V6EV0": 1,
+      "GET /product/1YMWWN1N4O": 6,
+      "GET /product/2ZYFJ3GM2N": 2,
+      "GET /product/66VCHSJNUP": 7,
+      "GET /product/6E92ZMYYFZ": 8,
+      "GET /product/9SIQT8TOJO": 2,
+      "GET /product/L9ECAV7KIM": 2,
+      "GET /product/LS4PSXUNUM": 5,
+      "GET /product/OLJCESPC7Z": 3,
+      "POST /cart": 5,
+      "POST /cart/checkout": 1,
+      "POST /setCurrency": 5
+    },
+    "p50_ms": 47.0,
+    "p95_ms": 509.0,
+    "p99_ms": 690.0,
+    "requests": 91,
+    "response_bytes": 783363,
+    "slo_threshold_ms": 500.0,
+    "slo_violations": 5,
+    "successes": 91,
+    "throughput_requests_per_second": 4.55,
+    "timeouts": 0
+  },
+  "completed_utc": "2026-08-12T03:37:18.199447Z",
+  "condition": "bursty",
+  "duration_seconds": 20,
+  "health": {
+    "healthy": true,
+    "pods": [
+      {
+        "app": "adservice",
+        "phase": "Running",
+        "pod": "adservice-645f489d49-qdmsj",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "cartservice",
+        "phase": "Running",
+        "pod": "cartservice-74858b55dc-2pxqm",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "checkoutservice",
+        "phase": "Running",
+        "pod": "checkoutservice-6b98f98f5-895wq",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "currencyservice",
+        "phase": "Running",
+        "pod": "currencyservice-7db5784c4d-n86rn",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "emailservice",
+        "phase": "Running",
+        "pod": "emailservice-7f75d85947-4gj7v",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "frontend",
+        "phase": "Running",
+        "pod": "frontend-659f95cb8-b6c4r",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-784f5549d7-9cnqk",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-784f5549d7-9tmst",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-784f5549d7-pwb6v",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-784f5549d7-tw6rz",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "opentelemetrycollector",
+        "phase": "Running",
+        "pod": "opentelemetrycollector-6c64897995-rgszv",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "paymentservice",
+        "phase": "Running",
+        "pod": "paymentservice-d5c45464d-d9hwn",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "productcatalogservice",
+        "phase": "Running",
+        "pod": "productcatalogservice-7fbc9cd86b-brhrj",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "recommendationservice",
+        "phase": "Running",
+        "pod": "recommendationservice-b987847c8-q9pqg",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "redis-cart",
+        "phase": "Running",
+        "pod": "redis-cart-7d6b75f449-68ff4",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "shippingservice",
+        "phase": "Running",
+        "pod": "shippingservice-8f6fb8446-gjtw6",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  "initial_placement": {
+    "adservice": "mape-cap-bplus-worker2",
+    "cartservice": "mape-cap-bplus-worker3",
+    "checkoutservice": "mape-cap-bplus-worker3",
+    "currencyservice": "mape-cap-bplus-worker3",
+    "emailservice": "mape-cap-bplus-worker",
+    "frontend": "mape-cap-bplus-worker3",
+    "paymentservice": "mape-cap-bplus-worker2",
+    "productcatalogservice": "mape-cap-bplus-worker3",
+    "recommendationservice": "mape-cap-bplus-worker3",
+    "redis-cart": "mape-cap-bplus-worker2",
+    "shippingservice": "mape-cap-bplus-worker2"
+  },
+  "method": "Current",
+  "placement": {
+    "adservice": "mape-cap-bplus-worker2",
+    "cartservice": "mape-cap-bplus-worker3",
+    "checkoutservice": "mape-cap-bplus-worker3",
+    "currencyservice": "mape-cap-bplus-worker3",
+    "emailservice": "mape-cap-bplus-worker",
+    "frontend": "mape-cap-bplus-worker3",
+    "paymentservice": "mape-cap-bplus-worker2",
+    "productcatalogservice": "mape-cap-bplus-worker3",
+    "recommendationservice": "mape-cap-bplus-worker3",
+    "redis-cart": "mape-cap-bplus-worker2",
+    "shippingservice": "mape-cap-bplus-worker2"
+  },
+  "planner": {
+    "cvar_delay_cost": 1940.8200000000002,
+    "expected_delay_cost": 1940.8200000000002,
+    "feasible": true,
+    "objective": 4852.050000000001,
+    "relocation_cost": 0.0,
+    "slo_slack": 0.0,
+    "solver": {}
+  },
+  "planner_runtime_seconds": 2.300017513334751e-06,
+  "relocation": {
+    "changed_services": [],
+    "failed_health_probes": 0,
+    "probe_timeline": [],
+    "recovery_seconds": null,
+    "relocations": 0,
+    "rollout_seconds": 2.600019797682762e-06
+  },
+  "replicate": 13,
+  "resources": {
+    "max_cpu_cores": 0.423348486,
+    "max_memory_mib": 578.6328125,
+    "mean_cpu_cores": 0.2525739264,
+    "mean_memory_mib": 498.19453125,
+    "network_bytes_per_second": 128106.2,
+    "network_rx_bytes": 1387420,
+    "network_tx_bytes": 1174704
+  },
+  "run_id": "r1:bursty:rep13:Current"
+}

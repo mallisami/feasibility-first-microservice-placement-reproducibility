@@ -1,0 +1,72 @@
+{
+  "accepted": true,
+  "action_started_utc": "2026-09-18T08:56:17.977124Z",
+  "completed_utc": "2026-09-18T08:56:47.621232Z",
+  "create_ready_remove_rollout_seconds": 7.546548890999929,
+  "create_to_ready_seconds": 5.0,
+  "event_id": "988064e1-7f67-445c-b0cd-ba43871d89a9",
+  "final_pod_ready": true,
+  "image": {
+    "image_id": "sha256:04fa556e62bddac2a783622a3cccc35d6d5c599199eecf75b6b4f2bc76c8c825",
+    "reference": "hashicorp/http-echo:1.0.0",
+    "repo_digests": [
+      "docker.io/hashicorp/http-echo@sha256:fcb75f691c8b0414d670ae570240cbf95502cc18a9ba57e982ecac589760a186"
+    ],
+    "repo_tags": [
+      "docker.io/hashicorp/http-echo:1.0.0"
+    ],
+    "size_bytes": "4631705"
+  },
+  "image_absence_precheck": {
+    "after_by_id": false,
+    "after_by_ref": false,
+    "before_by_id": false,
+    "before_by_ref": false,
+    "checked_utc": "2026-09-18T08:56:16.976597Z",
+    "removals": [
+      {
+        "identity": "docker.io/hashicorp/http-echo@sha256:fcb75f691c8b0414d670ae570240cbf95502cc18a9ba57e982ecac589760a186",
+        "output": "time=\"2026-09-18T08:56:16Z\" level=fatal msg=\"no such image docker.io/hashicorp/http-echo@sha256:fcb75f691c8b0414d670ae570240cbf95502cc18a9ba57e982ecac589760a186\"\n",
+        "returncode": 1
+      },
+      {
+        "identity": "hashicorp/http-echo:1.0.0",
+        "output": "time=\"2026-09-18T08:56:16Z\" level=fatal msg=\"no such image hashicorp/http-echo:1.0.0\"\n",
+        "returncode": 1
+      }
+    ],
+    "verified_absent": true
+  },
+  "new_pod": "relocation-echo-65db6d598b-2kzrp",
+  "observation": 2,
+  "old_pod": "relocation-echo-85d75c6467-m8kx4",
+  "pull_events": [
+    {
+      "count": 1,
+      "first_timestamp": "2026-09-18T08:56:18Z",
+      "last_timestamp": "2026-09-18T08:56:18Z",
+      "message": "Pulling image \"hashicorp/http-echo:1.0.0\"",
+      "reason": "Pulling"
+    },
+    {
+      "count": 1,
+      "first_timestamp": "2026-09-18T08:56:23Z",
+      "last_timestamp": "2026-09-18T08:56:23Z",
+      "message": "Successfully pulled image \"hashicorp/http-echo:1.0.0\" in 5.128s (5.128s including waiting). Image size: 4631705 bytes.",
+      "reason": "Pulled"
+    }
+  ],
+  "request_probe": {
+    "errors": [
+      "URLError",
+      "URLError",
+      "URLError",
+      "URLError"
+    ],
+    "failed_requests": 4,
+    "successful_requests": 269
+  },
+  "schema_version": "1.0",
+  "source_node": "mcb-k137-worker2",
+  "target_node": "mcb-k137-worker3"
+}

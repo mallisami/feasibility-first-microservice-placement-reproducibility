@@ -1,0 +1,228 @@
+{
+  "acceptance_gate_version": 2,
+  "accepted": true,
+  "application": {
+    "condition_events": [
+      {
+        "applied_utc": "2026-09-18T11:57:48.813422Z",
+        "condition": "confirmatory-persistent-severe",
+        "destination_node": "mcb-k137-worker2",
+        "initial": {
+          "delay_ms": 40,
+          "loss_pct": 2.0,
+          "rate_mbit": 20,
+          "scope": "all-worker-egress"
+        },
+        "source_node": "mcb-k137-worker"
+      }
+    ],
+    "error_rate": 0.00046598322460391424,
+    "errors": 1,
+    "evidence_type": "frontend-structured-request-log",
+    "mean_ms": 229.40587138863,
+    "operations": {
+      "GET /": 205,
+      "GET /cart": 469,
+      "GET /product/0PUK6V6EV0": 99,
+      "GET /product/1YMWWN1N4O": 111,
+      "GET /product/2ZYFJ3GM2N": 106,
+      "GET /product/66VCHSJNUP": 103,
+      "GET /product/6E92ZMYYFZ": 119,
+      "GET /product/9SIQT8TOJO": 97,
+      "GET /product/L9ECAV7KIM": 122,
+      "GET /product/LS4PSXUNUM": 111,
+      "GET /product/OLJCESPC7Z": 114,
+      "POST /cart": 251,
+      "POST /cart/checkout": 93,
+      "POST /setCurrency": 146
+    },
+    "p50_ms": 168.0,
+    "p95_ms": 494.0,
+    "p99_ms": 867.0,
+    "requests": 2146,
+    "response_bytes": 18386048,
+    "slo_threshold_ms": 500.0,
+    "slo_violations": 72,
+    "successes": 2145,
+    "throughput_requests_per_second": 5.109523809523809,
+    "timeouts": 93
+  },
+  "completed_utc": "2026-09-18T12:04:49.971442Z",
+  "condition": "confirmatory-persistent-severe",
+  "duration_seconds": 420,
+  "health": {
+    "healthy": true,
+    "pods": [
+      {
+        "app": "adservice",
+        "phase": "Running",
+        "pod": "adservice-fbc5bc6d5-wcvmv",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "cartservice",
+        "phase": "Running",
+        "pod": "cartservice-597dc7fd97-44ll2",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "checkoutservice",
+        "phase": "Running",
+        "pod": "checkoutservice-7cd67585b-zxnrf",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "currencyservice",
+        "phase": "Running",
+        "pod": "currencyservice-645cd69b46-hl2gk",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "emailservice",
+        "phase": "Running",
+        "pod": "emailservice-6d6467867-mh6s4",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "frontend",
+        "phase": "Running",
+        "pod": "frontend-7fb8f6d97d-hxbjs",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-858cf45cc7-cr4f4",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-858cf45cc7-xbpsl",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "paymentservice",
+        "phase": "Running",
+        "pod": "paymentservice-5dcd4bf9d5-hzprv",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "productcatalogservice",
+        "phase": "Running",
+        "pod": "productcatalogservice-64b7ffc4d-jtv4w",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "recommendationservice",
+        "phase": "Running",
+        "pod": "recommendationservice-5b6b5d5fdb-24wgd",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "redis-cart",
+        "phase": "Running",
+        "pod": "redis-cart-5d58f847ff-xg8z5",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "shippingservice",
+        "phase": "Running",
+        "pod": "shippingservice-55b5fc4cc5-6lmxc",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  "initial_placement": {
+    "adservice": "mcb-k137-worker",
+    "cartservice": "mcb-k137-worker2",
+    "checkoutservice": "mcb-k137-worker2",
+    "currencyservice": "mcb-k137-worker2",
+    "emailservice": "mcb-k137-worker3",
+    "frontend": "mcb-k137-worker2",
+    "paymentservice": "mcb-k137-worker",
+    "productcatalogservice": "mcb-k137-worker2",
+    "recommendationservice": "mcb-k137-worker2",
+    "redis-cart": "mcb-k137-worker",
+    "shippingservice": "mcb-k137-worker"
+  },
+  "method": "Current",
+  "minimum_completed_requests": 1000,
+  "placement": {
+    "adservice": "mcb-k137-worker",
+    "cartservice": "mcb-k137-worker2",
+    "checkoutservice": "mcb-k137-worker2",
+    "currencyservice": "mcb-k137-worker2",
+    "emailservice": "mcb-k137-worker3",
+    "frontend": "mcb-k137-worker2",
+    "paymentservice": "mcb-k137-worker",
+    "productcatalogservice": "mcb-k137-worker2",
+    "recommendationservice": "mcb-k137-worker2",
+    "redis-cart": "mcb-k137-worker",
+    "shippingservice": "mcb-k137-worker"
+  },
+  "planner": {
+    "cvar_delay_cost": 66763.06666666667,
+    "expected_delay_cost": 48674.95266666666,
+    "feasible": true,
+    "objective": 148819.55266666666,
+    "relocation_cost": 0.0,
+    "slo_slack": 0.0,
+    "solver": {}
+  },
+  "planner_runtime_seconds": 1.8030004866886884e-06,
+  "relocation": {
+    "changed_services": [],
+    "failed_health_probes": 0,
+    "pre_execution_validation": {
+      "eligible_nodes": [
+        "mcb-k137-control-plane",
+        "mcb-k137-worker",
+        "mcb-k137-worker2",
+        "mcb-k137-worker3"
+      ],
+      "validated_services": [
+        "adservice",
+        "cartservice",
+        "checkoutservice",
+        "currencyservice",
+        "emailservice",
+        "frontend",
+        "paymentservice",
+        "productcatalogservice",
+        "recommendationservice",
+        "redis-cart",
+        "shippingservice"
+      ]
+    },
+    "probe_timeline": [],
+    "recovery_seconds": null,
+    "relocations": 0,
+    "rollout_seconds": 1.7130005289800465e-06,
+    "transactional_rollback": "armed"
+  },
+  "replicate": 3,
+  "resources": {
+    "max_cpu_cores": 0.281905622,
+    "max_memory_mib": 497.37109375,
+    "mean_cpu_cores": 0.0891545445131579,
+    "mean_memory_mib": 466.03006784539474,
+    "network_bytes_per_second": 192093.8142857143,
+    "network_rx_bytes": 40167490,
+    "network_tx_bytes": 40511912
+  },
+  "run_id": "r1:confirmatory-persistent-severe:rep3:Current"
+}

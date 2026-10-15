@@ -1,0 +1,242 @@
+{
+  "acceptance_gate_version": 2,
+  "accepted": true,
+  "application": {
+    "condition_events": [
+      {
+        "applied_utc": "2026-08-11T22:33:59.753393Z",
+        "condition": "outage-with-fallback",
+        "destination_node": "mape-cap-bplus-worker",
+        "initial": {
+          "loss_pct": 100.0,
+          "phase": "outage",
+          "scope": "one-directed-worker-path"
+        },
+        "scheduled": {
+          "after_seconds": 5,
+          "delay_ms": 8,
+          "loss_pct": 0.0,
+          "phase": "fallback",
+          "rate_mbit": 50
+        },
+        "source_node": "mape-cap-bplus-worker3"
+      },
+      {
+        "elapsed_seconds": 5.37225340004079,
+        "event": "fallback-path-active"
+      }
+    ],
+    "error_rate": 0.0,
+    "errors": 0,
+    "evidence_type": "frontend-structured-request-log",
+    "mean_ms": 28.266666666666666,
+    "operations": {
+      "GET /": 7,
+      "GET /cart": 10,
+      "GET /product/0PUK6V6EV0": 2,
+      "GET /product/1YMWWN1N4O": 4,
+      "GET /product/2ZYFJ3GM2N": 2,
+      "GET /product/66VCHSJNUP": 3,
+      "GET /product/9SIQT8TOJO": 1,
+      "GET /product/L9ECAV7KIM": 5,
+      "GET /product/LS4PSXUNUM": 3,
+      "GET /product/OLJCESPC7Z": 5,
+      "POST /cart": 8,
+      "POST /cart/checkout": 3,
+      "POST /setCurrency": 7
+    },
+    "p50_ms": 12.0,
+    "p95_ms": 98.0,
+    "p99_ms": 262.0,
+    "requests": 60,
+    "response_bytes": 485525,
+    "slo_threshold_ms": 500.0,
+    "slo_violations": 0,
+    "successes": 60,
+    "throughput_requests_per_second": 3.0,
+    "timeouts": 0
+  },
+  "completed_utc": "2026-08-11T22:34:21.032764Z",
+  "condition": "outage-with-fallback",
+  "duration_seconds": 20,
+  "health": {
+    "healthy": true,
+    "pods": [
+      {
+        "app": "adservice",
+        "phase": "Running",
+        "pod": "adservice-6ff9594fc6-twtfj",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "cartservice",
+        "phase": "Running",
+        "pod": "cartservice-6b879446b8-jrpmj",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "checkoutservice",
+        "phase": "Running",
+        "pod": "checkoutservice-686c47b684-8t5ps",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "currencyservice",
+        "phase": "Running",
+        "pod": "currencyservice-5859bb5b55-pjtcs",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "emailservice",
+        "phase": "Running",
+        "pod": "emailservice-5bb7754595-hm8cq",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "frontend",
+        "phase": "Running",
+        "pod": "frontend-5c966bddf7-c54qs",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-784f5549d7-p79zm",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "opentelemetrycollector",
+        "phase": "Running",
+        "pod": "opentelemetrycollector-6c64897995-rgszv",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "paymentservice",
+        "phase": "Running",
+        "pod": "paymentservice-7dd9cd4567-9w9ts",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "productcatalogservice",
+        "phase": "Running",
+        "pod": "productcatalogservice-8584898b69-tvrt6",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "recommendationservice",
+        "phase": "Running",
+        "pod": "recommendationservice-78d68b69f7-f74lx",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "redis-cart",
+        "phase": "Running",
+        "pod": "redis-cart-76d9dc96bb-t2p7m",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "shippingservice",
+        "phase": "Running",
+        "pod": "shippingservice-b6cb8bbc-tgsdr",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  "initial_placement": {
+    "adservice": "mape-cap-bplus-worker3",
+    "cartservice": "mape-cap-bplus-worker",
+    "checkoutservice": "mape-cap-bplus-worker",
+    "currencyservice": "mape-cap-bplus-worker",
+    "emailservice": "mape-cap-bplus-worker2",
+    "frontend": "mape-cap-bplus-worker",
+    "paymentservice": "mape-cap-bplus-worker3",
+    "productcatalogservice": "mape-cap-bplus-worker",
+    "recommendationservice": "mape-cap-bplus-worker",
+    "redis-cart": "mape-cap-bplus-worker3",
+    "shippingservice": "mape-cap-bplus-worker3"
+  },
+  "method": "TrafficOnly-MAPE-CAP",
+  "placement": {
+    "adservice": "mape-cap-bplus-worker3",
+    "cartservice": "mape-cap-bplus-worker",
+    "checkoutservice": "mape-cap-bplus-worker",
+    "currencyservice": "mape-cap-bplus-worker",
+    "emailservice": "mape-cap-bplus-worker2",
+    "frontend": "mape-cap-bplus-worker",
+    "paymentservice": "mape-cap-bplus-worker3",
+    "productcatalogservice": "mape-cap-bplus-worker",
+    "recommendationservice": "mape-cap-bplus-worker",
+    "redis-cart": "mape-cap-bplus-worker3",
+    "shippingservice": "mape-cap-bplus-worker3"
+  },
+  "planner": {
+    "cvar_delay_cost": 646.9533333333334,
+    "expected_delay_cost": 646.9533333333334,
+    "feasible": true,
+    "objective": 1617.3833333333334,
+    "relocation_cost": 0.0,
+    "slo_slack": 0.0,
+    "solver": {
+      "constraint_count": 453,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "mip_dual_bound": 1916.3666666666666,
+      "mip_gap": 0.0,
+      "mip_node_count": 1,
+      "placement_evaluation": {
+        "cvar_delay_cost": 1916.366666666667,
+        "expected_delay_cost": 1916.366666666667,
+        "feasible": true,
+        "reasons": [],
+        "relocation_cost": 0.0,
+        "scenario_airtime_by_group": {
+          "fallback": {},
+          "stable": {}
+        },
+        "scenario_delay_costs": {
+          "fallback": 1916.366666666667,
+          "stable": 1916.366666666667
+        },
+        "slo_slack": 0.0,
+        "total_objective": 1916.366666666667
+      },
+      "proven_optimal": true,
+      "solver": "scipy.optimize.milp/HiGHS",
+      "solver_objective": 1916.3666666666666,
+      "status": 0,
+      "variable_count": 186
+    }
+  },
+  "planner_runtime_seconds": 0.025796599918976426,
+  "relocation": {
+    "changed_services": [],
+    "failed_health_probes": 0,
+    "probe_timeline": [],
+    "recovery_seconds": null,
+    "relocations": 0,
+    "rollout_seconds": 1.9000144675374031e-06
+  },
+  "replicate": 8,
+  "resources": {
+    "max_cpu_cores": 0.097020898,
+    "max_memory_mib": 633.6328125,
+    "mean_cpu_cores": 0.09585053240000001,
+    "mean_memory_mib": 632.97421875,
+    "network_bytes_per_second": 140571.1,
+    "network_rx_bytes": 1124873,
+    "network_tx_bytes": 1686549
+  },
+  "run_id": "r1:outage-with-fallback:rep8:TrafficOnly-MAPE-CAP"
+}

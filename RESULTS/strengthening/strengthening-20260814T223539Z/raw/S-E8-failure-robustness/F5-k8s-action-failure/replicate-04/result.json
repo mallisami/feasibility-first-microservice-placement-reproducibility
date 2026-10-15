@@ -1,0 +1,427 @@
+{
+  "actual_placement": {
+    "adservice": "mape-cap-bplus-worker3",
+    "cartservice": "mape-cap-bplus-worker",
+    "checkoutservice": "mape-cap-bplus-worker",
+    "currencyservice": "mape-cap-bplus-worker",
+    "emailservice": "mape-cap-bplus-worker2",
+    "frontend": "mape-cap-bplus-worker",
+    "paymentservice": "mape-cap-bplus-worker3",
+    "productcatalogservice": "mape-cap-bplus-worker",
+    "recommendationservice": "mape-cap-bplus-worker",
+    "redis-cart": "mape-cap-bplus-worker3",
+    "shippingservice": "mape-cap-bplus-worker3"
+  },
+  "candidate_placement": {
+    "adservice": "mape-cap-bplus-worker3",
+    "cartservice": "mape-cap-bplus-worker",
+    "checkoutservice": "mape-cap-bplus-worker",
+    "currencyservice": "mape-cap-bplus-worker",
+    "emailservice": "nonexistent-node-se8-fault",
+    "frontend": "mape-cap-bplus-worker",
+    "paymentservice": "mape-cap-bplus-worker3",
+    "productcatalogservice": "mape-cap-bplus-worker",
+    "recommendationservice": "mape-cap-bplus-worker",
+    "redis-cart": "mape-cap-bplus-worker3",
+    "shippingservice": "mape-cap-bplus-worker3"
+  },
+  "completed_utc": "2026-08-15T08:14:30.623487Z",
+  "detection_latency_s": 10.084285,
+  "detection_timestamp": "2026-08-15T08:14:03.440904Z",
+  "elapsed_s": 15.4167071999982,
+  "experiment": "S-E8",
+  "failure_reason": "k8s_scheduling_failure_detected",
+  "fallback_action": "rollback_node_selector",
+  "fault_injection_timestamp": "2026-08-15T08:13:53.356619Z",
+  "fault_type": "F5-k8s-action-failure",
+  "health": {
+    "healthy": true,
+    "pods": [
+      {
+        "app": "adservice",
+        "phase": "Running",
+        "pod": "adservice-84c79d6769-fbgqh",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "cartservice",
+        "phase": "Running",
+        "pod": "cartservice-65bd6bd696-z59q4",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "checkoutservice",
+        "phase": "Running",
+        "pod": "checkoutservice-549cc7896d-4jtwv",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "currencyservice",
+        "phase": "Running",
+        "pod": "currencyservice-76955b9476-kgp2t",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "emailservice",
+        "phase": "Running",
+        "pod": "emailservice-8869fdf58-57ht7",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "frontend",
+        "phase": "Running",
+        "pod": "frontend-c5cb455b-65lgk",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-756566cb75-qt7dx",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "opentelemetrycollector",
+        "phase": "Running",
+        "pod": "opentelemetrycollector-5c859fbd49-hcd29",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "paymentservice",
+        "phase": "Running",
+        "pod": "paymentservice-56b5b7f6c6-nfkbz",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "productcatalogservice",
+        "phase": "Running",
+        "pod": "productcatalogservice-7db776b44d-nmn6b",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "recommendationservice",
+        "phase": "Running",
+        "pod": "recommendationservice-6867b4ddb-8v79h",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "redis-cart",
+        "phase": "Running",
+        "pod": "redis-cart-7ff8d7958b-l2fb2",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "shippingservice",
+        "phase": "Running",
+        "pod": "shippingservice-697cf64547-b4fqb",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  "post_fault": {
+    "application": {
+      "application": {
+        "error_rate": 0.0,
+        "errors": 0,
+        "evidence_type": "frontend-structured-request-log",
+        "mean_ms": 19.65671641791045,
+        "operations": {
+          "GET /": 8,
+          "GET /cart": 12,
+          "GET /product/0PUK6V6EV0": 6,
+          "GET /product/1YMWWN1N4O": 3,
+          "GET /product/2ZYFJ3GM2N": 4,
+          "GET /product/66VCHSJNUP": 3,
+          "GET /product/6E92ZMYYFZ": 5,
+          "GET /product/9SIQT8TOJO": 4,
+          "GET /product/L9ECAV7KIM": 2,
+          "GET /product/LS4PSXUNUM": 2,
+          "GET /product/OLJCESPC7Z": 2,
+          "POST /cart": 8,
+          "POST /cart/checkout": 3,
+          "POST /setCurrency": 5
+        },
+        "p50_ms": 12.0,
+        "p95_ms": 56.0,
+        "p99_ms": 253.0,
+        "requests": 67,
+        "response_bytes": 552963,
+        "throughput_requests_per_second": 3.35
+      },
+      "resources": {
+        "max_cpu_cores": 0.117836898,
+        "max_memory_mib": 512.45703125,
+        "mean_cpu_cores": 0.1097215502,
+        "mean_memory_mib": 507.915625,
+        "network_bytes_per_second": 197048.15,
+        "network_rx_bytes": 1780780,
+        "network_tx_bytes": 2160183
+      }
+    },
+    "resources": {
+      "captured_utc": "2026-08-15T08:14:08.773399Z",
+      "disk_free_gib": 84.54043579101562,
+      "docker_available": true,
+      "docker_driver": "overlayfs",
+      "docker_mem_total_gib": 11.681270599365234,
+      "docker_server_version": "29.7.2",
+      "host_available_gib": 2.65081787109375,
+      "host_total_gib": 15.73318862915039,
+      "kubernetes_available": true,
+      "kubernetes_version": {
+        "clientVersion": {
+          "buildDate": "2026-05-12T09:54:35Z",
+          "compiler": "gc",
+          "gitCommit": "756939600b9a7180fc2df6550a4585b638875e67",
+          "gitTreeState": "clean",
+          "gitVersion": "v1.36.1",
+          "goVersion": "go1.26.2",
+          "major": "1",
+          "minor": "36",
+          "platform": "windows/amd64"
+        },
+        "kustomizeVersion": "v5.8.1",
+        "serverVersion": {
+          "buildDate": "2026-05-12T09:51:34Z",
+          "compiler": "gc",
+          "emulationMajor": "1",
+          "emulationMinor": "36",
+          "gitCommit": "756939600b9a7180fc2df6550a4585b638875e67",
+          "gitTreeState": "clean",
+          "gitVersion": "v1.36.1",
+          "goVersion": "go1.26.2",
+          "major": "1",
+          "minCompatibilityMajor": "1",
+          "minCompatibilityMinor": "35",
+          "minor": "36",
+          "platform": "linux/amd64"
+        }
+      },
+      "python": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]"
+    }
+  },
+  "pre_fault": {
+    "application": {
+      "application": {
+        "error_rate": 0.0,
+        "errors": 0,
+        "evidence_type": "frontend-structured-request-log",
+        "mean_ms": 21.044117647058822,
+        "operations": {
+          "GET /": 7,
+          "GET /cart": 17,
+          "GET /product/0PUK6V6EV0": 5,
+          "GET /product/1YMWWN1N4O": 4,
+          "GET /product/2ZYFJ3GM2N": 3,
+          "GET /product/66VCHSJNUP": 2,
+          "GET /product/6E92ZMYYFZ": 6,
+          "GET /product/9SIQT8TOJO": 1,
+          "GET /product/L9ECAV7KIM": 2,
+          "GET /product/LS4PSXUNUM": 3,
+          "POST /cart": 10,
+          "POST /cart/checkout": 3,
+          "POST /setCurrency": 5
+        },
+        "p50_ms": 15.0,
+        "p95_ms": 69.0,
+        "p99_ms": 109.0,
+        "requests": 68,
+        "response_bytes": 568287,
+        "throughput_requests_per_second": 3.4
+      },
+      "resources": {
+        "max_cpu_cores": 0.476093185,
+        "max_memory_mib": 497.26953125,
+        "mean_cpu_cores": 0.3200274572,
+        "mean_memory_mib": 483.38203125,
+        "network_bytes_per_second": 231369.95,
+        "network_rx_bytes": 2263397,
+        "network_tx_bytes": 2364002
+      }
+    },
+    "resources": {
+      "captured_utc": "2026-08-15T08:13:31.287319Z",
+      "disk_free_gib": 84.54043579101562,
+      "docker_available": true,
+      "docker_driver": "overlayfs",
+      "docker_mem_total_gib": 11.681270599365234,
+      "docker_server_version": "29.7.2",
+      "host_available_gib": 2.0918502807617188,
+      "host_total_gib": 15.73318862915039,
+      "kubernetes_available": true,
+      "kubernetes_version": {
+        "clientVersion": {
+          "buildDate": "2026-05-12T09:54:35Z",
+          "compiler": "gc",
+          "gitCommit": "756939600b9a7180fc2df6550a4585b638875e67",
+          "gitTreeState": "clean",
+          "gitVersion": "v1.36.1",
+          "goVersion": "go1.26.2",
+          "major": "1",
+          "minor": "36",
+          "platform": "windows/amd64"
+        },
+        "kustomizeVersion": "v5.8.1",
+        "serverVersion": {
+          "buildDate": "2026-05-12T09:51:34Z",
+          "compiler": "gc",
+          "emulationMajor": "1",
+          "emulationMinor": "36",
+          "gitCommit": "756939600b9a7180fc2df6550a4585b638875e67",
+          "gitTreeState": "clean",
+          "gitVersion": "v1.36.1",
+          "goVersion": "go1.26.2",
+          "major": "1",
+          "minCompatibilityMajor": "1",
+          "minCompatibilityMinor": "35",
+          "minor": "36",
+          "platform": "linux/amd64"
+        }
+      },
+      "python": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]"
+    }
+  },
+  "previous_placement": {
+    "adservice": "mape-cap-bplus-worker3",
+    "cartservice": "mape-cap-bplus-worker",
+    "checkoutservice": "mape-cap-bplus-worker",
+    "currencyservice": "mape-cap-bplus-worker",
+    "emailservice": "mape-cap-bplus-worker2",
+    "frontend": "mape-cap-bplus-worker",
+    "paymentservice": "mape-cap-bplus-worker3",
+    "productcatalogservice": "mape-cap-bplus-worker",
+    "recommendationservice": "mape-cap-bplus-worker",
+    "redis-cart": "mape-cap-bplus-worker3",
+    "shippingservice": "mape-cap-bplus-worker3"
+  },
+  "recovery_time_s": 15.329929,
+  "replicate": 4,
+  "retries": 0,
+  "run_id": "S-E8:F5-k8s-action-failure:rep4",
+  "solver_state": {
+    "bogus_node": "nonexistent-node-se8-fault",
+    "pending_pods": 1,
+    "pod_phases": [
+      "Pending",
+      "Running"
+    ],
+    "rollback_health": {
+      "healthy": true,
+      "pods": [
+        {
+          "app": "adservice",
+          "phase": "Running",
+          "pod": "adservice-84c79d6769-fbgqh",
+          "ready": true,
+          "restarts": 0
+        },
+        {
+          "app": "cartservice",
+          "phase": "Running",
+          "pod": "cartservice-65bd6bd696-z59q4",
+          "ready": true,
+          "restarts": 0
+        },
+        {
+          "app": "checkoutservice",
+          "phase": "Running",
+          "pod": "checkoutservice-549cc7896d-4jtwv",
+          "ready": true,
+          "restarts": 0
+        },
+        {
+          "app": "currencyservice",
+          "phase": "Running",
+          "pod": "currencyservice-76955b9476-kgp2t",
+          "ready": true,
+          "restarts": 0
+        },
+        {
+          "app": "emailservice",
+          "phase": "Running",
+          "pod": "emailservice-8869fdf58-57ht7",
+          "ready": true,
+          "restarts": 0
+        },
+        {
+          "app": "frontend",
+          "phase": "Running",
+          "pod": "frontend-c5cb455b-65lgk",
+          "ready": true,
+          "restarts": 0
+        },
+        {
+          "app": "loadgenerator",
+          "phase": "Running",
+          "pod": "loadgenerator-756566cb75-qt7dx",
+          "ready": true,
+          "restarts": 0
+        },
+        {
+          "app": "opentelemetrycollector",
+          "phase": "Running",
+          "pod": "opentelemetrycollector-5c859fbd49-hcd29",
+          "ready": true,
+          "restarts": 0
+        },
+        {
+          "app": "paymentservice",
+          "phase": "Running",
+          "pod": "paymentservice-56b5b7f6c6-nfkbz",
+          "ready": true,
+          "restarts": 0
+        },
+        {
+          "app": "productcatalogservice",
+          "phase": "Running",
+          "pod": "productcatalogservice-7db776b44d-nmn6b",
+          "ready": true,
+          "restarts": 0
+        },
+        {
+          "app": "recommendationservice",
+          "phase": "Running",
+          "pod": "recommendationservice-6867b4ddb-8v79h",
+          "ready": true,
+          "restarts": 0
+        },
+        {
+          "app": "redis-cart",
+          "phase": "Running",
+          "pod": "redis-cart-7ff8d7958b-l2fb2",
+          "ready": true,
+          "restarts": 0
+        },
+        {
+          "app": "shippingservice",
+          "phase": "Running",
+          "pod": "shippingservice-697cf64547-b4fqb",
+          "ready": true,
+          "restarts": 0
+        }
+      ]
+    },
+    "target_service": "emailservice"
+  },
+  "verdict": {
+    "controller_recovered": true,
+    "failure_logged": true,
+    "infeasible_placement_executed": false,
+    "invalid_placement_executed": true,
+    "last_valid_placement_preserved": true,
+    "safe": false,
+    "unbounded_relocation_loop": false
+  }
+}

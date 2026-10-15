@@ -1,0 +1,229 @@
+{
+  "accepted_evidence": true,
+  "application": {
+    "condition_events": [
+      {
+        "applied_utc": "2026-08-15T06:10:50.099558Z",
+        "condition": "stable",
+        "destination_node": "mape-cap-bplus-worker3",
+        "initial": {
+          "delay_ms": 0,
+          "loss_pct": 0.0,
+          "rate_mbit": 1000,
+          "scope": "stable"
+        },
+        "source_node": "mape-cap-bplus-worker2"
+      }
+    ],
+    "error_rate": 0.16129032258064516,
+    "errors": 5,
+    "evidence_type": "frontend-structured-request-log",
+    "mean_ms": 2498.2258064516127,
+    "operations": {
+      "GET /": 7,
+      "GET /cart": 4,
+      "GET /product/66VCHSJNUP": 2,
+      "GET /product/6E92ZMYYFZ": 3,
+      "GET /product/9SIQT8TOJO": 1,
+      "GET /product/L9ECAV7KIM": 2,
+      "GET /product/LS4PSXUNUM": 2,
+      "GET /product/OLJCESPC7Z": 3,
+      "POST /cart": 2,
+      "POST /setCurrency": 5
+    },
+    "p50_ms": 12.0,
+    "p95_ms": 19389.0,
+    "p99_ms": 20004.0,
+    "requests": 31,
+    "response_bytes": 204710,
+    "slo_threshold_ms": 500.0,
+    "slo_violations": 5,
+    "successes": 26,
+    "throughput_requests_per_second": 1.55,
+    "timeouts": 5
+  },
+  "completed_utc": "2026-08-15T06:11:10.994188Z",
+  "condition": "stable",
+  "experiment": "S-E5",
+  "health": {
+    "healthy": true,
+    "pods": [
+      {
+        "app": "adservice",
+        "phase": "Running",
+        "pod": "adservice-84567d9c55-45hth",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "cartservice",
+        "phase": "Running",
+        "pod": "cartservice-7dffdf48b-qbcgj",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "checkoutservice",
+        "phase": "Running",
+        "pod": "checkoutservice-7dcb6bbf4c-zjbfj",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "currencyservice",
+        "phase": "Running",
+        "pod": "currencyservice-57cdd8d5b7-md8wx",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "emailservice",
+        "phase": "Running",
+        "pod": "emailservice-69d4dc7fdc-mtbcw",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "frontend",
+        "phase": "Running",
+        "pod": "frontend-bplus-a-86f47b684c-d4kgj",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "frontend",
+        "phase": "Running",
+        "pod": "frontend-bplus-b-69bcc94d9b-cjll4",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-756566cb75-qt7dx",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "paymentservice",
+        "phase": "Running",
+        "pod": "paymentservice-549665f4f7-f6h7j",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "productcatalogservice",
+        "phase": "Running",
+        "pod": "productcatalogservice-bplus-a-5ff6df85d9-t4crb",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "productcatalogservice",
+        "phase": "Running",
+        "pod": "productcatalogservice-bplus-b-6bc458f78b-qgxsk",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "recommendationservice",
+        "phase": "Running",
+        "pod": "recommendationservice-694b4d9c4c-2wbzl",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "redis-cart",
+        "phase": "Running",
+        "pod": "redis-cart-598dd9d7d4-g7z6j",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "shippingservice",
+        "phase": "Running",
+        "pod": "shippingservice-78fc6c844c-kxk46",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  "method": "BPlus-Exact-MultiReplica",
+  "placement": {
+    "adservice": "mape-cap-bplus-worker3",
+    "cartservice": "mape-cap-bplus-worker",
+    "checkoutservice": "mape-cap-bplus-worker",
+    "currencyservice": "mape-cap-bplus-worker",
+    "emailservice": "mape-cap-bplus-worker2",
+    "frontend#a": "mape-cap-bplus-worker2",
+    "frontend#b": "mape-cap-bplus-worker3",
+    "paymentservice": "mape-cap-bplus-worker3",
+    "productcatalogservice#a": "mape-cap-bplus-worker3",
+    "productcatalogservice#b": "mape-cap-bplus-worker",
+    "recommendationservice": "mape-cap-bplus-worker",
+    "redis-cart": "mape-cap-bplus-worker3",
+    "shippingservice": "mape-cap-bplus-worker3"
+  },
+  "planning_feasible": true,
+  "planning_objective": 7504.508333333331,
+  "relocation": {
+    "deployments_touched": [
+      "adservice",
+      "cartservice",
+      "checkoutservice",
+      "currencyservice",
+      "emailservice",
+      "frontend-bplus-a",
+      "frontend-bplus-b",
+      "paymentservice",
+      "productcatalogservice-bplus-a",
+      "productcatalogservice-bplus-b",
+      "recommendationservice",
+      "redis-cart",
+      "shippingservice"
+    ],
+    "rollout_seconds": 33.78754789999948
+  },
+  "replica_count": 13,
+  "replicate": 1,
+  "resources": {
+    "max_cpu_cores": 0.210219242,
+    "max_memory_mib": 362.31640625,
+    "mean_cpu_cores": 0.123702967,
+    "mean_memory_mib": 351.35546875,
+    "network_bytes_per_second": 73250.95,
+    "network_rx_bytes": 722967,
+    "network_tx_bytes": 742052
+  },
+  "selected_services": [
+    "frontend",
+    "productcatalogservice"
+  ],
+  "solver": {
+    "constraint_count": 781,
+    "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+    "mip_dual_bound": 7504.508333333332,
+    "mip_gap": 0.0,
+    "mip_node_count": 1,
+    "placement_evaluation": {
+      "cvar_delay_cost": 3001.803333333333,
+      "expected_delay_cost": 3001.803333333333,
+      "feasible": true,
+      "reasons": [],
+      "relocation_cost": 0.0,
+      "scenario_airtime_by_group": {
+        "stable": {}
+      },
+      "scenario_delay_costs": {
+        "stable": 3001.803333333333
+      },
+      "slo_slack": 0.0,
+      "total_objective": 7504.508333333331
+    },
+    "proven_optimal": true,
+    "solver": "scipy.optimize.milp/HiGHS",
+    "solver_objective": 7504.508333333332,
+    "status": 0,
+    "variable_count": 301
+  }
+}

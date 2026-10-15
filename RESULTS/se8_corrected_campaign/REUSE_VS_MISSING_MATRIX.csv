@@ -1,0 +1,12 @@
+Component,Path,Status,Completeness,TestCoverage,ReuseAction,Notes
+PersistentRegimeDetector,implementation/code/mape_cap_bplus/controller.py,Verified working,Complete,Unit tested,Reuse unchanged,Handles slow-timescale regime evaluation
+accept_relocation,implementation/code/mape_cap_bplus/controller.py,Verified working,Complete,Unit tested,Reuse unchanged,Evaluates conservative net benefit
+validate_placement_target,implementation/code/run_v03_r1.py,Implemented,Complete,Unit tested,Reuse with test hook integration,Rejects nonexistent/unready/unschedulable targets
+apply_placement,implementation/code/run_v03_r1.py,Implemented,Partially complete,Partially tested,Extend with test hook and health rollback wait,Core Kubernetes execution interface
+capture_placement_snapshot,implementation/code/run_v03_r1.py,Missing,Incomplete,Untested,Implement new function,Rich snapshot schema (generations versions constraints health)
+wait_healthy / assert_healthy,implementation/code/run_v03_r2.py,Verified working,Complete,Verified working,Reuse unchanged,Authoritative pod and service health assertion
+frontend_probe / frontend_metrics,implementation/code/run_v03_r1.py & r2.py,Verified working,Complete,Verified working,Reuse unchanged,HTTP request-level health verification
+run_se8_failure_robustness.py,implementation/strengthening/run_se8_failure_robustness.py,Present (flawed F5),Complete for F1-F4,Verified on F1-F4,Adapt to exercise real controller and add F6,Corrected runner for 6 fault classes
+safety_summary,implementation/strengthening/postprocess_strengthening.py,Verified working,Complete,Verified working,Reuse unchanged,Processes S-E8 verdicts and computes safety rates
+test_v03_r1_safety.py,implementation/tests/test_v03_r1_safety.py,Present,Minor bug,57/58 passing,Fix progress signature bug and add snapshot/rollback tests,Test suite maintenance
+validate_se8_results.py,implementation/strengthening/validate_se8_results.py,Missing,Not implemented,Untested,Implement new independent validator,Phase 10 independent verification script

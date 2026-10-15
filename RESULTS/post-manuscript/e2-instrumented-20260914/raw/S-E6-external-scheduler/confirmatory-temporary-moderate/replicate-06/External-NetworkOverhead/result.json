@@ -1,0 +1,943 @@
+{
+  "P50": 214.0,
+  "P95": 863.0,
+  "P99": 1383.0,
+  "accepted_evidence": true,
+  "application": {
+    "downtime_seconds": null,
+    "error_rate": 0.0,
+    "errors": 0,
+    "p50_ms": 214.0,
+    "p95_ms": 863.0,
+    "p99_ms": 1383.0,
+    "requests": 1146,
+    "rps": null,
+    "slo_violations": 310,
+    "timeouts": 7
+  },
+  "completed_utc": "2026-09-13T14:11:42.049448Z",
+  "condition": "confirmatory-temporary-moderate",
+  "downtime": 0.0,
+  "errors": 0,
+  "health": {
+    "healthy": true,
+    "pods": [
+      {
+        "app": "adservice",
+        "phase": "Running",
+        "pod": "adservice-55d48c4598-qmqwf",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "cartservice",
+        "phase": "Running",
+        "pod": "cartservice-8bb8ddbbd-b72rq",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "checkoutservice",
+        "phase": "Running",
+        "pod": "checkoutservice-798b84f5c4-kbghq",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "currencyservice",
+        "phase": "Running",
+        "pod": "currencyservice-78d9fbf85d-949cg",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "emailservice",
+        "phase": "Running",
+        "pod": "emailservice-7646459b4b-sj2tr",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "frontend",
+        "phase": "Running",
+        "pod": "frontend-d9b75dd4f-t6njm",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-6bb497f646-8l97t",
+        "ready": true,
+        "restarts": 2
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-6bb497f646-zddm9",
+        "ready": true,
+        "restarts": 2
+      },
+      {
+        "app": "opentelemetrycollector",
+        "phase": "Running",
+        "pod": "opentelemetrycollector-59b475d4c9-q8trd",
+        "ready": true,
+        "restarts": 4
+      },
+      {
+        "app": "paymentservice",
+        "phase": "Running",
+        "pod": "paymentservice-6ccc6576fd-6wzmd",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "productcatalogservice",
+        "phase": "Running",
+        "pod": "productcatalogservice-5bf9d898-5hgf9",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "recommendationservice",
+        "phase": "Running",
+        "pod": "recommendationservice-f69bf8648-pcnqq",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "redis-cart",
+        "phase": "Running",
+        "pod": "redis-cart-8584f98f9f-gxx8d",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "shippingservice",
+        "phase": "Running",
+        "pod": "shippingservice-75574c7695-8lfcx",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  "initial_placement": {
+    "adservice": "mape-cap-bplus-worker",
+    "cartservice": "mape-cap-bplus-worker2",
+    "checkoutservice": "mape-cap-bplus-worker2",
+    "currencyservice": "mape-cap-bplus-worker2",
+    "emailservice": "mape-cap-bplus-worker3",
+    "frontend": "mape-cap-bplus-worker2",
+    "paymentservice": "mape-cap-bplus-worker",
+    "productcatalogservice": "mape-cap-bplus-worker2",
+    "recommendationservice": "mape-cap-bplus-worker2",
+    "redis-cart": "mape-cap-bplus-worker",
+    "shippingservice": "mape-cap-bplus-worker"
+  },
+  "kubernetes_events": [
+    {
+      "count": 1,
+      "last": "2026-09-13T14:05:49Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 54,
+      "last": "2026-09-13T14:05:49Z",
+      "message": "(combined from similar events): Scaled down replica set currencyservice-6448775f6c from 1 to 0",
+      "reason": "ScalingReplicaSet",
+      "type": "Normal"
+    },
+    {
+      "count": 2,
+      "last": "2026-09-13T14:05:49Z",
+      "message": "Readiness probe failed: timeout: failed to connect service \"10.244.3.121:9555\" within 10s: context deadline exceeded",
+      "reason": "Unhealthy",
+      "type": "Warning"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:05:59Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:05:59Z",
+      "message": "Deleted pod: adservice-d68c7b49-z5975",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 52,
+      "last": "2026-09-13T14:06:28Z",
+      "message": "(combined from similar events): Scaled up replica set cartservice-8bb8ddbbd from 0 to 1",
+      "reason": "ScalingReplicaSet",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:28Z",
+      "message": "Created pod: adservice-55d48c4598-qmqwf",
+      "reason": "SuccessfulCreate",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:28Z",
+      "message": "Created pod: cartservice-8bb8ddbbd-b72rq",
+      "reason": "SuccessfulCreate",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:29Z",
+      "message": "Created pod: currencyservice-78d9fbf85d-949cg",
+      "reason": "SuccessfulCreate",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:29Z",
+      "message": "Created pod: checkoutservice-798b84f5c4-kbghq",
+      "reason": "SuccessfulCreate",
+      "type": "Normal"
+    },
+    {
+      "count": 52,
+      "last": "2026-09-13T14:06:29Z",
+      "message": "(combined from similar events): Scaled up replica set checkoutservice-798b84f5c4 from 0 to 1",
+      "reason": "ScalingReplicaSet",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:30Z",
+      "message": "Created pod: frontend-d9b75dd4f-t6njm",
+      "reason": "SuccessfulCreate",
+      "type": "Normal"
+    },
+    {
+      "count": 54,
+      "last": "2026-09-13T14:06:30Z",
+      "message": "(combined from similar events): Scaled up replica set frontend-d9b75dd4f from 0 to 1",
+      "reason": "ScalingReplicaSet",
+      "type": "Normal"
+    },
+    {
+      "count": 54,
+      "last": "2026-09-13T14:06:30Z",
+      "message": "(combined from similar events): Scaled up replica set emailservice-7646459b4b from 0 to 1",
+      "reason": "ScalingReplicaSet",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:30Z",
+      "message": "Created pod: emailservice-7646459b4b-sj2tr",
+      "reason": "SuccessfulCreate",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:31Z",
+      "message": "Created pod: paymentservice-6ccc6576fd-6wzmd",
+      "reason": "SuccessfulCreate",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:31Z",
+      "message": "Container image \"gcr.io/google-samples/microservices-demo/adservice:v0.10.1\" already present on machine and can be accessed by the pod",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:31Z",
+      "message": "Container image \"gcr.io/google-samples/microservices-demo/cartservice:v0.10.1\" already present on machine and can be accessed by the pod",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:31Z",
+      "message": "Container created",
+      "reason": "Created",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:32Z",
+      "message": "Container image \"gcr.io/google-samples/microservices-demo/currencyservice:v0.10.1\" already present on machine and can be accessed by the pod",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:32Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 55,
+      "last": "2026-09-13T14:06:32Z",
+      "message": "(combined from similar events): Scaled up replica set productcatalogservice-5bf9d898 from 0 to 1",
+      "reason": "ScalingReplicaSet",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:32Z",
+      "message": "Created pod: productcatalogservice-5bf9d898-5hgf9",
+      "reason": "SuccessfulCreate",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:32Z",
+      "message": "Container created",
+      "reason": "Created",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:32Z",
+      "message": "Container created",
+      "reason": "Created",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:32Z",
+      "message": "Container image \"gcr.io/google-samples/microservices-demo/checkoutservice:v0.10.1\" already present on machine and can be accessed by the pod",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:32Z",
+      "message": "Container created",
+      "reason": "Created",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:33Z",
+      "message": "Created pod: recommendationservice-f69bf8648-pcnqq",
+      "reason": "SuccessfulCreate",
+      "type": "Normal"
+    },
+    {
+      "count": 53,
+      "last": "2026-09-13T14:06:33Z",
+      "message": "(combined from similar events): Scaled up replica set recommendationservice-f69bf8648 from 0 to 1",
+      "reason": "ScalingReplicaSet",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:34Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 52,
+      "last": "2026-09-13T14:06:34Z",
+      "message": "(combined from similar events): Scaled up replica set redis-cart-8584f98f9f from 0 to 1",
+      "reason": "ScalingReplicaSet",
+      "type": "Normal"
+    },
+    {
+      "count": 52,
+      "last": "2026-09-13T14:06:34Z",
+      "message": "(combined from similar events): Scaled up replica set shippingservice-75574c7695 from 0 to 1",
+      "reason": "ScalingReplicaSet",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:34Z",
+      "message": "Created pod: redis-cart-8584f98f9f-gxx8d",
+      "reason": "SuccessfulCreate",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:34Z",
+      "message": "Created pod: shippingservice-75574c7695-8lfcx",
+      "reason": "SuccessfulCreate",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:34Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:34Z",
+      "message": "Container image \"gcr.io/google-samples/microservices-demo/emailservice:v0.10.1\" already present on machine and can be accessed by the pod",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:35Z",
+      "message": "Container created",
+      "reason": "Created",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:35Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:35Z",
+      "message": "Container image \"gcr.io/google-samples/microservices-demo/frontend:v0.10.1\" already present on machine and can be accessed by the pod",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:36Z",
+      "message": "Container created",
+      "reason": "Created",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:37Z",
+      "message": "Container created",
+      "reason": "Created",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:37Z",
+      "message": "Container image \"gcr.io/google-samples/microservices-demo/paymentservice:v0.10.1\" already present on machine and can be accessed by the pod",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:37Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:37Z",
+      "message": "Container created",
+      "reason": "Created",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:37Z",
+      "message": "Container image \"gcr.io/google-samples/microservices-demo/recommendationservice:v0.10.1\" already present on machine and can be accessed by the pod",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:37Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:38Z",
+      "message": "Container created",
+      "reason": "Created",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:38Z",
+      "message": "Container image \"redis:7-alpine\" already present on machine and can be accessed by the pod",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:38Z",
+      "message": "Container image \"gcr.io/google-samples/microservices-demo/shippingservice:v0.10.1\" already present on machine and can be accessed by the pod",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:38Z",
+      "message": "Container image \"gcr.io/google-samples/microservices-demo/productcatalogservice:v0.10.1\" already present on machine and can be accessed by the pod",
+      "reason": "Pulled",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:38Z",
+      "message": "Container created",
+      "reason": "Created",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:38Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:39Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 2,
+      "last": "2026-09-13T14:06:39Z",
+      "message": "Readiness probe failed: dial tcp 10.244.3.126:6379: connect: connection refused",
+      "reason": "Unhealthy",
+      "type": "Warning"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:39Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:39Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:39Z",
+      "message": "Container created",
+      "reason": "Created",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:40Z",
+      "message": "Container started",
+      "reason": "Started",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:45Z",
+      "message": "Stopping container redis",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:06:45Z",
+      "message": "Deleted pod: redis-cart-7c6c4487c9-p8dqg",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:07:16Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:07:16Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:07:16Z",
+      "message": "Deleted pod: adservice-86b854d956-g9q8c",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:07:16Z",
+      "message": "Deleted pod: checkoutservice-78d9546cb9-5gdb7",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:07:17Z",
+      "message": "Deleted pod: currencyservice-6d6dc4875d-hr2rs",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:07:17Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:07:17Z",
+      "message": "Deleted pod: cartservice-748445fd89-g2psh",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:07:18Z",
+      "message": "Deleted pod: frontend-5584ccd857-d69wk",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:07:18Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:07:18Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:07:19Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:07:19Z",
+      "message": "Deleted pod: recommendationservice-585c9954c6-lhcj7",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:07:19Z",
+      "message": "Deleted pod: emailservice-58969bcb56-4kctf",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:07:19Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:07:20Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:07:20Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:07:20Z",
+      "message": "Deleted pod: paymentservice-79c64c6bf7-tn4gj",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:07:20Z",
+      "message": "Deleted pod: shippingservice-86f87f946d-xfx68",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:07:22Z",
+      "message": "Deleted pod: productcatalogservice-5d8cf8c459-4jj9r",
+      "reason": "SuccessfulDelete",
+      "type": "Normal"
+    },
+    {
+      "count": 1,
+      "last": "2026-09-13T14:07:22Z",
+      "message": "Stopping container server",
+      "reason": "Killing",
+      "type": "Normal"
+    }
+  ],
+  "network_topology": {
+    "apiVersion": "networktopology.diktyo.x-k8s.io/v1alpha1",
+    "kind": "NetworkTopology",
+    "metadata": {
+      "name": "bplus-se6-topology",
+      "namespace": "online-boutique"
+    },
+    "spec": {
+      "configmapName": "bplus-se6-user-defined",
+      "weights": [
+        {
+          "name": "UserDefined",
+          "topologyList": [
+            {
+              "originList": [
+                {
+                  "costList": [
+                    {
+                      "destination": "rack-b",
+                      "networkCost": 15
+                    },
+                    {
+                      "destination": "rack-c",
+                      "networkCost": 15
+                    }
+                  ],
+                  "origin": "rack-a"
+                },
+                {
+                  "costList": [
+                    {
+                      "destination": "rack-a",
+                      "networkCost": 15
+                    },
+                    {
+                      "destination": "rack-c",
+                      "networkCost": 15
+                    }
+                  ],
+                  "origin": "rack-b"
+                },
+                {
+                  "costList": [
+                    {
+                      "destination": "rack-a",
+                      "networkCost": 15
+                    },
+                    {
+                      "destination": "rack-b",
+                      "networkCost": 15
+                    }
+                  ],
+                  "origin": "rack-c"
+                }
+              ],
+              "topologyKey": "topology.kubernetes.io/zone"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "planning_feasible": false,
+  "planning_objective": Infinity,
+  "pod_placement": {
+    "adservice": "mape-cap-bplus-worker3",
+    "cartservice": "mape-cap-bplus-worker",
+    "checkoutservice": "mape-cap-bplus-worker2",
+    "currencyservice": "mape-cap-bplus-worker3",
+    "emailservice": "mape-cap-bplus-worker3",
+    "frontend": "mape-cap-bplus-worker2",
+    "paymentservice": "mape-cap-bplus-worker3",
+    "productcatalogservice": "mape-cap-bplus-worker3",
+    "recommendationservice": "mape-cap-bplus-worker2",
+    "redis-cart": "mape-cap-bplus-worker",
+    "shippingservice": "mape-cap-bplus-worker2"
+  },
+  "relocation": {
+    "changed_services": [
+      "adservice",
+      "cartservice",
+      "currencyservice",
+      "paymentservice",
+      "productcatalogservice",
+      "shippingservice"
+    ],
+    "downtime_seconds": 0.0,
+    "failed_health_probes": 0,
+    "placement_after": {
+      "adservice": "mape-cap-bplus-worker3",
+      "cartservice": "mape-cap-bplus-worker",
+      "checkoutservice": "mape-cap-bplus-worker2",
+      "currencyservice": "mape-cap-bplus-worker3",
+      "emailservice": "mape-cap-bplus-worker3",
+      "frontend": "mape-cap-bplus-worker2",
+      "paymentservice": "mape-cap-bplus-worker3",
+      "productcatalogservice": "mape-cap-bplus-worker3",
+      "recommendationservice": "mape-cap-bplus-worker2",
+      "redis-cart": "mape-cap-bplus-worker",
+      "shippingservice": "mape-cap-bplus-worker2"
+    },
+    "placement_before": {
+      "adservice": "mape-cap-bplus-worker",
+      "cartservice": "mape-cap-bplus-worker2",
+      "checkoutservice": "mape-cap-bplus-worker2",
+      "currencyservice": "mape-cap-bplus-worker2",
+      "emailservice": "mape-cap-bplus-worker3",
+      "frontend": "mape-cap-bplus-worker2",
+      "paymentservice": "mape-cap-bplus-worker",
+      "productcatalogservice": "mape-cap-bplus-worker2",
+      "recommendationservice": "mape-cap-bplus-worker2",
+      "redis-cart": "mape-cap-bplus-worker",
+      "shippingservice": "mape-cap-bplus-worker"
+    },
+    "probe_interval_seconds": 1.0,
+    "probe_timeline": [
+      {
+        "elapsed_seconds": 1.0068750000209548,
+        "frontend_ok": true,
+        "rollouts_complete": false
+      },
+      {
+        "elapsed_seconds": 8.2474857000052,
+        "frontend_ok": true,
+        "rollouts_complete": false
+      },
+      {
+        "elapsed_seconds": 12.558702800015453,
+        "frontend_ok": true,
+        "rollouts_complete": false
+      },
+      {
+        "elapsed_seconds": 16.04060860001482,
+        "frontend_ok": true,
+        "rollouts_complete": false
+      },
+      {
+        "elapsed_seconds": 19.091101299971342,
+        "frontend_ok": true,
+        "rollouts_complete": false
+      },
+      {
+        "elapsed_seconds": 22.21730800002115,
+        "frontend_ok": true,
+        "rollouts_complete": false
+      },
+      {
+        "elapsed_seconds": 25.349030199984554,
+        "frontend_ok": true,
+        "rollouts_complete": false
+      },
+      {
+        "elapsed_seconds": 28.345679999969434,
+        "frontend_ok": true,
+        "rollouts_complete": false
+      },
+      {
+        "elapsed_seconds": 31.55316730000777,
+        "frontend_ok": true,
+        "rollouts_complete": false
+      },
+      {
+        "elapsed_seconds": 39.85642769996775,
+        "frontend_ok": true,
+        "rollouts_complete": false
+      },
+      {
+        "elapsed_seconds": 43.38769200001843,
+        "frontend_ok": true,
+        "rollouts_complete": false
+      },
+      {
+        "elapsed_seconds": 47.26412539999001,
+        "frontend_ok": true,
+        "rollouts_complete": false
+      },
+      {
+        "elapsed_seconds": 50.97884779999731,
+        "frontend_ok": true,
+        "rollouts_complete": true
+      }
+    ],
+    "recovery_seconds": 0.0,
+    "relocations": 6,
+    "rollout_seconds": 53.432183099968825
+  },
+  "replicate": 6,
+  "resource_snapshot": {
+    "captured_utc": "2026-09-13T14:11:37.343303Z",
+    "disk_free_gib": 70.57910537719727,
+    "docker_available": true,
+    "docker_driver": "overlayfs",
+    "docker_mem_total_gib": 7.541606903076172,
+    "docker_server_version": "29.6.2",
+    "host_available_gib": 0.5896949768066406,
+    "host_total_gib": 7.784812927246094,
+    "kubernetes_available": true,
+    "kubernetes_version": {
+      "clientVersion": {
+        "buildDate": "2026-05-12T09:54:35Z",
+        "compiler": "gc",
+        "gitCommit": "756939600b9a7180fc2df6550a4585b638875e67",
+        "gitTreeState": "clean",
+        "gitVersion": "v1.36.1",
+        "goVersion": "go1.26.2",
+        "major": "1",
+        "minor": "36",
+        "platform": "windows/amd64"
+      },
+      "kustomizeVersion": "v5.8.1",
+      "serverVersion": {
+        "buildDate": "2026-05-12T09:51:34Z",
+        "compiler": "gc",
+        "emulationMajor": "1",
+        "emulationMinor": "36",
+        "gitCommit": "756939600b9a7180fc2df6550a4585b638875e67",
+        "gitTreeState": "clean",
+        "gitVersion": "v1.36.1",
+        "goVersion": "go1.26.2",
+        "major": "1",
+        "minCompatibilityMajor": "1",
+        "minCompatibilityMinor": "35",
+        "minor": "36",
+        "platform": "linux/amd64"
+      }
+    },
+    "python": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]"
+  },
+  "resources": {
+    "max_cpu_cores": 0.814730324,
+    "max_memory_mib": 643.0546875,
+    "mean_cpu_cores": 0.36220565161538465,
+    "mean_memory_mib": 624.2846554487179,
+    "network_bytes_per_second": 259773.31666666668,
+    "network_rx_bytes": 30725817,
+    "network_tx_bytes": 31619779
+  },
+  "run_id": "S-E6:confirmatory-temporary-moderate:rep6:External",
+  "scheduler": "External-NetworkOverhead",
+  "scheduler_image": "registry.k8s.io/scheduler-plugins/kube-scheduler:v0.33.5",
+  "scheduler_name": "network-aware-scheduler",
+  "scheduler_version": "0.33.5",
+  "throughput_rps": null
+}

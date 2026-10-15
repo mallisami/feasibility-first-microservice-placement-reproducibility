@@ -1,0 +1,20 @@
+{
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "bplus-v03-r5-los-distance-4m-s3",
+    "-v",
+    "D:\\Sami\\MAPE_BPLUS_MASTER_2026-08-07\\02_BPLUS_SYSTEM\\results\\v0.3\\runs\\v03-20260811T151500Z\\raw\\phase-5-r5-ns3\\los-distance-4m-seed3:/evidence",
+    "ns3-wigig:v0.3-full",
+    "/bin/bash",
+    "-lc",
+    "set -o pipefail; ./waf --run-no-build 'test_beamformedlink_maintenance --simulationTime=1.2 --distance=4 --enableBlockage=false --RngRun=3'; rc=$?; for f in ./*.csv; do [ -f \"$f\" ] && cp \"$f\" /evidence/; done; exit $rc"
+  ],
+  "completed_utc": "2026-08-11T10:19:04.784137Z",
+  "returncode": 0,
+  "runtime_seconds": 0.7175259999930859,
+  "stderr": "",
+  "stdout": "Waf: Entering directory `/sim/wigig-module/build'\nDMG STA 00:00:00:00:00:03 associated with DMG PCP/AP 00:00:00:00:00:01\nAssociation ID (AID) = 1\n0.1         0           \n0.2         0           \n0.3         0           \n0.4         0           \n0.5         0           \n0.6         0           \n0.7         0           \n0.8         0           \n0.9         0           \n1           0           \n1.1         0           \n"
+}

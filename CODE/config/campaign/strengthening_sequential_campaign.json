@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.1",
+  "campaign_name": "B+ post-review strengthening campaign",
+  "evidence_policy": "new evidence only; do not overwrite frozen v0.3 R1-R8 artifacts",
+  "results_root": "RESULTS/strengthening",
+  "execution_order": [
+    "S-E7-isolated-overhead",
+    "S-E4-topology-spread-baseline",
+    "S-E6-external-scheduler",
+    "S-E1-live-full-planner",
+    "S-E5-live-multi-replica",
+    "S-GRACE-recovery-guard",
+    "S-E8-failure-robustness",
+    "S-E2-r4-replicated-subset",
+    "S-E3-independent-wireless-traces",
+    "S-MILP-matched-heuristics"
+  ],
+  "mutual_exclusion": [
+    ["kind", "ns3"],
+    ["online-boutique", "r4"],
+    ["online-boutique", "deathstarbench"],
+    ["live-kubernetes", "milp-offline"]
+  ],
+  "minimum_resources": {
+    "disk_free_gib": 20.0,
+    "host_available_gib": 3.0,
+    "recommended_docker_memory_gib": 6.0,
+    "absolute_minimum_docker_memory_gib": 4.0
+  },
+  "experiments": {
+    "S-E7-isolated-overhead": {
+      "enabled_by_default": true,
+      "modes": ["O1-baseline", "O2-telemetry", "O3-gate-only", "O4-exact", "O5-lns"],
+      "replicates": 5,
+      "duration_seconds": 60,
+      "condition": "stable",
+      "cells": 25,
+      "purpose": "measure isolated computational/systems overhead of telemetry, gating, and optimization components"
+    },
+    "S-E1-live-full-planner": {
+      "enabled_by_default": true,
+      "sequences": 5,
+      "windows_per_sequence": 11,
+      "window_duration_seconds": 15,
+      "planner": "LNS",
+      "planner_time_limit_seconds": 10.0,
+      "purpose": "execute persistent detector -> full B+ planner -> one-time economic gate -> live Kubernetes placement"
+    },
+    "S-E4-topology-spread-baseline": {
+      "enabled_by_default": true,
+      "conditions": ["stable", "persistent-degradation", "partial-blockage", "conflict-dense", "outage-with-fallback", "recovery", "bursty", "hotspot", "structural-workload-change"],
+      "replicates": 5,
+      "duration_seconds": 20,
+      "methods": ["KubeTopologySpread", "BPlus-Exact"],
+      "cells": 90,
+      "purpose": "live native Kubernetes scheduler contrast under the same R1 conditions"
+    },
+    "S-E6-external-scheduler": {
+      "enabled_by_default": true,
+      "conditions": ["stable", "persistent-degradation", "partial-blockage", "conflict-dense", "outage-with-fallback", "recovery", "bursty", "hotspot", "structural-workload-change"],
+      "replicates": 5,
+      "duration_seconds": 20,
+      "methods": ["KubeTopologySpread", "ExternalNetworkAware", "BPlus-Exact"],
+      "counterbalanced_orders": [
+        ["KubeTopologySpread", "ExternalNetworkAware", "BPlus-Exact"],
+        ["ExternalNetworkAware", "BPlus-Exact", "KubeTopologySpread"],
+        ["BPlus-Exact", "KubeTopologySpread", "ExternalNetworkAware"],
+        ["KubeTopologySpread", "BPlus-Exact", "ExternalNetworkAware"],
+        ["ExternalNetworkAware", "KubeTopologySpread", "BPlus-Exact"]
+      ],
+      "cells": 135,
+      "fallback_if_unavailable": "2-method comparison matching S-E4 schema",
+      "preferred_external_schedulers": ["TraDE", "Diktyo/NetworkOverhead"],
+      "purpose": "three-way comparison: native Kubernetes vs published external network-aware scheduler vs B+ Exact"
+    },
+    "S-E5-live-multi-replica": {
+      "enabled_by_default": true,
+      "services": ["frontend", "productcatalogservice"],
+      "replicas_per_selected_service": 2,
+      "conditions": ["stable", "persistent-degradation"],
+      "replicates": 5,
+      "duration_seconds": 20,
+      "cells": 20,
+      "purpose": "exercise same-service replica-level B+ placement in live Kubernetes"
+    },
+    "S-GRACE-recovery-guard": {
+      "enabled_by_default": true,
+      "recovery_horizons_seconds": [5, 15, 60],
+      "replicates": 5,
+      "duration_seconds": 30,
+      "cells": 30,
+      "purpose": "test whether a recovery-horizon grace guard avoids relocation that is overtaken by recovery"
+    },
+    "S-E8-failure-robustness": {
+      "enabled_by_default": true,
+      "fault_classes": [
+        "F1-missing-telemetry",
+        "F2-stale-telemetry",
+        "F3-solver-timeout",
+        "F4-infeasible-instance",
+        "F5-invalid-target-prevalidation",
+        "F6-partial-mutation-rollback"
+      ],
+      "replicates": 5,
+      "cells": 30,
+      "safety_criteria": [
+        "no_invalid_placement",
+        "no_infeasible_placement",
+        "no_unbounded_relocation_loop",
+        "failure_logged",
+        "feasible_placement_preserved",
+        "controller_recovered"
+      ],
+      "purpose": "verify B+ fails safely when telemetry, optimization, prevalidation, or partial-mutation Kubernetes execution fails"
+    },
+    "S-E2-r4-replicated-subset": {
+      "enabled_by_default": true,
+      "replicates": 3,
+      "storage": ["emptydir", "persistent-volume", "application-replication"],
+      "image_cache": ["cached", "uncached"],
+      "network": ["stable", "degraded"],
+      "state_size": "medium",
+      "load": "loaded",
+      "cells": 36,
+      "purpose": "add replication to the most informative storage x cache x network subset"
+    },
+    "S-E3-independent-wireless-traces": {
+      "enabled_by_default": true,
+      "seeds": [101, 102, 103],
+      "cells": 24,
+      "purpose": "generate genuinely new ns-3/WiGig trace identities rather than resampling the original eight"
+    },
+    "S-MILP-matched-heuristics": {
+      "enabled_by_default": false,
+      "requires": "gurobipy and a valid Gurobi license",
+      "replica_sizes": [12, 16, 20, 24, 40, 50],
+      "seeds": [1, 2, 3],
+      "time_limit_seconds": 10.0,
+      "heuristics": ["default", "rins", "feasibility-pump"],
+      "cells": 72,
+      "purpose": "matched-budget standard MILP heuristic comparison on the R8 generator"
+    }
+  },
+  "images": {
+    "online_boutique": [
+      "gcr.io/google-samples/microservices-demo/adservice:v0.10.1",
+      "gcr.io/google-samples/microservices-demo/cartservice:v0.10.1",
+      "gcr.io/google-samples/microservices-demo/checkoutservice:v0.10.1",
+      "gcr.io/google-samples/microservices-demo/currencyservice:v0.10.1",
+      "gcr.io/google-samples/microservices-demo/emailservice:v0.10.1",
+      "gcr.io/google-samples/microservices-demo/frontend:v0.10.1",
+      "gcr.io/google-samples/microservices-demo/loadgenerator:v0.10.1",
+      "gcr.io/google-samples/microservices-demo/paymentservice:v0.10.1",
+      "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.10.1",
+      "gcr.io/google-samples/microservices-demo/recommendationservice:v0.10.1",
+      "gcr.io/google-samples/microservices-demo/shippingservice:v0.10.1",
+      "redis:7-alpine"
+    ],
+    "r4": ["redis:7-alpine"],
+    "helpers": ["hashicorp/http-echo:1.0.0", "busybox:latest"],
+    "ns3": ["ns3-wigig:v0.3-full"],
+    "external_scheduler_optional": []
+  },
+  "experiment_matrix_frozen": true,
+  "frozen_date": "2026-08-14",
+  "total_cells": {
+    "without_milp": 385,
+    "with_milp": 457,
+    "note": "S-E6 counts 135 if external scheduler available, 90 if fallback to 2-method"
+  }
+}

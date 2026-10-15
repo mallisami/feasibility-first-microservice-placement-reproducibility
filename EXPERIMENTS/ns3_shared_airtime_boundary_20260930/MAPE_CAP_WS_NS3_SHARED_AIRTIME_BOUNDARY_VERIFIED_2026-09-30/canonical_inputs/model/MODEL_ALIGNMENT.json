@@ -1,0 +1,40 @@
+{
+  "source_trace_file": "canonical_inputs/model/ns3_simulation_backed_traces.csv",
+  "source_trace_sha256": "1fa54635e07429bb36f8450b169c8c30601066cea9a5e64669b66056908e3511",
+  "planner_decision_window_seconds": 60.0,
+  "scenario_id": "conflict-dense",
+  "conflict_group": "cg-shared",
+  "member_directed_pairs": [
+    [
+      "rack-a",
+      "rack-b"
+    ],
+    [
+      "rack-b",
+      "rack-a"
+    ],
+    [
+      "rack-a",
+      "rack-c"
+    ],
+    [
+      "rack-c",
+      "rack-a"
+    ],
+    [
+      "rack-b",
+      "rack-c"
+    ],
+    [
+      "rack-c",
+      "rack-b"
+    ]
+  ],
+  "budget_seconds": 15.0,
+  "normalized_budget_fraction": 0.25,
+  "derivation": "15 s conflict-group airtime budget / 60 s planner decision window = 0.25. The six conflict-dense directed rack-pair links all carry conflict_group=cg-shared in the frozen trace library.",
+  "planner_source_snapshot": "canonical_inputs/model/source_snapshot/live_confirmatory.py",
+  "planner_source_snapshot_sha256": "6f302d10f00738e8c89b7e235aab42f5f3052f0bb0738072654dcf6e0c216e19",
+  "planner_experiment_config_snapshot": "canonical_inputs/model/source_snapshot/k8s_confirmatory_experiment.json",
+  "planner_experiment_config_snapshot_sha256": "a7ba0b41d0492f16d830fa54811f7310ffdf674c9e3f660de1d128a840996e23"
+}

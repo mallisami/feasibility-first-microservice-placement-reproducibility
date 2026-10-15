@@ -1,0 +1,37 @@
+Traceback (most recent call last):
+  File "F:\Papers\New experiment repo final\New experiment repo final\New experiment repo\JOURNAL_REPRODUCIBILITY_REPOSITORY\implementation\strengthening\run_se6_external_scheduler.py", line 353, in <module>
+    if __name__=="__main__": raise SystemExit(main())
+                                              ~~~~^^
+  File "F:\Papers\New experiment repo final\New experiment repo final\New experiment repo\JOURNAL_REPRODUCIBILITY_REPOSITORY\implementation\strengthening\run_se6_external_scheduler.py", line 292, in main
+    atomic_json(out/"preflight.json",assert_live_preflight()); atomic_json(envdir/"pre-resource-snapshot.json",resource_snapshot())
+                                     ~~~~~~~~~~~~~~~~~~~~~^^
+  File "F:\Papers\New experiment repo final\New experiment repo final\New experiment repo\JOURNAL_REPRODUCIBILITY_REPOSITORY\implementation\strengthening\common.py", line 178, in assert_live_preflight
+    snap = resource_snapshot()
+  File "F:\Papers\New experiment repo final\New experiment repo final\New experiment repo\JOURNAL_REPRODUCIBILITY_REPOSITORY\implementation\strengthening\common.py", line 149, in resource_snapshot
+    info = run(["docker", "info", "--format", "{{json .}}"], check=False, timeout=60)
+  File "F:\Papers\New experiment repo final\New experiment repo final\New experiment repo\JOURNAL_REPRODUCIBILITY_REPOSITORY\implementation\strengthening\common.py", line 47, in run
+    result = subprocess.run(cmd, input=input_text, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=timeout)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\subprocess.py", line 554, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\subprocess.py", line 1554, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+OSError: [WinError 1455] The paging file is too small for this operation to complete

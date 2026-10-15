@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r3.py", line 260, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r3.py", line 256, in main
+    return run_campaign(run_root, args.window_duration_seconds)
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r3.py", line 226, in run_campaign
+    write_manifest(run_root, run_root / "manifests" / "run.sha256")
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\mape_cap_bplus\v03_evidence.py", line 73, in write_manifest
+    entries.append(f"{sha256(path)}  {path.relative_to(root).as_posix()}")
+                      ~~~~~~^^^^^^
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\mape_cap_bplus\v03_evidence.py", line 65, in sha256
+    for block in iter(lambda: handle.read(1024 * 1024), b""):
+                 ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\mape_cap_bplus\v03_evidence.py", line 65, in <lambda>
+    for block in iter(lambda: handle.read(1024 * 1024), b""):
+                              ~~~~~~~~~~~^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied

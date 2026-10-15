@@ -1,0 +1,180 @@
+{
+  "accepted": true,
+  "cell_count": 9,
+  "controller_cells_with_relocation": 2,
+  "controller_relocations": 2,
+  "failures": [],
+  "interpretation_constraints": [
+    "Three matched replicates support descriptive overhead estimates, not a definitive causal latency claim.",
+    "Modes used the plan's OFF -> telemetry/controller-OFF -> telemetry/controller-ON order; cold-start/order effects are visible in latency tails.",
+    "Controller-ON is intentionally not a pure observer-overhead condition because accepted persistent decisions may relocate a live service.",
+    "Unsupported service edges retain exact transport bytes and packet rates but do not invent RPC latency or error fields."
+  ],
+  "mode_means": {
+    "telemetry_off": {
+      "cpu_cores": 0.11084083902777779,
+      "error_rate": 0.0018416206261510127,
+      "memory_mib": 394.525390625,
+      "network_Bps": 83592.5611111111,
+      "p50_ms": 15.0,
+      "p95_ms": 1206.3333333333333,
+      "p99_ms": 6941.666666666667,
+      "throughput_rps": 2.7777777777777772
+    },
+    "telemetry_on_controller_off": {
+      "cpu_cores": 0.21458477883333335,
+      "error_rate": 0.005376344086021505,
+      "memory_mib": 475.6524739583333,
+      "network_Bps": 160669.9611111111,
+      "p50_ms": 21.666666666666668,
+      "p95_ms": 296.6666666666667,
+      "p99_ms": 520.3333333333334,
+      "throughput_rps": 3.1833333333333336
+    },
+    "telemetry_on_controller_on": {
+      "cpu_cores": 0.209829305,
+      "error_rate": 0.0,
+      "memory_mib": 493.65234375,
+      "network_Bps": 119464.86666666668,
+      "p50_ms": 18.0,
+      "p95_ms": 216.0,
+      "p99_ms": 456.6666666666667,
+      "throughput_rps": 1.9055555555555557
+    }
+  },
+  "paired_differences_vs_off": {
+    "telemetry_on_controller_off": {
+      "cpu_cores": {
+        "deltas": [
+          0.11349006666666665,
+          0.0828430799,
+          0.11489867285
+        ],
+        "mean_delta": 0.10374393980555556
+      },
+      "error_rate": {
+        "deltas": [
+          0.010604170379611477,
+          0.0,
+          0.0
+        ],
+        "mean_delta": 0.0035347234598704924
+      },
+      "memory_mib": {
+        "deltas": [
+          72.8514322916667,
+          82.92233072916667,
+          87.60748697916671
+        ],
+        "mean_delta": 81.12708333333336
+      },
+      "network_Bps": {
+        "deltas": [
+          48626.500000000015,
+          78537.7,
+          104068.0
+        ],
+        "mean_delta": 77077.40000000001
+      },
+      "p50_ms": {
+        "deltas": [
+          9.0,
+          4.0,
+          7.0
+        ],
+        "mean_delta": 6.666666666666667
+      },
+      "p95_ms": {
+        "deltas": [
+          -1463.0,
+          -566.0,
+          -700.0
+        ],
+        "mean_delta": -909.6666666666666
+      },
+      "p99_ms": {
+        "deltas": [
+          -6198.0,
+          -6498.0,
+          -6568.0
+        ],
+        "mean_delta": -6421.333333333333
+      },
+      "throughput_rps": {
+        "deltas": [
+          0.08333333333333348,
+          0.3500000000000001,
+          0.7833333333333337
+        ],
+        "mean_delta": 0.4055555555555557
+      }
+    },
+    "telemetry_on_controller_on": {
+      "cpu_cores": {
+        "deltas": [
+          0.10955609276666665,
+          0.093247584,
+          0.09416172115000002
+        ],
+        "mean_delta": 0.09898846597222222
+      },
+      "error_rate": {
+        "deltas": [
+          -0.0055248618784530384,
+          0.0,
+          0.0
+        ],
+        "mean_delta": -0.0018416206261510127
+      },
+      "memory_mib": {
+        "deltas": [
+          100.0799479166667,
+          89.50592447916671,
+          107.79498697916671
+        ],
+        "mean_delta": 99.12695312500004
+      },
+      "network_Bps": {
+        "deltas": [
+          7448.466666666674,
+          12574.650000000009,
+          87593.80000000002
+        ],
+        "mean_delta": 35872.30555555557
+      },
+      "p50_ms": {
+        "deltas": [
+          5.0,
+          2.0,
+          2.0
+        ],
+        "mean_delta": 3.0
+      },
+      "p95_ms": {
+        "deltas": [
+          -1597.0,
+          -572.0,
+          -802.0
+        ],
+        "mean_delta": -990.3333333333334
+      },
+      "p99_ms": {
+        "deltas": [
+          -6375.0,
+          -6445.0,
+          -6635.0
+        ],
+        "mean_delta": -6485.0
+      },
+      "throughput_rps": {
+        "deltas": [
+          -1.5166666666666666,
+          -1.5333333333333332,
+          0.43333333333333357
+        ],
+        "mean_delta": -0.8722222222222221
+      }
+    }
+  },
+  "validated_utc": "2026-08-11T11:54:58.479877Z"
+}

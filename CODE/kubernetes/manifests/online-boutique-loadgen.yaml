@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loadgenerator
+  labels:
+    app: loadgenerator
+  namespace: online-boutique
+spec:
+  selector:
+    matchLabels:
+      app: loadgenerator
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: loadgenerator
+      annotations:
+        sidecar.istio.io/rewriteAppHTTPProbers: 'true'
+    spec:
+      serviceAccountName: loadgenerator
+      terminationGracePeriodSeconds: 5
+      restartPolicy: Always
+      securityContext:
+        fsGroup: 1000
+        runAsGroup: 1000
+        runAsNonRoot: true
+        runAsUser: 1000
+      initContainers:
+      - command:
+        - /bin/sh
+        - -exc
+        - "MAX_RETRIES=12\nRETRY_INTERVAL=10\nfor i in $(seq 1 $MAX_RETRIES); do\n\
+          \  echo \"Attempt $i: Pinging frontend: ${FRONTEND_ADDR}...\"\n  if wget\
+          \ -q -O /dev/null http://${FRONTEND_ADDR}; then\n      echo \"Frontend is reachable.\"\
+          \n      exit 0\n  fi\n  echo \"Error: Could not reach frontend.\"\n  sleep\
+          \ $RETRY_INTERVAL\ndone\necho \"Failed to reach frontend after $MAX_RETRIES\
+          \ attempts.\"\nexit 1\n"
+        name: frontend-check
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          privileged: false
+          readOnlyRootFilesystem: true
+        image: busybox:latest
+        env:
+        - name: FRONTEND_ADDR
+          value: frontend.online-boutique.svc.cluster.local:80
+        imagePullPolicy: IfNotPresent
+      containers:
+      - name: main
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          privileged: false
+          readOnlyRootFilesystem: true
+        image: gcr.io/google-samples/microservices-demo/loadgenerator:v0.10.1
+        env:
+        - name: FRONTEND_ADDR
+          value: frontend.online-boutique.svc.cluster.local:80
+        - name: USERS
+          value: '10'
+        resources:
+          requests:
+            cpu: 300m
+            memory: 256Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+        imagePullPolicy: IfNotPresent
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: loadgenerator
+  namespace: online-boutique

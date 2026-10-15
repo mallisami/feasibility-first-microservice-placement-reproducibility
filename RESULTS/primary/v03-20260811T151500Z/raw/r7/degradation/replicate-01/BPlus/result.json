@@ -1,0 +1,392 @@
+{
+  "acceptance_failures": [],
+  "acceptance_gate_version": 1,
+  "accepted": true,
+  "cell_id": "degradation__replicate-01__bplus",
+  "completed_utc": "2026-08-12T14:17:15.532217Z",
+  "condition": "degradation",
+  "controller": {
+    "condition": "degradation",
+    "decision": "relocate",
+    "decision_utc": "2026-08-12T14:16:36.125642Z",
+    "method": "BPlus",
+    "observed_node": "mape-cap-bplus-worker",
+    "reason": "persistent-source-network-risk",
+    "relocation": {
+      "elapsed_seconds": 2.2121805000024324,
+      "rollout_seconds": 2.212176200002432,
+      "service": "frontend",
+      "source": "mape-cap-bplus-worker",
+      "target": "mape-cap-bplus-worker2"
+    },
+    "target_node": "mape-cap-bplus-worker2"
+  },
+  "duration_seconds": 30,
+  "elapsed_seconds": 39.98353290000159,
+  "method": "BPlus",
+  "network_clear_after": true,
+  "network_condition": {
+    "delay_ms": 35,
+    "loss_pct": 1.5,
+    "node": "mape-cap-bplus-worker",
+    "rate_mbit": 60,
+    "tc_qdisc": "qdisc netem 8002: root refcnt 7 limit 1000 delay 35ms loss 1.5% rate 60Mbit\n"
+  },
+  "official_workload": {
+    "image": "deathstarbench/wrk2-client:latest",
+    "script": "DeathStarBench hotelReservation mixed-workload_type_1.lua"
+  },
+  "placement_after": {
+    "consul": "mape-cap-bplus-worker3",
+    "frontend": "mape-cap-bplus-worker2",
+    "geo": "mape-cap-bplus-worker2",
+    "jaeger": "mape-cap-bplus-worker",
+    "memcached-profile": "mape-cap-bplus-worker3",
+    "memcached-rate": "mape-cap-bplus-worker2",
+    "memcached-reserve": "mape-cap-bplus-worker2",
+    "mongodb-geo": "mape-cap-bplus-worker2",
+    "mongodb-profile": "mape-cap-bplus-worker3",
+    "mongodb-rate": "mape-cap-bplus-worker2",
+    "mongodb-recommendation": "mape-cap-bplus-worker2",
+    "mongodb-reservation": "mape-cap-bplus-worker3",
+    "mongodb-user": "mape-cap-bplus-worker3",
+    "profile": "mape-cap-bplus-worker3",
+    "rate": "mape-cap-bplus-worker2",
+    "recommendation": "mape-cap-bplus-worker2",
+    "reservation": "mape-cap-bplus-worker3",
+    "search": "mape-cap-bplus-worker2",
+    "user": "mape-cap-bplus-worker2"
+  },
+  "placement_before": {
+    "consul": "mape-cap-bplus-worker3",
+    "frontend": "mape-cap-bplus-worker",
+    "geo": "mape-cap-bplus-worker2",
+    "jaeger": "mape-cap-bplus-worker",
+    "memcached-profile": "mape-cap-bplus-worker3",
+    "memcached-rate": "mape-cap-bplus-worker2",
+    "memcached-reserve": "mape-cap-bplus-worker2",
+    "mongodb-geo": "mape-cap-bplus-worker2",
+    "mongodb-profile": "mape-cap-bplus-worker3",
+    "mongodb-rate": "mape-cap-bplus-worker2",
+    "mongodb-recommendation": "mape-cap-bplus-worker2",
+    "mongodb-reservation": "mape-cap-bplus-worker3",
+    "mongodb-user": "mape-cap-bplus-worker3",
+    "profile": "mape-cap-bplus-worker3",
+    "rate": "mape-cap-bplus-worker2",
+    "recommendation": "mape-cap-bplus-worker2",
+    "reservation": "mape-cap-bplus-worker3",
+    "search": "mape-cap-bplus-worker2",
+    "user": "mape-cap-bplus-worker2"
+  },
+  "probe": {
+    "downtime_seconds": 0.0,
+    "failures": 0,
+    "last_failure_seconds": null,
+    "longest_outage_seconds": 0.0,
+    "samples": 150,
+    "successes": 150
+  },
+  "replicate": 1,
+  "resources": {
+    "max_cpu_cores": 0.714513017,
+    "max_memory_mib": 607.3203125,
+    "mean_cpu_cores": 0.40623891328571426,
+    "mean_memory_mib": 605.8699776785714,
+    "network_bytes_per_second": 2080424.5333333334,
+    "network_rx_bytes": 28508936,
+    "network_tx_bytes": 33903800,
+    "sample_count": 7
+  },
+  "runtime_after": {
+    "consul-66c766dcb7-dphx9": {
+      "node": "mape-cap-bplus-worker3",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "frontend-5c99f4b66f-7s56x": {
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "geo-6d45d8c7cc-rclmh": {
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "jaeger-89c96bcc4-q4l4g": {
+      "node": "mape-cap-bplus-worker",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "memcached-profile-6694d9b6f6-svtnm": {
+      "node": "mape-cap-bplus-worker3",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "memcached-rate-7bff68d7bb-2b9fd": {
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "memcached-reserve-886fd96bd-gk4ns": {
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "mongodb-geo-5f565865b4-8xql6": {
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "mongodb-profile-5c97cbf486-6jmpc": {
+      "node": "mape-cap-bplus-worker3",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "mongodb-rate-6cf45ff95f-zvzhs": {
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "mongodb-recommendation-744f4795b4-v7p8q": {
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "mongodb-reservation-667fdfc888-m7phq": {
+      "node": "mape-cap-bplus-worker3",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "mongodb-user-79b4d5864-wx7xz": {
+      "node": "mape-cap-bplus-worker3",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "profile-d87c4958c-2n6cl": {
+      "node": "mape-cap-bplus-worker3",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "rate-5677bdc7bf-p5f4s": {
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "recommendation-648bbd899-lftb9": {
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "reservation-7b87498db6-j687v": {
+      "node": "mape-cap-bplus-worker3",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "search-6dcf84f557-zp8s4": {
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "user-644c9b7d76-ssl22": {
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    }
+  },
+  "runtime_before": {
+    "consul-66c766dcb7-dphx9": {
+      "node": "mape-cap-bplus-worker3",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "frontend-57c6bcbb65-jgxvv": {
+      "node": "mape-cap-bplus-worker",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "geo-6d45d8c7cc-rclmh": {
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "jaeger-89c96bcc4-q4l4g": {
+      "node": "mape-cap-bplus-worker",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "memcached-profile-6694d9b6f6-svtnm": {
+      "node": "mape-cap-bplus-worker3",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "memcached-rate-7bff68d7bb-2b9fd": {
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "memcached-reserve-886fd96bd-gk4ns": {
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "mongodb-geo-5f565865b4-8xql6": {
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "mongodb-profile-5c97cbf486-6jmpc": {
+      "node": "mape-cap-bplus-worker3",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "mongodb-rate-6cf45ff95f-zvzhs": {
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "mongodb-recommendation-744f4795b4-v7p8q": {
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "mongodb-reservation-667fdfc888-m7phq": {
+      "node": "mape-cap-bplus-worker3",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "mongodb-user-79b4d5864-wx7xz": {
+      "node": "mape-cap-bplus-worker3",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "profile-d87c4958c-2n6cl": {
+      "node": "mape-cap-bplus-worker3",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "rate-5677bdc7bf-p5f4s": {
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "recommendation-648bbd899-lftb9": {
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "reservation-7b87498db6-j687v": {
+      "node": "mape-cap-bplus-worker3",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "search-6dcf84f557-zp8s4": {
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    },
+    "user-644c9b7d76-ssl22": {
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "ready": true,
+      "reasons": [],
+      "restarts": 0
+    }
+  },
+  "started_utc": "2026-08-12T14:16:35.548681Z",
+  "target_rate_rps": 50,
+  "workload": {
+    "latency": {
+      "p50_ms": 505.86,
+      "p90_ms": 1300.0,
+      "p999_ms": 3220.0,
+      "p99_ms": 2300.0
+    },
+    "measured_seconds": 30.06,
+    "non_2xx_3xx": 0,
+    "raw_parser_version": 1,
+    "requests": 1083,
+    "requests_per_second": 36.03,
+    "socket_errors": {
+      "connect": 0,
+      "read": 5,
+      "timeout": 0,
+      "write": 5
+    },
+    "total_errors": 10
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "mape-ns3-44007-1p25-bplus_exact-201-a1",
+    "-v",
+    "/mnt/f/Papers/New experiment repo final/MCB_SSOT_v0916_confirmatory_run/EXPERIMENTS/ns3_affinity_wireless_confirmatory/results/run-20260916T134114Z/cells/seed44007-t1.25-bplus_exact-rng201/attempt-1:/evidence",
+    "mape-cap-ns3-affinity-confirm:2026-09-16",
+    "/bin/bash",
+    "-lc",
+    "set -o pipefail; mkdir -p Traces; ./waf --run-no-build \"evaluate_bplus_affinity_dense --simulationTime=3.0 --packetSize=1448 --socketType=ns3::UdpSocketFactory --numSTAs=6 --ratesMbpsCsv=407.113216,375.910446,273.145961,314.679766,185.041698,0.000000 --csv=true --reportDataSnr=true --directory=/evidence/ --qdChannelFolder=DenseScenario --RngRun=201\""
+  ],
+  "completed_utc": "2026-09-17T01:18:35.696600Z",
+  "returncode": 125,
+  "runtime_seconds": 1.0820862879991182,
+  "spec": "evaluate_bplus_affinity_dense --simulationTime=3.0 --packetSize=1448 --socketType=ns3::UdpSocketFactory --numSTAs=6 --ratesMbpsCsv=407.113216,375.910446,273.145961,314.679766,185.041698,0.000000 --csv=true --reportDataSnr=true --directory=/evidence/ --qdChannelFolder=DenseScenario --RngRun=201",
+  "stderr": "docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: unable to apply cgroup configuration: unable to start unit \"docker-73d9b965c76b97070b83d13a8fb3bdb8e4de23ba7a37f054aa047621258e4f8f.scope\" (properties [{Name:Description Value:\"libcontainer container 73d9b965c76b97070b83d13a8fb3bdb8e4de23ba7a37f054aa047621258e4f8f\"} {Name:Slice Value:\"system.slice\"} {Name:Delegate Value:true} {Name:PIDs Value:@au [99276]} {Name:MemoryAccounting Value:true} {Name:CPUAccounting Value:true} {Name:IOAccounting Value:true} {Name:TasksAccounting Value:true} {Name:DefaultDependencies Value:false}]): Message recipient disconnected from message bus without replying\n\nRun 'docker run --help' for more information\n",
+  "stdout": "",
+  "timed_out": false
+}

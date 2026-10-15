@@ -1,0 +1,40 @@
+Traceback (most recent call last):
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r1.py", line 697, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r1.py", line 693, in main
+    return execute_campaign(args, conditions, methods, run_root)
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r1.py", line 593, in execute_campaign
+    assert_runtime_access()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r1.py", line 139, in assert_runtime_access
+    kubectl("get", "namespace", NS)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r2.py", line 41, in kubectl
+    return cmd(["kubectl", *args], timeout=timeout)
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r2.py", line 34, in cmd
+    result = subprocess.run(args, input=input_text, capture_output=True, text=True, timeout=timeout)
+  File "C:\Users\Sohail\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 554, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sohail\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sohail\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1554, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified

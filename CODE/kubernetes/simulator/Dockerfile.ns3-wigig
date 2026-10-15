@@ -1,0 +1,46 @@
+# wigig-tools/wigig-module v0.5 — standalone ns-3 fork (NOT an ns-3 add-on module).
+# The repository ships a complete ns-3 tree (src/, scratch/, waf, wscript), so it is
+# built directly; it must not be overlaid into a separate ns-allinone release.
+FROM ubuntu:20.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV WIGIG_VERSION=v0.5
+ENV WIGIG_COMMIT=f3404236d05eb1da1cab80eec06c56ea8ab43f7d
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    git \
+    python3 \
+    python3-dev \
+    python3-setuptools \
+    libgsl-dev \
+    libsqlite3-dev \
+    libxml2-dev \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /sim
+
+RUN git clone --branch ${WIGIG_VERSION} --depth 1 \
+        https://github.com/wigig-tools/wigig-module.git wigig-module \
+    && cd wigig-module \
+    && test "$(git rev-parse HEAD)" = "${WIGIG_COMMIT}" \
+    && cat VERSION
+
+WORKDIR /sim/wigig-module
+
+# Build only the reference example; the other 20 scratch programs roughly quadruple
+# build time and are not exercised by this reproduction.
+RUN find scratch -maxdepth 1 -name '*.cc' ! -name 'evaluate_achievable_throughput.cc' -delete
+
+# Module set and optimized profile as documented in the upstream README.
+RUN ./waf configure \
+        --disable-examples \
+        --disable-tests \
+        --disable-python \
+        --enable-modules='applications','core','internet','point-to-point','wifi','flow-monitor','spectrum' \
+        -d optimized
+
+RUN ./waf build -j1
+
+CMD ["./waf", "--run", "evaluate_achievable_throughput --PrintHelp"]

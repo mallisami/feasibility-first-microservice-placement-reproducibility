@@ -1,0 +1,188 @@
+{
+  "calibration": {
+    "base_current_emulated_scenario_utilization": 0.018461327210435287,
+    "calibrated_current_emulated_scenario_utilization": 0.5,
+    "calibrated_current_worst_robust_utilization": 0.5,
+    "goodput_scale": 0.036922654420870574,
+    "max_rate_mbit": 64.4363088156707,
+    "min_rate_mbit": 42.742772437232404
+  },
+  "plans": {
+    "Affinity-Bytes": {
+      "cross_rack_bits": 168336616.0,
+      "evaluation": {
+        "cvar_delay_cost": 15230.5,
+        "expected_delay_cost": 10542.657142857144,
+        "feasible": true,
+        "reasons": [],
+        "relocation_cost": 8124.0,
+        "scenario_airtime_by_group": {
+          "conflict-dense": {
+            "cg-shared": 3.938364462604799
+          },
+          "partial-blockage": {
+            "cg-ac": 12.734183698516848
+          },
+          "persistent-degradation": {
+            "cg-ac": 12.734183698516848
+          }
+        },
+        "scenario_delay_costs": {
+          "conflict-dense": 2947.3,
+          "partial-blockage": 12481.0,
+          "persistent-degradation": 15230.5
+        },
+        "slo_slack": 0.0,
+        "total_objective": 41512.40714285715
+      },
+      "moves": 2,
+      "placement": {
+        "replica-0": "mape-cap-confirm-worker",
+        "replica-1": "mape-cap-confirm-worker",
+        "replica-2": "mape-cap-confirm-worker3",
+        "replica-3": "mape-cap-confirm-worker",
+        "replica-4": "mape-cap-confirm-worker3",
+        "replica-5": "mape-cap-confirm-worker3"
+      },
+      "planned_feasible": true,
+      "planner": {
+        "cluster_feasible_placements_enumerated": 57,
+        "cross_rack_bits": 168336616.0,
+        "moves": 2,
+        "solver": "deterministic-enumeration",
+        "wireless_information_visible": false
+      },
+      "planner_abstained": false,
+      "planner_status": "optimal",
+      "worst_conflict_utilization": 0.4244727899505616
+    },
+    "BPlus-Exact": {
+      "cross_rack_bits": 266897104.0,
+      "evaluation": {
+        "cvar_delay_cost": 6926.8,
+        "expected_delay_cost": 3086.2857142857147,
+        "feasible": true,
+        "reasons": [],
+        "relocation_cost": 8124.0,
+        "scenario_airtime_by_group": {
+          "conflict-dense": {
+            "cg-shared": 5.115309349459518
+          },
+          "partial-blockage": {
+            "cg-ab": 3.3069638224083295
+          },
+          "persistent-degradation": {
+            "cg-ab": 12.940309484520817
+          }
+        },
+        "scenario_delay_costs": {
+          "conflict-dense": 2205.1000000000004,
+          "partial-blockage": 1113.3999999999999,
+          "persistent-degradation": 6926.8
+        },
+        "slo_slack": 0.0,
+        "total_objective": 21600.485714285714
+      },
+      "moves": 2,
+      "placement": {
+        "replica-0": "mape-cap-confirm-worker",
+        "replica-1": "mape-cap-confirm-worker2",
+        "replica-2": "mape-cap-confirm-worker",
+        "replica-3": "mape-cap-confirm-worker",
+        "replica-4": "mape-cap-confirm-worker2",
+        "replica-5": "mape-cap-confirm-worker2"
+      },
+      "planned_feasible": true,
+      "planner": {
+        "constraint_count": 454,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "mip_dual_bound": 21600.485714285714,
+        "mip_gap": 0.0,
+        "mip_node_count": 1,
+        "placement_evaluation": {
+          "cvar_delay_cost": 6926.8,
+          "expected_delay_cost": 3086.2857142857147,
+          "feasible": true,
+          "reasons": [],
+          "relocation_cost": 8124.0,
+          "scenario_airtime_by_group": {
+            "conflict-dense": {
+              "cg-shared": 5.115309349459518
+            },
+            "partial-blockage": {
+              "cg-ab": 3.3069638224083295
+            },
+            "persistent-degradation": {
+              "cg-ab": 12.940309484520817
+            }
+          },
+          "scenario_delay_costs": {
+            "conflict-dense": 2205.1000000000004,
+            "partial-blockage": 1113.3999999999999,
+            "persistent-degradation": 6926.8
+          },
+          "slo_slack": 0.0,
+          "total_objective": 21600.485714285714
+        },
+        "proven_optimal": true,
+        "solver": "scipy.optimize.milp/HiGHS",
+        "solver_objective": 21600.485714285714,
+        "status": 0,
+        "variable_count": 168
+      },
+      "planner_abstained": false,
+      "planner_status": "optimal",
+      "worst_conflict_utilization": 0.43134364948402726
+    },
+    "Current": {
+      "cross_rack_bits": 380846240.0,
+      "evaluation": {
+        "cvar_delay_cost": 17631.1,
+        "expected_delay_cost": 9935.550000000001,
+        "feasible": true,
+        "reasons": [],
+        "relocation_cost": 0.0,
+        "scenario_airtime_by_group": {
+          "conflict-dense": {
+            "cg-shared": 7.5
+          },
+          "partial-blockage": {
+            "cg-ab": 2.046476722122587,
+            "cg-ac": 7.058011984204321,
+            "cg-bc": 1.5769716985427222
+          },
+          "persistent-degradation": {
+            "cg-ab": 7.244109870366204,
+            "cg-ac": 7.058011984204321,
+            "cg-bc": 9.128637626727604
+          }
+        },
+        "scenario_delay_costs": {
+          "conflict-dense": 3813.2,
+          "partial-blockage": 8886.75,
+          "persistent-degradation": 17631.1
+        },
+        "slo_slack": 0.0,
+        "total_objective": 36382.2
+      },
+      "moves": 0,
+      "placement": {
+        "replica-0": "mape-cap-confirm-worker",
+        "replica-1": "mape-cap-confirm-worker2",
+        "replica-2": "mape-cap-confirm-worker3",
+        "replica-3": "mape-cap-confirm-worker",
+        "replica-4": "mape-cap-confirm-worker2",
+        "replica-5": "mape-cap-confirm-worker3"
+      },
+      "planned_feasible": true,
+      "planner": {
+        "solver": "identity"
+      },
+      "planner_abstained": false,
+      "planner_status": "identity",
+      "worst_conflict_utilization": 0.5
+    }
+  },
+  "seed": 44003,
+  "target": 0.5
+}

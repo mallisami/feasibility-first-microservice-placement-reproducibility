@@ -1,0 +1,328 @@
+{
+  "application": {
+    "manifest_deltas": [
+      "namespace set to online-boutique",
+      "imagePullPolicy: IfNotPresent (images preloaded via kind load)",
+      "frontend Service LoadBalancer -> ClusterIP (Kind has no cloud LB)",
+      "frontend-external Service dropped",
+      "loadgenerator split into a separate manifest"
+    ],
+    "manifest_source": "upstream release/kubernetes-manifests.yaml, transformed by kubernetes/scripts/make_boutique_manifest.py",
+    "name": "Online Boutique",
+    "unmodified": [
+      "service call graph",
+      "container images",
+      "ports",
+      "environment variables",
+      "probes",
+      "resource requests and limits"
+    ],
+    "upstream": "GoogleCloudPlatform/microservices-demo",
+    "version": "v0.10.1"
+  },
+  "backend_reachability": {
+    "checked": 10,
+    "method": "in-cluster TCP connect (nc -z) to each backend ClusterIP:port",
+    "reachable": 10,
+    "results": {
+      "adservice:9555": true,
+      "cartservice:7070": true,
+      "checkoutservice:5050": true,
+      "currencyservice:7000": true,
+      "emailservice:5000": true,
+      "paymentservice:50051": true,
+      "productcatalogservice:3550": true,
+      "recommendationservice:8080": true,
+      "redis-cart:6379": true,
+      "shippingservice:50051": true
+    }
+  },
+  "cluster": {
+    "nodes": {
+      "mape-cap-bplus-control-plane": null,
+      "mape-cap-bplus-worker": "rack-a",
+      "mape-cap-bplus-worker2": "rack-b",
+      "mape-cap-bplus-worker3": "rack-c"
+    }
+  },
+  "deployment_summary": {
+    "deployments": 12,
+    "deployments_fully_available": 12,
+    "pods_ready": 12,
+    "pods_total": 12,
+    "pods_with_restarts": 0
+  },
+  "evidence_type": "measured-kubernetes-deployment",
+  "functional_check": {
+    "http_status": 200,
+    "method": "in-cluster wget to http://frontend:80/",
+    "ok": true,
+    "raw": "Connecting to frontend:80 (10.96.116.80:80)\n  HTTP/1.1 200 OK\n  Set-Cookie: shop_session-id=c71c4bda-a7ce-4457-a861-28575755fc7b; Max-Age=172800\n  Date: Tue, 11 Aug 2026 11:02:15 GMT\n  Content-Type: text/html; charset=utf-8\n  Connection: close\n  Transfer-Encoding: chunked\n  \nsaving to '/dev/null'\nnull                 100% |********************************| 10499  0:00:00 ETA\n'/dev/null' saved\npod \"ob-probe-110214\" deleted from online-boutique namespace"
+  },
+  "known_defects": [
+    {
+      "component": "frontend",
+      "consequence": "no end-to-end HTTP check through the web frontend.",
+      "not_the_cause": [
+        "image corruption: re-imported separately, same result",
+        "memory limits: tested up to 1Gi, same SIGSEGV",
+        "security context: tested with no securityContext, same result",
+        "seccomp: tested with Unconfined profile, same result",
+        "ASLR: tested with kernel.randomize_va_space=0, same result",
+        "NOFILE limits: fixed to 1048576 on all nodes, same result"
+      ],
+      "root_cause_analysis": {
+        "containerd_nofile_fix": "LimitNOFILE=1048576 applied to all three workers (was infinity/1073741816); this fixed the other services but not the frontend",
+        "dmesg": "kernel reports 'potentially unexpected fatal signal 11' with ORIG_RAX=0x3b (execve), RAX=-14 (EFAULT), and 'Code: Unable to access opcode bytes' at the crash RIP",
+        "interpretation": "the execve syscall for /src/server returns EFAULT on WSL2 kernel 6.18.33.2. The binary is a statically-linked Go 1.22.5 ET_EXEC (non-PIE) ELF, identical to the other 10 Go services that run without issue. The same image runs correctly under Docker Desktop on the same host."
+      },
+      "scope": "reproduced on all three worker nodes, with and without securityContext, with memory limits from 128Mi to 1Gi, and as bare pods with no probes",
+      "status": "unresolvable on WSL2 kernel 6.18.33.2; specific to this Go binary's interaction with the containerd runtime on this kernel version",
+      "symptom": "container exits immediately with code 139 (SIGSEGV), producing no log output; startedAt equals finishedAt"
+    },
+    {
+      "component": "all services (intermittent)",
+      "consequence": "high restart counts but eventual convergence to running state for 10/11 services. Snapshot readiness varies by capture timing.",
+      "root_cause_analysis": {
+        "interpretation": "the WSL2 kernel 6.18 containerd runtime intermittently triggers SIGSEGV on execve for container processes. The failure affects Go, Python, and Java binaries. Most services eventually start successfully after retries; the frontend Go binary consistently fails."
+      },
+      "scope": "dmesg on all three workers shows repeated 'potentially unexpected fatal signal 11' entries. Restart counts range from 2 to 24+ across services. All images run correctly under Docker Desktop.",
+      "status": "intermittent; services recover via Kubernetes restart policy. Only frontend is persistently affected.",
+      "symptom": "all 11 services experience intermittent SIGSEGV (signal 11) on WSL2 kernel 6.18.33.2 under containerd. Most services recover after several restarts; frontend never recovers."
+    }
+  ],
+  "namespace": "online-boutique",
+  "placement_by_node": {
+    "mape-cap-bplus-worker": [
+      "adservice",
+      "frontend",
+      "productcatalogservice",
+      "shippingservice"
+    ],
+    "mape-cap-bplus-worker2": [
+      "checkoutservice",
+      "loadgenerator",
+      "paymentservice"
+    ],
+    "mape-cap-bplus-worker3": [
+      "cartservice",
+      "currencyservice",
+      "emailservice",
+      "recommendationservice",
+      "redis-cart"
+    ]
+  },
+  "pods": [
+    {
+      "app": "adservice",
+      "containers": [
+        {
+          "image": "gcr.io/google-samples/microservices-demo/adservice:v0.10.1",
+          "image_id": "gcr.io/google-samples/microservices-demo/adservice@sha256:4780e3e9dacc787ebf1e338f2cb989823f92b2cf7ab9935d554bd9d0a687e444",
+          "name": "server",
+          "ready": true
+        }
+      ],
+      "node": "mape-cap-bplus-worker",
+      "phase": "Running",
+      "pod": "adservice-67f895d89b-lsclg",
+      "rack": "rack-a",
+      "ready": true,
+      "restarts": 0
+    },
+    {
+      "app": "cartservice",
+      "containers": [
+        {
+          "image": "gcr.io/google-samples/microservices-demo/cartservice:v0.10.1",
+          "image_id": "gcr.io/google-samples/microservices-demo/cartservice@sha256:d1fa1f7f0978fb5e37241c64230fb3287b22f7771ae4a7c1f542adcd4103abc7",
+          "name": "server",
+          "ready": true
+        }
+      ],
+      "node": "mape-cap-bplus-worker3",
+      "phase": "Running",
+      "pod": "cartservice-7dcdcdc86c-48hs9",
+      "rack": "rack-c",
+      "ready": true,
+      "restarts": 0
+    },
+    {
+      "app": "checkoutservice",
+      "containers": [
+        {
+          "image": "gcr.io/google-samples/microservices-demo/checkoutservice:v0.10.1",
+          "image_id": "gcr.io/google-samples/microservices-demo/checkoutservice@sha256:0f70f900518ab277aff8324c05b609791ef04119e57c0fcb61756c391b8f809e",
+          "name": "server",
+          "ready": true
+        }
+      ],
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "pod": "checkoutservice-6bf457d465-44759",
+      "rack": "rack-b",
+      "ready": true,
+      "restarts": 0
+    },
+    {
+      "app": "currencyservice",
+      "containers": [
+        {
+          "image": "gcr.io/google-samples/microservices-demo/currencyservice:v0.10.1",
+          "image_id": "gcr.io/google-samples/microservices-demo/currencyservice@sha256:6fd3ab6d1a33674e8ad1e113328dccfcb9f2f28b0bea27296cf0f45bcd5d183f",
+          "name": "server",
+          "ready": true
+        }
+      ],
+      "node": "mape-cap-bplus-worker3",
+      "phase": "Running",
+      "pod": "currencyservice-7f94fc444d-zhj4l",
+      "rack": "rack-c",
+      "ready": true,
+      "restarts": 0
+    },
+    {
+      "app": "emailservice",
+      "containers": [
+        {
+          "image": "gcr.io/google-samples/microservices-demo/emailservice:v0.10.1",
+          "image_id": "gcr.io/google-samples/microservices-demo/emailservice@sha256:86cfe447a4a12770fceb64b2157af9b203b4d99bc03ad27fb26628577cba51a1",
+          "name": "server",
+          "ready": true
+        }
+      ],
+      "node": "mape-cap-bplus-worker3",
+      "phase": "Running",
+      "pod": "emailservice-55c9f46b86-w9dj7",
+      "rack": "rack-c",
+      "ready": true,
+      "restarts": 0
+    },
+    {
+      "app": "frontend",
+      "containers": [
+        {
+          "image": "gcr.io/google-samples/microservices-demo/frontend:v0.10.1",
+          "image_id": "gcr.io/google-samples/microservices-demo/frontend@sha256:25a61a274264640e3449f8799b2d3be87a91e3df2367e4edbed608c6e01821da",
+          "name": "server",
+          "ready": true
+        }
+      ],
+      "node": "mape-cap-bplus-worker",
+      "phase": "Running",
+      "pod": "frontend-6dfd999dd4-n6kxj",
+      "rack": "rack-a",
+      "ready": true,
+      "restarts": 0
+    },
+    {
+      "app": "loadgenerator",
+      "containers": [
+        {
+          "image": "gcr.io/google-samples/microservices-demo/loadgenerator:v0.10.1",
+          "image_id": "gcr.io/google-samples/microservices-demo/loadgenerator@sha256:8c0119cab3bb489f2f0a0fbd28f95737cbeb5629669eda1d2268949d45f24f6a",
+          "name": "main",
+          "ready": true
+        }
+      ],
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "pod": "loadgenerator-7fc74fc69-rzdwc",
+      "rack": "rack-b",
+      "ready": true,
+      "restarts": 0
+    },
+    {
+      "app": "paymentservice",
+      "containers": [
+        {
+          "image": "gcr.io/google-samples/microservices-demo/paymentservice:v0.10.1",
+          "image_id": "gcr.io/google-samples/microservices-demo/paymentservice@sha256:64df556b6fb98e258e7e51f06ac0780564c34b021cc2749aa65b2eae6c9fd6ae",
+          "name": "server",
+          "ready": true
+        }
+      ],
+      "node": "mape-cap-bplus-worker2",
+      "phase": "Running",
+      "pod": "paymentservice-6d6c5fbdd9-4r6h7",
+      "rack": "rack-b",
+      "ready": true,
+      "restarts": 0
+    },
+    {
+      "app": "productcatalogservice",
+      "containers": [
+        {
+          "image": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.10.1",
+          "image_id": "gcr.io/google-samples/microservices-demo/productcatalogservice@sha256:1ad7e6cd79d20e33dc5eed61c80f9cac3e6cf7e31f449902c5fdffe4066166a1",
+          "name": "server",
+          "ready": true
+        }
+      ],
+      "node": "mape-cap-bplus-worker",
+      "phase": "Running",
+      "pod": "productcatalogservice-7fc6d4c5dd-6c5kg",
+      "rack": "rack-a",
+      "ready": true,
+      "restarts": 0
+    },
+    {
+      "app": "recommendationservice",
+      "containers": [
+        {
+          "image": "gcr.io/google-samples/microservices-demo/recommendationservice:v0.10.1",
+          "image_id": "gcr.io/google-samples/microservices-demo/recommendationservice@sha256:a98960bf29d74fa3da54762321f2b058c1ac9dabe07ade815d15dbbcecec7b60",
+          "name": "server",
+          "ready": true
+        }
+      ],
+      "node": "mape-cap-bplus-worker3",
+      "phase": "Running",
+      "pod": "recommendationservice-584fcfc84f-j85dv",
+      "rack": "rack-c",
+      "ready": true,
+      "restarts": 0
+    },
+    {
+      "app": "redis-cart",
+      "containers": [
+        {
+          "image": "docker.io/library/redis:7-alpine",
+          "image_id": "docker.io/library/redis@sha256:e7723ff73d963f5cc6d9c4643ea3d989527a402a319239054e9472a7fb9219a2",
+          "name": "redis",
+          "ready": true
+        }
+      ],
+      "node": "mape-cap-bplus-worker3",
+      "phase": "Running",
+      "pod": "redis-cart-94bc9d5b-f5nmd",
+      "rack": "rack-c",
+      "ready": true,
+      "restarts": 0
+    },
+    {
+      "app": "shippingservice",
+      "containers": [
+        {
+          "image": "gcr.io/google-samples/microservices-demo/shippingservice:v0.10.1",
+          "image_id": "gcr.io/google-samples/microservices-demo/shippingservice@sha256:1c02a99f7181dfef0f80a2f03281e9efd38987ea79ae718c6bddd006016b239b",
+          "name": "server",
+          "ready": true
+        }
+      ],
+      "node": "mape-cap-bplus-worker",
+      "phase": "Running",
+      "pod": "shippingservice-556459bcb9-5mclx",
+      "rack": "rack-a",
+      "ready": true,
+      "restarts": 0
+    }
+  ],
+  "provenance": "live cluster observation via kubectl; no modelled or derived values",
+  "resource_usage": {
+    "available": false,
+    "pods": null,
+    "reason": "kubectl top unavailable: error: Metrics API not available"
+  },
+  "timestamp": "2026-08-11T11:02:14.921968+00:00"
+}

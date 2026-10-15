@@ -1,0 +1,103 @@
+{
+  "cluster_name": "mape-cap-bplus",
+  "cluster_type": "kind-v0.32.0",
+  "docker_memory_gb": 3.715,
+  "evidence_type": "network-emulated-kubernetes",
+  "kubernetes_version": "v1.36.1",
+  "namespaces": {
+    "mape-cap-app-a": {
+      "api-595f547d67-fxp9n": "mape-cap-bplus-worker",
+      "api-595f547d67-zc6qr": "mape-cap-bplus-worker3",
+      "cache-7b78fdffb9-c5gdd": "mape-cap-bplus-worker",
+      "database-6cb595485b-69wn7": "mape-cap-bplus-worker3",
+      "frontend-8b9f7777-tr6vb": "mape-cap-bplus-worker2",
+      "frontend-8b9f7777-zt9pk": "mape-cap-bplus-worker3"
+    },
+    "mape-cap-app-b": {
+      "catalog-svc-db9d87f68-swq5s": "mape-cap-bplus-worker2",
+      "catalog-svc-db9d87f68-vftkh": "mape-cap-bplus-worker",
+      "db-9f74c5b56-4zz5j": "mape-cap-bplus-worker2",
+      "gateway-586bd8f99b-4qj4z": "mape-cap-bplus-worker2",
+      "order-svc-5cd54dc5f-bp2fj": "mape-cap-bplus-worker",
+      "payment-svc-7cdf74b885-x48rb": "mape-cap-bplus-worker2",
+      "user-svc-766f66cb46-r2hg5": "mape-cap-bplus-worker2"
+    },
+    "mape-cap-bplus-pilot": {
+      "echo-7975ffbd87-jmx6n": "mape-cap-bplus-worker",
+      "echo-7975ffbd87-s4lrc": "mape-cap-bplus-worker2",
+      "relocation-echo-5b54498977-nxbsp": "mape-cap-bplus-worker"
+    }
+  },
+  "nodes": [
+    {
+      "allocatable_cpu": "4",
+      "allocatable_memory": "3895924Ki",
+      "container_runtime": "containerd://2.3.1",
+      "kernel": "6.18.33.2-microsoft-standard-WSL2",
+      "kubelet_version": "v1.36.1",
+      "labels": {
+        "beta.kubernetes.io/arch": "amd64",
+        "beta.kubernetes.io/os": "linux",
+        "kubernetes.io/arch": "amd64",
+        "kubernetes.io/hostname": "mape-cap-bplus-control-plane",
+        "kubernetes.io/os": "linux",
+        "node-role.kubernetes.io/control-plane": "",
+        "node.kubernetes.io/exclude-from-external-load-balancers": ""
+      },
+      "name": "mape-cap-bplus-control-plane",
+      "os_image": "Debian GNU/Linux 13 (trixie)"
+    },
+    {
+      "allocatable_cpu": "4",
+      "allocatable_memory": "3895924Ki",
+      "container_runtime": "containerd://2.3.1",
+      "kernel": "6.18.33.2-microsoft-standard-WSL2",
+      "kubelet_version": "v1.36.1",
+      "labels": {
+        "beta.kubernetes.io/arch": "amd64",
+        "beta.kubernetes.io/os": "linux",
+        "kubernetes.io/arch": "amd64",
+        "kubernetes.io/hostname": "mape-cap-bplus-worker",
+        "kubernetes.io/os": "linux",
+        "topology.kubernetes.io/zone": "rack-a"
+      },
+      "name": "mape-cap-bplus-worker",
+      "os_image": "Debian GNU/Linux 13 (trixie)"
+    },
+    {
+      "allocatable_cpu": "4",
+      "allocatable_memory": "3895924Ki",
+      "container_runtime": "containerd://2.3.1",
+      "kernel": "6.18.33.2-microsoft-standard-WSL2",
+      "kubelet_version": "v1.36.1",
+      "labels": {
+        "beta.kubernetes.io/arch": "amd64",
+        "beta.kubernetes.io/os": "linux",
+        "kubernetes.io/arch": "amd64",
+        "kubernetes.io/hostname": "mape-cap-bplus-worker2",
+        "kubernetes.io/os": "linux",
+        "topology.kubernetes.io/zone": "rack-b"
+      },
+      "name": "mape-cap-bplus-worker2",
+      "os_image": "Debian GNU/Linux 13 (trixie)"
+    },
+    {
+      "allocatable_cpu": "4",
+      "allocatable_memory": "3895924Ki",
+      "container_runtime": "containerd://2.3.1",
+      "kernel": "6.18.33.2-microsoft-standard-WSL2",
+      "kubelet_version": "v1.36.1",
+      "labels": {
+        "beta.kubernetes.io/arch": "amd64",
+        "beta.kubernetes.io/os": "linux",
+        "kubernetes.io/arch": "amd64",
+        "kubernetes.io/hostname": "mape-cap-bplus-worker3",
+        "kubernetes.io/os": "linux",
+        "topology.kubernetes.io/zone": "rack-c"
+      },
+      "name": "mape-cap-bplus-worker3",
+      "os_image": "Debian GNU/Linux 13 (trixie)"
+    }
+  ],
+  "timestamp": "2026-08-07T12:32:13.099266Z"
+}

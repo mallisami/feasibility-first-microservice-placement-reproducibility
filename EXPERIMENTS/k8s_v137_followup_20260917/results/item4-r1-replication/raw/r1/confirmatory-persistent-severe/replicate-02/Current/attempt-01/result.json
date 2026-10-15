@@ -1,0 +1,261 @@
+{
+  "acceptance_gate_version": 2,
+  "accepted": true,
+  "application": {
+    "condition_events": [
+      {
+        "applied_utc": "2026-09-18T11:32:59.092559Z",
+        "condition": "confirmatory-persistent-severe",
+        "destination_node": "mcb-k137-worker",
+        "initial": {
+          "delay_ms": 40,
+          "loss_pct": 2.0,
+          "rate_mbit": 20,
+          "scope": "all-worker-egress"
+        },
+        "source_node": "mcb-k137-worker3"
+      }
+    ],
+    "error_rate": 0.0,
+    "errors": 0,
+    "evidence_type": "frontend-structured-request-log",
+    "mean_ms": 205.87189478811496,
+    "operations": {
+      "GET /": 221,
+      "GET /cart": 451,
+      "GET /product/0PUK6V6EV0": 96,
+      "GET /product/1YMWWN1N4O": 125,
+      "GET /product/2ZYFJ3GM2N": 95,
+      "GET /product/66VCHSJNUP": 107,
+      "GET /product/6E92ZMYYFZ": 99,
+      "GET /product/9SIQT8TOJO": 106,
+      "GET /product/L9ECAV7KIM": 109,
+      "GET /product/LS4PSXUNUM": 97,
+      "GET /product/OLJCESPC7Z": 102,
+      "POST /cart": 213,
+      "POST /cart/checkout": 83,
+      "POST /setCurrency": 149
+    },
+    "p50_ms": 169.0,
+    "p95_ms": 493.0,
+    "p99_ms": 665.0,
+    "requests": 2053,
+    "response_bytes": 17306931,
+    "slo_threshold_ms": 500.0,
+    "slo_violations": 52,
+    "successes": 2053,
+    "throughput_requests_per_second": 4.8880952380952385,
+    "timeouts": 129
+  },
+  "completed_utc": "2026-09-18T11:39:59.871261Z",
+  "condition": "confirmatory-persistent-severe",
+  "duration_seconds": 420,
+  "health": {
+    "healthy": true,
+    "pods": [
+      {
+        "app": "adservice",
+        "phase": "Running",
+        "pod": "adservice-5f5cfb97fd-s24db",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "cartservice",
+        "phase": "Running",
+        "pod": "cartservice-56cf646898-9mtth",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "checkoutservice",
+        "phase": "Running",
+        "pod": "checkoutservice-5757856c59-6bpfs",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "currencyservice",
+        "phase": "Running",
+        "pod": "currencyservice-b5bd9c857-2js9l",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "emailservice",
+        "phase": "Running",
+        "pod": "emailservice-564bb754db-5cxtq",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "frontend",
+        "phase": "Running",
+        "pod": "frontend-57d4b84cd7-rmsb8",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-858cf45cc7-cr4f4",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-858cf45cc7-xbpsl",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "paymentservice",
+        "phase": "Running",
+        "pod": "paymentservice-75ff8d6b86-v6v2v",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "productcatalogservice",
+        "phase": "Running",
+        "pod": "productcatalogservice-5b97cffc7f-j97tz",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "recommendationservice",
+        "phase": "Running",
+        "pod": "recommendationservice-7d75889866-zztjm",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "redis-cart",
+        "phase": "Running",
+        "pod": "redis-cart-5c44f5757f-fv4dz",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "shippingservice",
+        "phase": "Running",
+        "pod": "shippingservice-89d994f7b-vq4wr",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  "initial_placement": {
+    "adservice": "mcb-k137-worker3",
+    "cartservice": "mcb-k137-worker",
+    "checkoutservice": "mcb-k137-worker",
+    "currencyservice": "mcb-k137-worker",
+    "emailservice": "mcb-k137-worker2",
+    "frontend": "mcb-k137-worker",
+    "paymentservice": "mcb-k137-worker3",
+    "productcatalogservice": "mcb-k137-worker",
+    "recommendationservice": "mcb-k137-worker",
+    "redis-cart": "mcb-k137-worker3",
+    "shippingservice": "mcb-k137-worker3"
+  },
+  "method": "Current",
+  "minimum_completed_requests": 1000,
+  "placement": {
+    "adservice": "mcb-k137-worker3",
+    "cartservice": "mcb-k137-worker",
+    "checkoutservice": "mcb-k137-worker",
+    "currencyservice": "mcb-k137-worker",
+    "emailservice": "mcb-k137-worker2",
+    "frontend": "mcb-k137-worker",
+    "paymentservice": "mcb-k137-worker3",
+    "productcatalogservice": "mcb-k137-worker",
+    "recommendationservice": "mcb-k137-worker",
+    "redis-cart": "mcb-k137-worker3",
+    "shippingservice": "mcb-k137-worker3"
+  },
+  "planner": {
+    "cvar_delay_cost": 66763.06666666667,
+    "expected_delay_cost": 48674.95266666666,
+    "feasible": true,
+    "objective": 148819.55266666666,
+    "relocation_cost": 0.0,
+    "slo_slack": 0.0,
+    "solver": {}
+  },
+  "planner_runtime_seconds": 2.7950009098276496e-06,
+  "relocation": {
+    "changed_services": [
+      "recommendationservice"
+    ],
+    "failed_health_probes": 0,
+    "pre_execution_validation": {
+      "eligible_nodes": [
+        "mcb-k137-control-plane",
+        "mcb-k137-worker",
+        "mcb-k137-worker2",
+        "mcb-k137-worker3"
+      ],
+      "validated_services": [
+        "adservice",
+        "cartservice",
+        "checkoutservice",
+        "currencyservice",
+        "emailservice",
+        "frontend",
+        "paymentservice",
+        "productcatalogservice",
+        "recommendationservice",
+        "redis-cart",
+        "shippingservice"
+      ]
+    },
+    "probe_timeline": [
+      {
+        "elapsed_seconds": 0.24108749799961515,
+        "frontend_ok": true,
+        "rollouts_complete": false
+      },
+      {
+        "elapsed_seconds": 2.1278287210006965,
+        "frontend_ok": true,
+        "rollouts_complete": false
+      },
+      {
+        "elapsed_seconds": 4.383681821000209,
+        "frontend_ok": true,
+        "rollouts_complete": false
+      },
+      {
+        "elapsed_seconds": 6.0879578280000715,
+        "frontend_ok": true,
+        "rollouts_complete": false
+      },
+      {
+        "elapsed_seconds": 7.789924771999722,
+        "frontend_ok": true,
+        "rollouts_complete": false
+      },
+      {
+        "elapsed_seconds": 9.578367523999987,
+        "frontend_ok": true,
+        "rollouts_complete": true
+      }
+    ],
+    "recovery_seconds": 0.0,
+    "relocations": 1,
+    "rollout_seconds": 10.219513165000535,
+    "transactional_rollback": "armed"
+  },
+  "replicate": 2,
+  "resources": {
+    "max_cpu_cores": 0.239473935,
+    "max_memory_mib": 467.7265625,
+    "mean_cpu_cores": 0.09289655853333333,
+    "mean_memory_mib": 440.8730208333333,
+    "network_bytes_per_second": 180230.38333333333,
+    "network_rx_bytes": 37690350,
+    "network_tx_bytes": 38006411
+  },
+  "run_id": "r1:confirmatory-persistent-severe:rep2:Current"
+}

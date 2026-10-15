@@ -1,0 +1,191 @@
+{
+  "calibration": {
+    "base_current_emulated_scenario_utilization": 0.017414467845138094,
+    "calibrated_current_emulated_scenario_utilization": 1.25,
+    "calibrated_current_worst_robust_utilization": 1.25,
+    "goodput_scale": 0.013931574276110475,
+    "max_rate_mbit": 24.31296547943972,
+    "min_rate_mbit": 16.127608329253768
+  },
+  "plans": {
+    "Affinity-Bytes": {
+      "cross_rack_bits": 176621608.0,
+      "evaluation": {
+        "cvar_delay_cost": 5533.524999999999,
+        "expected_delay_cost": 2480.4178571428574,
+        "feasible": true,
+        "reasons": [],
+        "relocation_cost": 8124.0,
+        "scenario_airtime_by_group": {
+          "conflict-dense": {
+            "cg-shared": 8.97149039661822
+          },
+          "partial-blockage": {
+            "cg-ab": 5.889150840707878
+          },
+          "persistent-degradation": {
+            "cg-ab": 26.272117973901754
+          }
+        },
+        "scenario_delay_costs": {
+          "conflict-dense": 1779.3750000000002,
+          "partial-blockage": 912.375,
+          "persistent-degradation": 5533.524999999999
+        },
+        "slo_slack": 0.0,
+        "total_objective": 18904.705357142855
+      },
+      "moves": 2,
+      "placement": {
+        "replica-0": "mape-cap-confirm-worker",
+        "replica-1": "mape-cap-confirm-worker2",
+        "replica-2": "mape-cap-confirm-worker2",
+        "replica-3": "mape-cap-confirm-worker",
+        "replica-4": "mape-cap-confirm-worker2",
+        "replica-5": "mape-cap-confirm-worker2"
+      },
+      "planned_feasible": true,
+      "planner": {
+        "cluster_feasible_placements_enumerated": 62,
+        "cross_rack_bits": 176621608.0,
+        "moves": 2,
+        "solver": "deterministic-enumeration",
+        "wireless_information_visible": false
+      },
+      "planner_abstained": false,
+      "planner_status": "optimal",
+      "worst_conflict_utilization": 0.8757372657967252
+    },
+    "BPlus-Exact": {
+      "cross_rack_bits": 176621608.0,
+      "evaluation": {
+        "cvar_delay_cost": 5533.524999999999,
+        "expected_delay_cost": 2480.4178571428574,
+        "feasible": true,
+        "reasons": [],
+        "relocation_cost": 8124.0,
+        "scenario_airtime_by_group": {
+          "conflict-dense": {
+            "cg-shared": 8.97149039661822
+          },
+          "partial-blockage": {
+            "cg-ab": 5.889150840707878
+          },
+          "persistent-degradation": {
+            "cg-ab": 26.272117973901754
+          }
+        },
+        "scenario_delay_costs": {
+          "conflict-dense": 1779.3750000000002,
+          "partial-blockage": 912.375,
+          "persistent-degradation": 5533.524999999999
+        },
+        "slo_slack": 0.0,
+        "total_objective": 18904.705357142855
+      },
+      "moves": 2,
+      "placement": {
+        "replica-0": "mape-cap-confirm-worker",
+        "replica-1": "mape-cap-confirm-worker2",
+        "replica-2": "mape-cap-confirm-worker2",
+        "replica-3": "mape-cap-confirm-worker",
+        "replica-4": "mape-cap-confirm-worker2",
+        "replica-5": "mape-cap-confirm-worker2"
+      },
+      "planned_feasible": true,
+      "planner": {
+        "constraint_count": 453,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "mip_dual_bound": 18904.705357142855,
+        "mip_gap": 0.0,
+        "mip_node_count": 1,
+        "placement_evaluation": {
+          "cvar_delay_cost": 5533.524999999999,
+          "expected_delay_cost": 2480.4178571428574,
+          "feasible": true,
+          "reasons": [],
+          "relocation_cost": 8124.0,
+          "scenario_airtime_by_group": {
+            "conflict-dense": {
+              "cg-shared": 8.97149039661822
+            },
+            "partial-blockage": {
+              "cg-ab": 5.889150840707878
+            },
+            "persistent-degradation": {
+              "cg-ab": 26.272117973901754
+            }
+          },
+          "scenario_delay_costs": {
+            "conflict-dense": 1779.3750000000002,
+            "partial-blockage": 912.375,
+            "persistent-degradation": 5533.524999999999
+          },
+          "slo_slack": 0.0,
+          "total_objective": 18904.705357142855
+        },
+        "proven_optimal": true,
+        "solver": "scipy.optimize.milp/HiGHS",
+        "solver_objective": 18904.70535714286,
+        "status": 0,
+        "variable_count": 167
+      },
+      "planner_abstained": false,
+      "planner_status": "optimal",
+      "worst_conflict_utilization": 0.8757372657967252
+    },
+    "Current": {
+      "cross_rack_bits": 354092112.0,
+      "evaluation": {
+        "cvar_delay_cost": Infinity,
+        "expected_delay_cost": Infinity,
+        "feasible": false,
+        "reasons": [
+          "airtime budget cg-bc exceeded in persistent-degradation: 35.580449s > 30.000000s",
+          "airtime budget cg-shared exceeded in conflict-dense: 18.750000s > 15.000000s"
+        ],
+        "relocation_cost": 0.0,
+        "scenario_airtime_by_group": {
+          "conflict-dense": {
+            "cg-shared": 18.75
+          },
+          "partial-blockage": {
+            "cg-ab": 1.8772978992378284,
+            "cg-ac": 23.995426604573918,
+            "cg-bc": 6.146520765745935
+          },
+          "persistent-degradation": {
+            "cg-ab": 7.622254730409825,
+            "cg-ac": 23.995426604573918,
+            "cg-bc": 35.58044877248051
+          }
+        },
+        "scenario_delay_costs": {
+          "conflict-dense": 2979.8250000000003,
+          "partial-blockage": 4178.25,
+          "persistent-degradation": 12582.5
+        },
+        "slo_slack": 0.0,
+        "total_objective": Infinity
+      },
+      "moves": 0,
+      "placement": {
+        "replica-0": "mape-cap-confirm-worker",
+        "replica-1": "mape-cap-confirm-worker2",
+        "replica-2": "mape-cap-confirm-worker3",
+        "replica-3": "mape-cap-confirm-worker",
+        "replica-4": "mape-cap-confirm-worker2",
+        "replica-5": "mape-cap-confirm-worker3"
+      },
+      "planned_feasible": false,
+      "planner": {
+        "solver": "identity"
+      },
+      "planner_abstained": false,
+      "planner_status": "identity",
+      "worst_conflict_utilization": 1.25
+    }
+  },
+  "seed": 44028,
+  "target": 1.25
+}

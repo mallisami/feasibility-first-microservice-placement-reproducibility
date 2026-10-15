@@ -1,0 +1,20 @@
+scheduler:
+  name: network-aware-scheduler
+  image: registry.k8s.io/scheduler-plugins/kube-scheduler:v0.33.5
+  replicaCount: 1
+  leaderElect: false
+controller:
+  name: scheduler-plugins-controller
+  image: registry.k8s.io/scheduler-plugins/controller:v0.33.5
+  replicaCount: 1
+  leaderElect: false
+plugins:
+  enabled: ["NetworkOverhead"]
+  disabled: ["NodeResourcesFit"]
+pluginConfig:
+  - name: NetworkOverhead
+    args:
+      namespaces:
+        - "online-boutique"
+      weightsName: "UserDefined"
+      networkTopologyName: "bplus-se6-topology"

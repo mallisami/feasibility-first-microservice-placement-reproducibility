@@ -1,0 +1,587 @@
+{
+  "decision_window_seconds": 60.0,
+  "scenarios": [
+    {
+      "scenario_id": "nominal-los",
+      "weight": 0.35,
+      "conflict_budgets_seconds": {
+        "cg-ab": 45.0,
+        "cg-ac": 45.0,
+        "cg-bc": 45.0
+      },
+      "intra_rack_goodput_bps": 100000000000.0,
+      "intra_rack_latency_ms": 0.2,
+      "links": [
+        {
+          "available": true,
+          "conflict_group": "cg-ab",
+          "destination_rack": "rack-b",
+          "goodput_bps": 2233860000.0,
+          "latency_ms": 1.2,
+          "path_id": "wireless-ab",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS9",
+          "source_rack": "rack-a"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-ab",
+          "destination_rack": "rack-a",
+          "goodput_bps": 2072510000.0000002,
+          "latency_ms": 1.3,
+          "path_id": "wireless-ba",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS8",
+          "source_rack": "rack-b"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-ac",
+          "destination_rack": "rack-c",
+          "goodput_bps": 1745170000.0,
+          "latency_ms": 1.8,
+          "path_id": "wireless-ac",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS7",
+          "source_rack": "rack-a"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-ac",
+          "destination_rack": "rack-a",
+          "goodput_bps": 1745170000.0,
+          "latency_ms": 1.9,
+          "path_id": "wireless-ca",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS7",
+          "source_rack": "rack-c"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-bc",
+          "destination_rack": "rack-c",
+          "goodput_bps": 2072510000.0000002,
+          "latency_ms": 1.5,
+          "path_id": "wireless-bc",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS8",
+          "source_rack": "rack-b"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-bc",
+          "destination_rack": "rack-b",
+          "goodput_bps": 2233860000.0,
+          "latency_ms": 1.4,
+          "path_id": "wireless-cb",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS9",
+          "source_rack": "rack-c"
+        }
+      ]
+    },
+    {
+      "scenario_id": "asymmetric-los",
+      "weight": 0.2,
+      "conflict_budgets_seconds": {
+        "cg-ab": 45.0,
+        "cg-ac": 45.0,
+        "cg-bc": 45.0
+      },
+      "intra_rack_goodput_bps": 100000000000.0,
+      "intra_rack_latency_ms": 0.2,
+      "links": [
+        {
+          "available": true,
+          "conflict_group": "cg-ab",
+          "destination_rack": "rack-b",
+          "goodput_bps": 2233860000.0,
+          "latency_ms": 1.2,
+          "path_id": "wireless-ab",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS9",
+          "source_rack": "rack-a"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-ab",
+          "destination_rack": "rack-a",
+          "goodput_bps": 2072510000.0000002,
+          "latency_ms": 1.3,
+          "path_id": "wireless-ba",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS8",
+          "source_rack": "rack-b"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-ac",
+          "destination_rack": "rack-c",
+          "goodput_bps": 2072510000.0000002,
+          "latency_ms": 1.7,
+          "path_id": "wireless-ac",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS8",
+          "source_rack": "rack-a"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-ac",
+          "destination_rack": "rack-a",
+          "goodput_bps": 1745170000.0,
+          "latency_ms": 1.9,
+          "path_id": "wireless-ca",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS7",
+          "source_rack": "rack-c"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-bc",
+          "destination_rack": "rack-c",
+          "goodput_bps": 2233860000.0,
+          "latency_ms": 1.3,
+          "path_id": "wireless-bc",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS9",
+          "source_rack": "rack-b"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-bc",
+          "destination_rack": "rack-b",
+          "goodput_bps": 1745170000.0,
+          "latency_ms": 1.6,
+          "path_id": "wireless-cb",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS7",
+          "source_rack": "rack-c"
+        }
+      ]
+    },
+    {
+      "scenario_id": "recovery",
+      "weight": 0.15,
+      "conflict_budgets_seconds": {
+        "cg-ab": 45.0,
+        "cg-ac": 45.0,
+        "cg-bc": 45.0
+      },
+      "intra_rack_goodput_bps": 100000000000.0,
+      "intra_rack_latency_ms": 0.2,
+      "links": [
+        {
+          "available": true,
+          "conflict_group": "cg-ab",
+          "destination_rack": "rack-b",
+          "goodput_bps": 1745170000.0,
+          "latency_ms": 1.9,
+          "path_id": "wireless-ab",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS7",
+          "source_rack": "rack-a"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-ab",
+          "destination_rack": "rack-a",
+          "goodput_bps": 2233860000.0,
+          "latency_ms": 1.2,
+          "path_id": "wireless-ba",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS9",
+          "source_rack": "rack-b"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-ac",
+          "destination_rack": "rack-c",
+          "goodput_bps": 1745170000.0,
+          "latency_ms": 1.8,
+          "path_id": "wireless-ac",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS7",
+          "source_rack": "rack-a"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-ac",
+          "destination_rack": "rack-a",
+          "goodput_bps": 1745170000.0,
+          "latency_ms": 1.9,
+          "path_id": "wireless-ca",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS7",
+          "source_rack": "rack-c"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-bc",
+          "destination_rack": "rack-c",
+          "goodput_bps": 2072510000.0000002,
+          "latency_ms": 1.5,
+          "path_id": "wireless-bc",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS8",
+          "source_rack": "rack-b"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-bc",
+          "destination_rack": "rack-b",
+          "goodput_bps": 2233860000.0,
+          "latency_ms": 1.4,
+          "path_id": "wireless-cb",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS9",
+          "source_rack": "rack-c"
+        }
+      ]
+    },
+    {
+      "scenario_id": "persistent-degradation",
+      "weight": 0.1,
+      "conflict_budgets_seconds": {
+        "cg-ab": 45.0,
+        "cg-ac": 45.0,
+        "cg-bc": 45.0
+      },
+      "intra_rack_goodput_bps": 100000000000.0,
+      "intra_rack_latency_ms": 0.2,
+      "links": [
+        {
+          "available": true,
+          "conflict_group": "cg-ab",
+          "destination_rack": "rack-b",
+          "goodput_bps": 1070819999.9999999,
+          "latency_ms": 3.8,
+          "path_id": "wireless-ab",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS4",
+          "source_rack": "rack-a"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-ab",
+          "destination_rack": "rack-a",
+          "goodput_bps": 1070819999.9999999,
+          "latency_ms": 3.9,
+          "path_id": "wireless-ba",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS4",
+          "source_rack": "rack-b"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-ac",
+          "destination_rack": "rack-c",
+          "goodput_bps": 1070819999.9999999,
+          "latency_ms": 4.1,
+          "path_id": "wireless-ac",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS4",
+          "source_rack": "rack-a"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-ac",
+          "destination_rack": "rack-a",
+          "goodput_bps": 1070819999.9999999,
+          "latency_ms": 4.0,
+          "path_id": "wireless-ca",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS4",
+          "source_rack": "rack-c"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-bc",
+          "destination_rack": "rack-c",
+          "goodput_bps": 1070819999.9999999,
+          "latency_ms": 3.7,
+          "path_id": "wireless-bc",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS4",
+          "source_rack": "rack-b"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-bc",
+          "destination_rack": "rack-b",
+          "goodput_bps": 1070819999.9999999,
+          "latency_ms": 3.9,
+          "path_id": "wireless-cb",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS4",
+          "source_rack": "rack-c"
+        }
+      ]
+    },
+    {
+      "scenario_id": "partial-blockage",
+      "weight": 0.1,
+      "conflict_budgets_seconds": {
+        "cg-ab": 45.0,
+        "cg-ac": 45.0,
+        "cg-bc": 45.0
+      },
+      "intra_rack_goodput_bps": 100000000000.0,
+      "intra_rack_latency_ms": 0.2,
+      "links": [
+        {
+          "available": true,
+          "conflict_group": "cg-ab",
+          "destination_rack": "rack-b",
+          "goodput_bps": 716287000.0,
+          "goodput_bps_notes": "partially blocked beam",
+          "latency_ms": 8.4,
+          "path_id": "wireless-ab",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS2",
+          "source_rack": "rack-a"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-ab",
+          "destination_rack": "rack-a",
+          "goodput_bps": 716287000.0,
+          "latency_ms": 8.9,
+          "path_id": "wireless-ba",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS2",
+          "source_rack": "rack-b"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-ac",
+          "destination_rack": "rack-c",
+          "goodput_bps": 2233860000.0,
+          "latency_ms": 1.2,
+          "path_id": "wireless-ac",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS9",
+          "source_rack": "rack-a"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-ac",
+          "destination_rack": "rack-a",
+          "goodput_bps": 2072510000.0000002,
+          "latency_ms": 1.3,
+          "path_id": "wireless-ca",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS8",
+          "source_rack": "rack-c"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-bc",
+          "destination_rack": "rack-c",
+          "goodput_bps": 716287000.0,
+          "latency_ms": 9.2,
+          "path_id": "wireless-bc",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS2",
+          "source_rack": "rack-b"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-bc",
+          "destination_rack": "rack-b",
+          "goodput_bps": 716287000.0,
+          "latency_ms": 8.7,
+          "path_id": "wireless-cb",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS2",
+          "source_rack": "rack-c"
+        }
+      ]
+    },
+    {
+      "scenario_id": "mixed-regime",
+      "weight": 0.05,
+      "conflict_budgets_seconds": {
+        "cg-ab": 45.0,
+        "cg-ac": 45.0,
+        "cg-bc": 45.0
+      },
+      "intra_rack_goodput_bps": 100000000000.0,
+      "intra_rack_latency_ms": 0.2,
+      "links": [
+        {
+          "available": true,
+          "conflict_group": "cg-ab",
+          "destination_rack": "rack-b",
+          "goodput_bps": 2233860000.0,
+          "latency_ms": 1.2,
+          "path_id": "wireless-ab",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS9",
+          "source_rack": "rack-a"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-ab",
+          "destination_rack": "rack-a",
+          "goodput_bps": 716287000.0,
+          "latency_ms": 8.5,
+          "path_id": "wireless-ba",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS2",
+          "source_rack": "rack-b"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-ac",
+          "destination_rack": "rack-c",
+          "goodput_bps": 1070819999.9999999,
+          "latency_ms": 3.9,
+          "path_id": "wireless-ac",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS4",
+          "source_rack": "rack-a"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-ac",
+          "destination_rack": "rack-a",
+          "goodput_bps": 1745170000.0,
+          "latency_ms": 1.8,
+          "path_id": "wireless-ca",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS7",
+          "source_rack": "rack-c"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-bc",
+          "destination_rack": "rack-c",
+          "goodput_bps": 2072510000.0000002,
+          "latency_ms": 1.5,
+          "path_id": "wireless-bc",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS8",
+          "source_rack": "rack-b"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-bc",
+          "destination_rack": "rack-b",
+          "goodput_bps": 2233860000.0,
+          "latency_ms": 1.4,
+          "path_id": "wireless-cb",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS9",
+          "source_rack": "rack-c"
+        }
+      ]
+    },
+    {
+      "scenario_id": "outage-with-fallback",
+      "weight": 0.1,
+      "conflict_budgets_seconds": {
+        "cg-ab": 45.0,
+        "cg-bc": 45.0
+      },
+      "intra_rack_goodput_bps": 100000000000.0,
+      "intra_rack_latency_ms": 0.2,
+      "links": [
+        {
+          "available": true,
+          "conflict_group": "cg-ab",
+          "destination_rack": "rack-b",
+          "goodput_bps": 2233860000.0,
+          "latency_ms": 1.2,
+          "path_id": "wireless-ab",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS9",
+          "source_rack": "rack-a"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-ab",
+          "destination_rack": "rack-a",
+          "goodput_bps": 2072510000.0000002,
+          "latency_ms": 1.3,
+          "path_id": "wireless-ba",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS8",
+          "source_rack": "rack-b"
+        },
+        {
+          "available": true,
+          "conflict_group": null,
+          "destination_rack": "rack-c",
+          "goodput_bps": 1000000000.0,
+          "latency_ms": 5.0,
+          "path_id": "wired-fallback-ac",
+          "provenance": "derived-from-published-802.11ad-parameters",
+          "source_rack": "rack-a"
+        },
+        {
+          "available": true,
+          "conflict_group": null,
+          "destination_rack": "rack-a",
+          "goodput_bps": 1000000000.0,
+          "latency_ms": 5.0,
+          "path_id": "wired-fallback-ca",
+          "provenance": "derived-from-published-802.11ad-parameters",
+          "source_rack": "rack-c"
+        },
+        {
+          "available": false,
+          "conflict_group": "cg-bc",
+          "destination_rack": "rack-c",
+          "goodput_bps": 0.0,
+          "latency_ms": 0.0,
+          "path_id": "wireless-bc-down",
+          "provenance": "derived-from-published-802.11ad-parameters",
+          "source_rack": "rack-b"
+        },
+        {
+          "available": false,
+          "conflict_group": "cg-bc",
+          "destination_rack": "rack-b",
+          "goodput_bps": 0.0,
+          "latency_ms": 0.0,
+          "path_id": "wireless-cb-down",
+          "provenance": "derived-from-published-802.11ad-parameters",
+          "source_rack": "rack-c"
+        }
+      ]
+    },
+    {
+      "scenario_id": "conflict-dense",
+      "weight": 0.1,
+      "conflict_budgets_seconds": {
+        "cg-shared": 15.0
+      },
+      "intra_rack_goodput_bps": 100000000000.0,
+      "intra_rack_latency_ms": 0.2,
+      "links": [
+        {
+          "available": true,
+          "conflict_group": "cg-shared",
+          "destination_rack": "rack-b",
+          "goodput_bps": 1745170000.0,
+          "latency_ms": 2.5,
+          "path_id": "wireless-ab",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS7",
+          "source_rack": "rack-a"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-shared",
+          "destination_rack": "rack-a",
+          "goodput_bps": 1413120000.0,
+          "latency_ms": 2.8,
+          "path_id": "wireless-ba",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS6",
+          "source_rack": "rack-b"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-shared",
+          "destination_rack": "rack-c",
+          "goodput_bps": 1157630000.0,
+          "latency_ms": 3.0,
+          "path_id": "wireless-ac",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS5",
+          "source_rack": "rack-a"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-shared",
+          "destination_rack": "rack-a",
+          "goodput_bps": 1157630000.0,
+          "latency_ms": 3.2,
+          "path_id": "wireless-ca",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS5",
+          "source_rack": "rack-c"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-shared",
+          "destination_rack": "rack-c",
+          "goodput_bps": 1745170000.0,
+          "latency_ms": 2.2,
+          "path_id": "wireless-bc",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS7",
+          "source_rack": "rack-b"
+        },
+        {
+          "available": true,
+          "conflict_group": "cg-shared",
+          "destination_rack": "rack-b",
+          "goodput_bps": 1413120000.0,
+          "latency_ms": 2.4,
+          "path_id": "wireless-cb",
+          "provenance": "ns3-wigig-v0.5-simulation-MCS6",
+          "source_rack": "rack-c"
+        }
+      ]
+    }
+  ]
+}

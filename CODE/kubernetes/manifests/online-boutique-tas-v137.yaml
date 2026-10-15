@@ -1,0 +1,79 @@
+apiVersion: scheduling.k8s.io/v1alpha3
+kind: Workload
+metadata:
+  name: online-boutique-tas
+  namespace: online-boutique
+spec:
+  compositePodGroupTemplates:
+    - name: root
+      schedulingPolicy:
+        gang:
+          minGroupCount: 2
+      schedulingConstraints:
+        topology:
+          - key: topology.mape-cap/zone
+      podGroupTemplates:
+        - name: request-path
+          schedulingPolicy:
+            gang:
+              minCount: 4
+          schedulingConstraints:
+            topology:
+              - key: topology.mape-cap/rack
+        - name: supporting-services
+          schedulingPolicy:
+            gang:
+              minCount: 7
+          schedulingConstraints:
+            topology:
+              - key: topology.mape-cap/rack
+---
+apiVersion: scheduling.k8s.io/v1alpha3
+kind: CompositePodGroup
+metadata:
+  name: online-boutique-root
+  namespace: online-boutique
+spec:
+  workloadRef:
+    workloadName: online-boutique-tas
+    templateName: root
+  schedulingPolicy:
+    gang:
+      minGroupCount: 2
+  schedulingConstraints:
+    topology:
+      - key: topology.mape-cap/zone
+---
+apiVersion: scheduling.k8s.io/v1beta1
+kind: PodGroup
+metadata:
+  name: online-boutique-request-path
+  namespace: online-boutique
+spec:
+  parentCompositePodGroupName: online-boutique-root
+  workloadRef:
+    workloadName: online-boutique-tas
+    templateName: request-path
+  schedulingPolicy:
+    gang:
+      minCount: 4
+  schedulingConstraints:
+    topology:
+      - key: topology.mape-cap/rack
+---
+apiVersion: scheduling.k8s.io/v1beta1
+kind: PodGroup
+metadata:
+  name: online-boutique-supporting-services
+  namespace: online-boutique
+spec:
+  parentCompositePodGroupName: online-boutique-root
+  workloadRef:
+    workloadName: online-boutique-tas
+    templateName: supporting-services
+  schedulingPolicy:
+    gang:
+      minCount: 7
+  schedulingConstraints:
+    topology:
+      - key: topology.mape-cap/rack

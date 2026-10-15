@@ -1,0 +1,561 @@
+{
+  "accepted": true,
+  "api_objects": {
+    "composite_pod_group": {
+      "apiVersion": "scheduling.k8s.io/v1alpha3",
+      "kind": "CompositePodGroup",
+      "metadata": {
+        "annotations": {
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"scheduling.k8s.io/v1alpha3\",\"kind\":\"CompositePodGroup\",\"metadata\":{\"annotations\":{},\"name\":\"online-boutique-root\",\"namespace\":\"online-boutique\"},\"spec\":{\"schedulingConstraints\":{\"topology\":[{\"key\":\"topology.mape-cap/zone\"}]},\"schedulingPolicy\":{\"gang\":{\"minGroupCount\":2}},\"workloadRef\":{\"templateName\":\"root\",\"workloadName\":\"online-boutique-tas\"}}}\n"
+        },
+        "creationTimestamp": "2026-09-18T09:05:06Z",
+        "name": "online-boutique-root",
+        "namespace": "online-boutique",
+        "resourceVersion": "851",
+        "uid": "eb676680-8e91-4cc0-be5f-b616843fd413"
+      },
+      "spec": {
+        "disruptionMode": {
+          "single": {}
+        },
+        "priority": 0,
+        "schedulingConstraints": {
+          "topology": [
+            {
+              "key": "topology.mape-cap/zone"
+            }
+          ]
+        },
+        "schedulingPolicy": {
+          "gang": {
+            "minGroupCount": 2
+          }
+        },
+        "workloadRef": {
+          "templateName": "root",
+          "workloadName": "online-boutique-tas"
+        }
+      },
+      "status": {}
+    },
+    "pod_groups": {
+      "apiVersion": "v1",
+      "items": [
+        {
+          "apiVersion": "scheduling.k8s.io/v1beta1",
+          "kind": "PodGroup",
+          "metadata": {
+            "annotations": {
+              "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"scheduling.k8s.io/v1beta1\",\"kind\":\"PodGroup\",\"metadata\":{\"annotations\":{},\"name\":\"online-boutique-request-path\",\"namespace\":\"online-boutique\"},\"spec\":{\"parentCompositePodGroupName\":\"online-boutique-root\",\"schedulingConstraints\":{\"topology\":[{\"key\":\"topology.mape-cap/rack\"}]},\"schedulingPolicy\":{\"gang\":{\"minCount\":4}},\"workloadRef\":{\"templateName\":\"request-path\",\"workloadName\":\"online-boutique-tas\"}}}\n"
+            },
+            "creationTimestamp": "2026-09-18T09:05:06Z",
+            "finalizers": [
+              "scheduling.k8s.io/podgroup-protection"
+            ],
+            "name": "online-boutique-request-path",
+            "namespace": "online-boutique",
+            "resourceVersion": "1018",
+            "uid": "8915ba61-0d3d-4ae2-953c-5d9010e58e8b"
+          },
+          "spec": {
+            "disruptionMode": {
+              "single": {}
+            },
+            "parentCompositePodGroupName": "online-boutique-root",
+            "priority": 0,
+            "schedulingConstraints": {
+              "topology": [
+                {
+                  "key": "topology.mape-cap/rack"
+                }
+              ]
+            },
+            "schedulingPolicy": {
+              "gang": {
+                "minCount": 4
+              }
+            },
+            "workloadRef": {
+              "templateName": "request-path",
+              "workloadName": "online-boutique-tas"
+            }
+          },
+          "status": {
+            "conditions": [
+              {
+                "lastTransitionTime": "2026-09-18T09:05:08Z",
+                "message": "",
+                "reason": "Scheduled",
+                "status": "True",
+                "type": "PodGroupInitiallyScheduled"
+              }
+            ]
+          }
+        },
+        {
+          "apiVersion": "scheduling.k8s.io/v1beta1",
+          "kind": "PodGroup",
+          "metadata": {
+            "annotations": {
+              "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"scheduling.k8s.io/v1beta1\",\"kind\":\"PodGroup\",\"metadata\":{\"annotations\":{},\"name\":\"online-boutique-supporting-services\",\"namespace\":\"online-boutique\"},\"spec\":{\"parentCompositePodGroupName\":\"online-boutique-root\",\"schedulingConstraints\":{\"topology\":[{\"key\":\"topology.mape-cap/rack\"}]},\"schedulingPolicy\":{\"gang\":{\"minCount\":7}},\"workloadRef\":{\"templateName\":\"supporting-services\",\"workloadName\":\"online-boutique-tas\"}}}\n"
+            },
+            "creationTimestamp": "2026-09-18T09:05:06Z",
+            "finalizers": [
+              "scheduling.k8s.io/podgroup-protection"
+            ],
+            "name": "online-boutique-supporting-services",
+            "namespace": "online-boutique",
+            "resourceVersion": "1024",
+            "uid": "62255c41-0aea-4903-84b5-17bc89de5a83"
+          },
+          "spec": {
+            "disruptionMode": {
+              "single": {}
+            },
+            "parentCompositePodGroupName": "online-boutique-root",
+            "priority": 0,
+            "schedulingConstraints": {
+              "topology": [
+                {
+                  "key": "topology.mape-cap/rack"
+                }
+              ]
+            },
+            "schedulingPolicy": {
+              "gang": {
+                "minCount": 7
+              }
+            },
+            "workloadRef": {
+              "templateName": "supporting-services",
+              "workloadName": "online-boutique-tas"
+            }
+          },
+          "status": {
+            "conditions": [
+              {
+                "lastTransitionTime": "2026-09-18T09:05:08Z",
+                "message": "",
+                "reason": "Scheduled",
+                "status": "True",
+                "type": "PodGroupInitiallyScheduled"
+              }
+            ]
+          }
+        }
+      ],
+      "kind": "List",
+      "metadata": {
+        "resourceVersion": ""
+      }
+    },
+    "workload": {
+      "apiVersion": "scheduling.k8s.io/v1beta1",
+      "kind": "Workload",
+      "metadata": {
+        "annotations": {
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"scheduling.k8s.io/v1alpha3\",\"kind\":\"Workload\",\"metadata\":{\"annotations\":{},\"name\":\"online-boutique-tas\",\"namespace\":\"online-boutique\"},\"spec\":{\"compositePodGroupTemplates\":[{\"name\":\"root\",\"podGroupTemplates\":[{\"name\":\"request-path\",\"schedulingConstraints\":{\"topology\":[{\"key\":\"topology.mape-cap/rack\"}]},\"schedulingPolicy\":{\"gang\":{\"minCount\":4}}},{\"name\":\"supporting-services\",\"schedulingConstraints\":{\"topology\":[{\"key\":\"topology.mape-cap/rack\"}]},\"schedulingPolicy\":{\"gang\":{\"minCount\":7}}}],\"schedulingConstraints\":{\"topology\":[{\"key\":\"topology.mape-cap/zone\"}]},\"schedulingPolicy\":{\"gang\":{\"minGroupCount\":2}}}]}}\n"
+        },
+        "creationTimestamp": "2026-09-18T09:05:06Z",
+        "name": "online-boutique-tas",
+        "namespace": "online-boutique",
+        "resourceVersion": "850",
+        "uid": "74eb4393-d74b-4135-a696-5baf350b23c2"
+      },
+      "spec": {
+        "compositePodGroupTemplates": [
+          {
+            "name": "root",
+            "podGroupTemplates": [
+              {
+                "name": "request-path",
+                "schedulingConstraints": {
+                  "topology": [
+                    {
+                      "key": "topology.mape-cap/rack"
+                    }
+                  ]
+                },
+                "schedulingPolicy": {
+                  "gang": {
+                    "minCount": 4
+                  }
+                }
+              },
+              {
+                "name": "supporting-services",
+                "schedulingConstraints": {
+                  "topology": [
+                    {
+                      "key": "topology.mape-cap/rack"
+                    }
+                  ]
+                },
+                "schedulingPolicy": {
+                  "gang": {
+                    "minCount": 7
+                  }
+                }
+              }
+            ],
+            "schedulingConstraints": {
+              "topology": [
+                {
+                  "key": "topology.mape-cap/zone"
+                }
+              ]
+            },
+            "schedulingPolicy": {
+              "gang": {
+                "minGroupCount": 2
+              }
+            }
+          }
+        ],
+        "podGroupTemplates": null
+      }
+    }
+  },
+  "api_versions": [
+    "scheduling.k8s.io/v1beta1",
+    "scheduling.k8s.io/v1alpha3"
+  ],
+  "arm": "item5-native-tas-composite-pod-group",
+  "completed_utc": "2026-09-18T09:14:26.055343Z",
+  "condition": {
+    "latency_ms": 40,
+    "load_multiplier": 2.0,
+    "loss_pct": 2.0,
+    "rate_mbit": 20
+  },
+  "duration_seconds": 420,
+  "feature_gates": [
+    "GenericWorkload",
+    "TopologyAwareWorkloadScheduling",
+    "CompositePodGroup"
+  ],
+  "group_assignments": {
+    "adservice": "online-boutique-supporting-services",
+    "cartservice": "online-boutique-supporting-services",
+    "checkoutservice": "online-boutique-request-path",
+    "currencyservice": "online-boutique-supporting-services",
+    "emailservice": "online-boutique-supporting-services",
+    "frontend": "online-boutique-request-path",
+    "paymentservice": "online-boutique-request-path",
+    "productcatalogservice": "online-boutique-supporting-services",
+    "recommendationservice": "online-boutique-supporting-services",
+    "redis-cart": "online-boutique-supporting-services",
+    "shippingservice": "online-boutique-request-path"
+  },
+  "health": {
+    "healthy": true,
+    "pods": [
+      {
+        "app": "adservice",
+        "phase": "Running",
+        "pod": "adservice-7b79b7cfc9-v6rg7",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "cartservice",
+        "phase": "Running",
+        "pod": "cartservice-8bdc9d6f4-ztrcv",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "checkoutservice",
+        "phase": "Running",
+        "pod": "checkoutservice-75d5688dd4-9tfp8",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "currencyservice",
+        "phase": "Running",
+        "pod": "currencyservice-578997dc89-xwlkw",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "emailservice",
+        "phase": "Running",
+        "pod": "emailservice-765d9df8f4-vhcxk",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "frontend",
+        "phase": "Running",
+        "pod": "frontend-85465b549c-4j88d",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-858cf45cc7-cr4f4",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-858cf45cc7-mnll8",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "paymentservice",
+        "phase": "Running",
+        "pod": "paymentservice-5f7646d94d-c7wc5",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "productcatalogservice",
+        "phase": "Running",
+        "pod": "productcatalogservice-7d8474554c-z69w8",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "recommendationservice",
+        "phase": "Running",
+        "pod": "recommendationservice-5fd9f5977-t9w48",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "redis-cart",
+        "phase": "Running",
+        "pod": "redis-cart-54d5c58588-bc7pj",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "shippingservice",
+        "phase": "Running",
+        "pod": "shippingservice-7d99f55754-lf55d",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  "kubernetes": "v1.37.0",
+  "measurement": {
+    "application": {
+      "condition_events": [
+        {
+          "applied_utc": "2026-09-18T09:07:25.216214Z",
+          "condition": "confirmatory-persistent-severe",
+          "destination_node": "mcb-k137-worker2",
+          "initial": {
+            "delay_ms": 40,
+            "loss_pct": 2.0,
+            "rate_mbit": 20,
+            "scope": "all-worker-egress"
+          },
+          "source_node": "mcb-k137-worker"
+        }
+      ],
+      "error_rate": 0.0,
+      "errors": 0,
+      "evidence_type": "frontend-structured-request-log",
+      "mean_ms": 31.812379110251452,
+      "operations": {
+        "GET /": 229,
+        "GET /cart": 437,
+        "GET /product/0PUK6V6EV0": 120,
+        "GET /product/1YMWWN1N4O": 93,
+        "GET /product/2ZYFJ3GM2N": 100,
+        "GET /product/66VCHSJNUP": 114,
+        "GET /product/6E92ZMYYFZ": 107,
+        "GET /product/9SIQT8TOJO": 119,
+        "GET /product/L9ECAV7KIM": 101,
+        "GET /product/LS4PSXUNUM": 110,
+        "GET /product/OLJCESPC7Z": 120,
+        "POST /cart": 213,
+        "POST /cart/checkout": 67,
+        "POST /setCurrency": 138
+      },
+      "p50_ms": 8.0,
+      "p95_ms": 52.0,
+      "p99_ms": 61.0,
+      "requests": 2068,
+      "response_bytes": 17804098,
+      "slo_threshold_ms": 500.0,
+      "slo_violations": 8,
+      "successes": 2068,
+      "throughput_requests_per_second": 4.923809523809524,
+      "timeouts": 0
+    },
+    "resources": {
+      "max_cpu_cores": 0.544128024,
+      "max_memory_mib": 463.3515625,
+      "mean_cpu_cores": 0.10217453169333333,
+      "mean_memory_mib": 424.7274479166667,
+      "network_bytes_per_second": 158104.85714285713,
+      "network_rx_bytes": 28947904,
+      "network_tx_bytes": 37456136
+    }
+  },
+  "placement": {
+    "groups": {
+      "online-boutique-request-path": {
+        "expected_count": 4,
+        "members": [
+          {
+            "app": "checkoutservice",
+            "node": "mcb-k137-worker3",
+            "phase": "Running",
+            "pod": "checkoutservice-75d5688dd4-9tfp8",
+            "pod_group": "online-boutique-request-path",
+            "rack": "rack-c",
+            "zone": "zone-a"
+          },
+          {
+            "app": "frontend",
+            "node": "mcb-k137-worker3",
+            "phase": "Running",
+            "pod": "frontend-85465b549c-4j88d",
+            "pod_group": "online-boutique-request-path",
+            "rack": "rack-c",
+            "zone": "zone-a"
+          },
+          {
+            "app": "paymentservice",
+            "node": "mcb-k137-worker3",
+            "phase": "Running",
+            "pod": "paymentservice-5f7646d94d-c7wc5",
+            "pod_group": "online-boutique-request-path",
+            "rack": "rack-c",
+            "zone": "zone-a"
+          },
+          {
+            "app": "shippingservice",
+            "node": "mcb-k137-worker3",
+            "phase": "Running",
+            "pod": "shippingservice-7d99f55754-lf55d",
+            "pod_group": "online-boutique-request-path",
+            "rack": "rack-c",
+            "zone": "zone-a"
+          }
+        ],
+        "racks": [
+          "rack-c"
+        ],
+        "zones": [
+          "zone-a"
+        ]
+      },
+      "online-boutique-supporting-services": {
+        "expected_count": 7,
+        "members": [
+          {
+            "app": "adservice",
+            "node": "mcb-k137-worker3",
+            "phase": "Running",
+            "pod": "adservice-7b79b7cfc9-v6rg7",
+            "pod_group": "online-boutique-supporting-services",
+            "rack": "rack-c",
+            "zone": "zone-a"
+          },
+          {
+            "app": "cartservice",
+            "node": "mcb-k137-worker3",
+            "phase": "Running",
+            "pod": "cartservice-8bdc9d6f4-ztrcv",
+            "pod_group": "online-boutique-supporting-services",
+            "rack": "rack-c",
+            "zone": "zone-a"
+          },
+          {
+            "app": "currencyservice",
+            "node": "mcb-k137-worker3",
+            "phase": "Running",
+            "pod": "currencyservice-578997dc89-xwlkw",
+            "pod_group": "online-boutique-supporting-services",
+            "rack": "rack-c",
+            "zone": "zone-a"
+          },
+          {
+            "app": "emailservice",
+            "node": "mcb-k137-worker3",
+            "phase": "Running",
+            "pod": "emailservice-765d9df8f4-vhcxk",
+            "pod_group": "online-boutique-supporting-services",
+            "rack": "rack-c",
+            "zone": "zone-a"
+          },
+          {
+            "app": "productcatalogservice",
+            "node": "mcb-k137-worker3",
+            "phase": "Running",
+            "pod": "productcatalogservice-7d8474554c-z69w8",
+            "pod_group": "online-boutique-supporting-services",
+            "rack": "rack-c",
+            "zone": "zone-a"
+          },
+          {
+            "app": "recommendationservice",
+            "node": "mcb-k137-worker3",
+            "phase": "Running",
+            "pod": "recommendationservice-5fd9f5977-t9w48",
+            "pod_group": "online-boutique-supporting-services",
+            "rack": "rack-c",
+            "zone": "zone-a"
+          },
+          {
+            "app": "redis-cart",
+            "node": "mcb-k137-worker3",
+            "phase": "Running",
+            "pod": "redis-cart-54d5c58588-bc7pj",
+            "pod_group": "online-boutique-supporting-services",
+            "rack": "rack-c",
+            "zone": "zone-a"
+          }
+        ],
+        "racks": [
+          "rack-c"
+        ],
+        "zones": [
+          "zone-a"
+        ]
+      }
+    },
+    "valid": true,
+    "workers": {
+      "mcb-k137-worker": {
+        "beta.kubernetes.io/arch": "amd64",
+        "beta.kubernetes.io/os": "linux",
+        "kubernetes.io/arch": "amd64",
+        "kubernetes.io/hostname": "mcb-k137-worker",
+        "kubernetes.io/os": "linux",
+        "topology.mape-cap/rack": "rack-a",
+        "topology.mape-cap/zone": "zone-a"
+      },
+      "mcb-k137-worker2": {
+        "beta.kubernetes.io/arch": "amd64",
+        "beta.kubernetes.io/os": "linux",
+        "kubernetes.io/arch": "amd64",
+        "kubernetes.io/hostname": "mcb-k137-worker2",
+        "kubernetes.io/os": "linux",
+        "topology.mape-cap/rack": "rack-b",
+        "topology.mape-cap/zone": "zone-a"
+      },
+      "mcb-k137-worker3": {
+        "beta.kubernetes.io/arch": "amd64",
+        "beta.kubernetes.io/os": "linux",
+        "kubernetes.io/arch": "amd64",
+        "kubernetes.io/hostname": "mcb-k137-worker3",
+        "kubernetes.io/os": "linux",
+        "topology.mape-cap/rack": "rack-c",
+        "topology.mape-cap/zone": "zone-a"
+      }
+    }
+  },
+  "schema_version": "1.0",
+  "shared_host_limitation": true
+}

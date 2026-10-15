@@ -1,0 +1,335 @@
+{
+  "actual_placement": {
+    "adservice": "mcb-k137-worker2",
+    "cartservice": "mcb-k137-worker3",
+    "checkoutservice": "mcb-k137-worker3",
+    "currencyservice": "mcb-k137-worker3",
+    "emailservice": "mcb-k137-worker",
+    "frontend": "mcb-k137-worker3",
+    "paymentservice": "mcb-k137-worker2",
+    "productcatalogservice": "mcb-k137-worker3",
+    "recommendationservice": "mcb-k137-worker3",
+    "redis-cart": "mcb-k137-worker2",
+    "shippingservice": "mcb-k137-worker2"
+  },
+  "candidate_placement": {
+    "adservice": "mcb-k137-worker2",
+    "cartservice": "mcb-k137-worker3",
+    "checkoutservice": "mcb-k137-worker3",
+    "currencyservice": "mcb-k137-worker3",
+    "emailservice": "mcb-k137-worker",
+    "frontend": "mcb-k137-worker3",
+    "paymentservice": "mcb-k137-worker2",
+    "productcatalogservice": "mcb-k137-worker3",
+    "recommendationservice": "mcb-k137-worker3",
+    "redis-cart": "mcb-k137-worker2",
+    "shippingservice": "mcb-k137-worker2"
+  },
+  "completed_utc": "2026-09-18T19:46:11.531001Z",
+  "detection_latency_s": 2.12368,
+  "detection_timestamp": "2026-09-18T19:45:53.444622Z",
+  "elapsed_s": 4.333954013000039,
+  "experiment": "S-E8",
+  "failure_reason": "telemetry_disabled",
+  "fallback_action": "retain_previous",
+  "fault_injection_timestamp": "2026-09-18T19:45:51.320942Z",
+  "fault_type": "F1-missing-telemetry",
+  "health": {
+    "healthy": true,
+    "pods": [
+      {
+        "app": "adservice",
+        "phase": "Running",
+        "pod": "adservice-f6d77cb5f-2996x",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "cartservice",
+        "phase": "Running",
+        "pod": "cartservice-7fb4888f-488vn",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "checkoutservice",
+        "phase": "Running",
+        "pod": "checkoutservice-7bd97c744b-5wkdx",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "currencyservice",
+        "phase": "Running",
+        "pod": "currencyservice-5fcd5f4cbb-bxtcz",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "emailservice",
+        "phase": "Running",
+        "pod": "emailservice-6d898f796b-gp2m6",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "frontend",
+        "phase": "Running",
+        "pod": "frontend-6858964bb4-rdrwh",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-cc6c8697d-8kzv7",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "paymentservice",
+        "phase": "Running",
+        "pod": "paymentservice-79d955fbd5-l6wlh",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "productcatalogservice",
+        "phase": "Running",
+        "pod": "productcatalogservice-7b778dcdb6-dwtxg",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "recommendationservice",
+        "phase": "Running",
+        "pod": "recommendationservice-77d8cf7846-24prt",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "redis-cart",
+        "phase": "Running",
+        "pod": "redis-cart-5b5d748598-5kdfw",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "shippingservice",
+        "phase": "Running",
+        "pod": "shippingservice-79c676d8c-7qp6f",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  "post_fault": {
+    "application": {
+      "application": {
+        "error_rate": 0.0,
+        "errors": 0,
+        "evidence_type": "frontend-structured-request-log",
+        "mean_ms": 13.0,
+        "operations": {
+          "GET /": 10,
+          "GET /cart": 5,
+          "GET /product/0PUK6V6EV0": 2,
+          "GET /product/1YMWWN1N4O": 1,
+          "GET /product/2ZYFJ3GM2N": 2,
+          "GET /product/66VCHSJNUP": 1,
+          "GET /product/6E92ZMYYFZ": 1,
+          "GET /product/L9ECAV7KIM": 4,
+          "GET /product/LS4PSXUNUM": 2,
+          "GET /product/OLJCESPC7Z": 4,
+          "POST /cart": 2,
+          "POST /setCurrency": 9
+        },
+        "p50_ms": 10.0,
+        "p95_ms": 44.0,
+        "p99_ms": 82.0,
+        "requests": 43,
+        "response_bytes": 320365,
+        "throughput_requests_per_second": 2.8666666666666667
+      },
+      "resources": {
+        "max_cpu_cores": 0.124130294,
+        "max_memory_mib": 365.65625,
+        "mean_cpu_cores": 0.10466801875,
+        "mean_memory_mib": 362.8212890625,
+        "network_bytes_per_second": 97801.26666666666,
+        "network_rx_bytes": 691084,
+        "network_tx_bytes": 775935
+      }
+    },
+    "resources": {
+      "captured_utc": "2026-09-18T19:45:55.654919Z",
+      "disk_free_gib": 111.32329177856445,
+      "docker_available": true,
+      "docker_driver": "overlayfs",
+      "docker_mem_total_gib": 15.566009521484375,
+      "docker_server_version": "29.1.3",
+      "host_available_gib": 13.11661148071289,
+      "host_total_gib": 15.566009521484375,
+      "kubernetes_available": true,
+      "kubernetes_version": {
+        "clientVersion": {
+          "buildDate": "2026-08-26T10:48:06Z",
+          "compiler": "gc",
+          "gitCommit": "f54c212e3a2f75d674b717a9b29052b20b60aefc",
+          "gitTreeState": "clean",
+          "gitVersion": "v1.37.0",
+          "goVersion": "go1.26.6",
+          "major": "1",
+          "minor": "37",
+          "platform": "linux/amd64"
+        },
+        "kustomizeVersion": "v5.8.1",
+        "serverVersion": {
+          "buildDate": "2026-08-26T10:44:25Z",
+          "compiler": "gc",
+          "emulationMajor": "1",
+          "emulationMinor": "37",
+          "gitCommit": "f54c212e3a2f75d674b717a9b29052b20b60aefc",
+          "gitTreeState": "clean",
+          "gitVersion": "v1.37.0",
+          "goVersion": "go1.26.6",
+          "major": "1",
+          "minCompatibilityMajor": "1",
+          "minCompatibilityMinor": "36",
+          "minor": "37",
+          "platform": "linux/amd64"
+        }
+      },
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+    }
+  },
+  "pre_fault": {
+    "application": {
+      "application": {
+        "error_rate": 0.0,
+        "errors": 0,
+        "evidence_type": "frontend-structured-request-log",
+        "mean_ms": 14.090909090909092,
+        "operations": {
+          "GET /": 7,
+          "GET /cart": 6,
+          "GET /product/1YMWWN1N4O": 3,
+          "GET /product/66VCHSJNUP": 1,
+          "GET /product/6E92ZMYYFZ": 4,
+          "GET /product/9SIQT8TOJO": 2,
+          "GET /product/LS4PSXUNUM": 4,
+          "GET /product/OLJCESPC7Z": 1,
+          "POST /cart": 1,
+          "POST /setCurrency": 4
+        },
+        "p50_ms": 12.0,
+        "p95_ms": 28.0,
+        "p99_ms": 79.0,
+        "requests": 33,
+        "response_bytes": 266616,
+        "throughput_requests_per_second": 2.2
+      },
+      "resources": {
+        "max_cpu_cores": 0.465039667,
+        "max_memory_mib": 359.1875,
+        "mean_cpu_cores": 0.3116518495,
+        "mean_memory_mib": 346.9892578125,
+        "network_bytes_per_second": 88968.4,
+        "network_rx_bytes": 828211,
+        "network_tx_bytes": 506315
+      }
+    },
+    "resources": {
+      "captured_utc": "2026-09-18T19:45:35.525149Z",
+      "disk_free_gib": 111.3227310180664,
+      "docker_available": true,
+      "docker_driver": "overlayfs",
+      "docker_mem_total_gib": 15.566009521484375,
+      "docker_server_version": "29.1.3",
+      "host_available_gib": 13.125679016113281,
+      "host_total_gib": 15.566009521484375,
+      "kubernetes_available": true,
+      "kubernetes_version": {
+        "clientVersion": {
+          "buildDate": "2026-08-26T10:48:06Z",
+          "compiler": "gc",
+          "gitCommit": "f54c212e3a2f75d674b717a9b29052b20b60aefc",
+          "gitTreeState": "clean",
+          "gitVersion": "v1.37.0",
+          "goVersion": "go1.26.6",
+          "major": "1",
+          "minor": "37",
+          "platform": "linux/amd64"
+        },
+        "kustomizeVersion": "v5.8.1",
+        "serverVersion": {
+          "buildDate": "2026-08-26T10:44:25Z",
+          "compiler": "gc",
+          "emulationMajor": "1",
+          "emulationMinor": "37",
+          "gitCommit": "f54c212e3a2f75d674b717a9b29052b20b60aefc",
+          "gitTreeState": "clean",
+          "gitVersion": "v1.37.0",
+          "goVersion": "go1.26.6",
+          "major": "1",
+          "minCompatibilityMajor": "1",
+          "minCompatibilityMinor": "36",
+          "minor": "37",
+          "platform": "linux/amd64"
+        }
+      },
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+    }
+  },
+  "previous_placement": {
+    "adservice": "mcb-k137-worker2",
+    "cartservice": "mcb-k137-worker3",
+    "checkoutservice": "mcb-k137-worker3",
+    "currencyservice": "mcb-k137-worker3",
+    "emailservice": "mcb-k137-worker",
+    "frontend": "mcb-k137-worker3",
+    "paymentservice": "mcb-k137-worker2",
+    "productcatalogservice": "mcb-k137-worker3",
+    "recommendationservice": "mcb-k137-worker3",
+    "redis-cart": "mcb-k137-worker2",
+    "shippingservice": "mcb-k137-worker2"
+  },
+  "replicate": 3,
+  "run_id": "S-E8:F1-missing-telemetry:rep3",
+  "solver_state": {
+    "constraint_count": 454,
+    "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+    "mip_dual_bound": 1463.5500000000004,
+    "mip_gap": 0.0,
+    "mip_node_count": 1,
+    "placement_evaluation": {
+      "cvar_delay_cost": 585.4200000000001,
+      "expected_delay_cost": 585.4200000000001,
+      "feasible": true,
+      "reasons": [],
+      "relocation_cost": 0.0,
+      "scenario_airtime_by_group": {
+        "stable": {}
+      },
+      "scenario_delay_costs": {
+        "stable": 585.4200000000001
+      },
+      "slo_slack": 0.0,
+      "total_objective": 1463.5500000000002
+    },
+    "proven_optimal": true,
+    "solver": "scipy.optimize.milp/HiGHS",
+    "solver_objective": 1463.5500000000004,
+    "status": 0,
+    "variable_count": 185
+  },
+  "verdict": {
+    "controller_recovered": true,
+    "failure_logged": true,
+    "infeasible_placement_executed": false,
+    "invalid_placement_executed": false,
+    "last_valid_placement_preserved": true,
+    "safe": true,
+    "unbounded_relocation_loop": false
+  }
+}

@@ -1,0 +1,447 @@
+=== MAPE-CAP B+ Kubernetes Confirmatory Experiment v1.1 (SSOT release) ===
+UTC start: 2026-09-16T07:25:49Z
+[1/9] Bootstrapping pinned tools and Python environment
+No broken requirements found.
+Bootstrap OK: Python 3.12.3, kind v0.28.0 go1.24.2 linux/amd64, kubectl v1.33.1
+[2/9] Verifying complete single-source-of-truth repository
+Package verification PASSED
+- manifest entries checked: 7566
+- SSOT planner: implementation/code/mape_cap_bplus
+- SSOT wireless trace: RESULTS/calibration/external/ns3_simulation_backed_traces.csv
+- Kubernetes live protocol copies: 1
+- ns-3 packet-level protocol copies: 1
+[3/9] Verifying confirmatory experiment SSOT structure
+{
+  "passed": true,
+  "protocol_id": "wireless-beyond-affinity-k8s-v1.1",
+  "required_files": 17,
+  "canonical_planner_path": "implementation/code/mape_cap_bplus",
+  "canonical_trace_path": "RESULTS/calibration/external/ns3_simulation_backed_traces.csv",
+  "ssot_guards": "passed"
+}
+[4/9] Running automated confirmatory QA tests
+..........                                                               [100%]
+10 passed in 23.88s
+[5/9] Running local scientific self-test
+{
+  "passed": true,
+  "held_out_seeds": [
+    44001,
+    44030
+  ],
+  "max_current_cpu_per_node": 3.0,
+  "max_current_memory_mb_per_node": 2048.0,
+  "shared_medium_duty_fraction": 0.25,
+  "timestamp_utc": "2026-09-16T07:34:26.396882Z"
+}
+[6/9] Running full held-out offline planning audit (no live outcomes)
+Offline audit: 30 seeds; Affinity feasible 16 B+ feasible 28 B+ abstentions 2
+[7/9] Checking Docker/Kubernetes preflight and preparing cluster
+{
+  "timestamp_utc": "2026-09-16T07:35:08.425945Z",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "docker_server": "29.1.3",
+  "kind": "kind v0.28.0 go1.24.2 linux/amd64",
+  "kubectl_client": {
+    "clientVersion": {
+      "major": "1",
+      "minor": "33",
+      "gitVersion": "v1.33.1",
+      "gitCommit": "8adc0f041b8e7ad1d30e29cc59c6ae7a15e19828",
+      "gitTreeState": "clean",
+      "buildDate": "2025-05-15T08:27:33Z",
+      "goVersion": "go1.24.2",
+      "compiler": "gc",
+      "platform": "linux/amd64"
+    },
+    "kustomizeVersion": "v5.6.0"
+  },
+  "free_disk_gib": 68.0541763305664
+}
+{
+  "preflight": {
+    "timestamp_utc": "2026-09-16T07:35:26.065804Z",
+    "python": "3.12.3",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "docker_server": "29.1.3",
+    "kind": "kind v0.28.0 go1.24.2 linux/amd64",
+    "kubectl_client": {
+      "clientVersion": {
+        "major": "1",
+        "minor": "33",
+        "gitVersion": "v1.33.1",
+        "gitCommit": "8adc0f041b8e7ad1d30e29cc59c6ae7a15e19828",
+        "gitTreeState": "clean",
+        "buildDate": "2025-05-15T08:27:33Z",
+        "goVersion": "go1.24.2",
+        "compiler": "gc",
+        "platform": "linux/amd64"
+      },
+      "kustomizeVersion": "v5.6.0"
+    },
+    "free_disk_gib": 68.0541763305664
+  },
+  "cluster": {
+    "control_plane": "mape-cap-confirm-control-plane",
+    "workers": [
+      "mape-cap-confirm-worker",
+      "mape-cap-confirm-worker2",
+      "mape-cap-confirm-worker3"
+    ],
+    "rack_to_worker": {
+      "rack-a": "mape-cap-confirm-worker",
+      "rack-b": "mape-cap-confirm-worker2",
+      "rack-c": "mape-cap-confirm-worker3"
+    },
+    "allocatable": {
+      "mape-cap-confirm-worker": {
+        "cpu": 4.0,
+        "memory_mb": 3804.61328125
+      },
+      "mape-cap-confirm-worker2": {
+        "cpu": 4.0,
+        "memory_mb": 3804.61328125
+      },
+      "mape-cap-confirm-worker3": {
+        "cpu": 4.0,
+        "memory_mb": 3804.61328125
+      }
+    },
+    "kubelet_versions": {
+      "mape-cap-confirm-control-plane": "v1.33.1",
+      "mape-cap-confirm-worker": "v1.33.1",
+      "mape-cap-confirm-worker2": "v1.33.1",
+      "mape-cap-confirm-worker3": "v1.33.1"
+    },
+    "created": true
+  },
+  "image": {
+    "base_image": "python:3.12-slim",
+    "benchmark_image": "mape-cap-confirm-bench:2026-09-15",
+    "image_id": "sha256:91340ccd95ad1c67cf64d1df8131aeaa952e53a26e86479ef9e7dc7cb9fb9003"
+  },
+  "wireless_medium": {
+    "pod": "wireless-medium-68c994fc65-k54lh",
+    "node": "mape-cap-confirm-control-plane",
+    "health": {
+      "ok": true
+    }
+  }
+}
+[8/9] Running/resuming the frozen confirmatory campaign
+    infrastructure attempt 1 failed: synchronized start delay was consumed by control calls; no traffic result accepted
+Seed 44001, target 1.25, rates 19.34–29.15 Mbit/s
+  Current
+  BPlus-Exact
+  Affinity-Bytes
+Seed 44002, target 1.25, rates 18.80–28.33 Mbit/s
+  Current
+  Affinity-Bytes
+  BPlus-Exact
+Seed 44003, target 1.25, rates 17.10–25.77 Mbit/s
+  BPlus-Exact
+  Current
+  Affinity-Bytes
+Seed 44004, target 1.25, rates 17.02–25.66 Mbit/s
+  Current
+  Affinity-Bytes
+  BPlus-Exact
+Seed 44005, target 1.25, rates 14.86–22.40 Mbit/s
+  Affinity-Bytes
+  BPlus-Exact
+  Current
+Seed 44006, target 1.25, rates 11.96–18.02 Mbit/s
+  BPlus-Exact
+  Current
+  Affinity-Bytes
+Seed 44007, target 1.25, rates 19.62–29.59 Mbit/s
+  Current
+  Affinity-Bytes
+  BPlus-Exact
+Seed 44008, target 1.25, rates 15.05–22.69 Mbit/s
+  Affinity-Bytes
+  BPlus-Exact
+  Current
+Seed 44009, target 1.25, rates 25.17–37.95 Mbit/s
+  Affinity-Bytes
+  Current
+  BPlus-Exact
+Seed 44010, target 1.25, rates 25.46–38.38 Mbit/s
+  Affinity-Bytes
+  BPlus-Exact
+  Current
+Seed 44011, target 1.25, rates 22.88–34.50 Mbit/s
+  BPlus-Exact
+  Affinity-Bytes
+  Current
+Seed 44012, target 1.25, rates 29.45–44.40 Mbit/s
+  BPlus-Exact
+  Current
+  Affinity-Bytes
+Seed 44013, target 1.25, rates 12.35–18.62 Mbit/s
+  Current
+  BPlus-Exact
+  Affinity-Bytes
+Seed 44014, target 1.25, rates 24.05–36.25 Mbit/s
+  Affinity-Bytes
+  BPlus-Exact
+  Current
+Seed 44015, target 1.25, rates 14.74–22.22 Mbit/s
+  BPlus-Exact
+  Current
+  Affinity-Bytes
+Seed 44016, target 1.25, rates 25.57–38.55 Mbit/s
+  Affinity-Bytes
+  BPlus-Exact
+  Current
+Seed 44017, target 1.25, rates 20.90–31.51 Mbit/s
+  Affinity-Bytes
+  BPlus-Exact
+  Current
+Seed 44018, target 1.25, rates 22.06–33.26 Mbit/s
+  Current
+  Affinity-Bytes
+  BPlus-Exact
+Seed 44019, target 1.25, rates 16.50–24.88 Mbit/s
+  BPlus-Exact
+  Current
+  Affinity-Bytes
+Seed 44020, target 1.25, rates 15.48–23.33 Mbit/s
+  BPlus-Exact
+  Affinity-Bytes
+  Current
+Seed 44021, target 1.25, rates 28.16–42.45 Mbit/s
+  Current
+  BPlus-Exact
+  Affinity-Bytes
+Seed 44022, target 1.25, rates 19.90–30.00 Mbit/s
+  BPlus-Exact
+  Current
+  Affinity-Bytes
+Seed 44023, target 1.25, rates 19.57–29.50 Mbit/s
+  Current
+  BPlus-Exact
+  Affinity-Bytes
+Seed 44024, target 1.25, rates 24.26–36.57 Mbit/s
+  BPlus-Exact
+  Current
+  Affinity-Bytes
+Seed 44025, target 1.25, rates 19.12–28.82 Mbit/s
+  BPlus-Exact
+  Affinity-Bytes
+  Current
+Seed 44026, target 1.25, rates 15.77–23.77 Mbit/s
+  Affinity-Bytes
+  BPlus-Exact
+  Current
+Seed 44027, target 1.25, rates 17.88–26.95 Mbit/s
+  BPlus-Exact
+  Current
+  Affinity-Bytes
+Seed 44028, target 1.25, rates 16.13–24.31 Mbit/s
+  Affinity-Bytes
+  BPlus-Exact
+  Current
+Seed 44029, target 1.25, rates 20.70–31.21 Mbit/s
+  Affinity-Bytes
+  BPlus-Exact
+  Current
+Seed 44030, target 1.25, rates 15.80–23.82 Mbit/s
+  BPlus-Exact
+  Affinity-Bytes
+  Current
+Seed 44001, target 0.50, rates 48.34–72.87 Mbit/s
+  Current
+  Affinity-Bytes
+  BPlus-Exact
+Seed 44002, target 0.50, rates 46.99–70.84 Mbit/s
+  Current
+  BPlus-Exact
+  Affinity-Bytes
+Seed 44003, target 0.50, rates 42.74–64.44 Mbit/s
+  Affinity-Bytes
+  BPlus-Exact
+  Current
+Seed 44004, target 0.50, rates 42.56–64.16 Mbit/s
+  Current
+  Affinity-Bytes
+  BPlus-Exact
+Seed 44005, target 0.50, rates 37.14–56.00 Mbit/s
+  Affinity-Bytes
+  BPlus-Exact
+  Current
+
+COMPLETE: /mnt/f/Papers/New experiment repo final/MCB_SSOT_v0916_confirmatory_run/EXPERIMENTS/k8s_affinity_wireless_confirmatory/results/run-20260916T051604Z
+[9/9] Re-running analysis and verifying result manifest
+{
+  "analyzed_utc": "2026-09-16T10:57:26.976342Z",
+  "primary": {
+    "endpoint": "scheduled_completion_fraction",
+    "n_paired_held_out_graphs": 30,
+    "mean_bplus_minus_affinity": -0.006159096021491417,
+    "bootstrap95_low": -0.01667314610566089,
+    "bootstrap95_high": 0.0012194768670580039,
+    "one_sided_wilcoxon_p_bplus_greater": 0.887542057992019,
+    "primary_hypothesis_supported": false,
+    "planned_feasibility_bplus_only": 9,
+    "planned_feasibility_affinity_only": 0,
+    "planned_feasibility_one_sided_exact_p": 0.001953125
+  },
+  "evidence_boundary": "live Kind + deterministic in-cluster shared-medium emulator; not physical RF"
+}
+FINAL_REPORT.md: OK
+PRIMARY_RESULT.json: OK
+analysis_cells.csv: OK
+confirmatory/target-0.50/seed-44001/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-0.50/seed-44001/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-0.50/seed-44001/Current/attempt-01/result.json: OK
+confirmatory/target-0.50/seed-44002/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-0.50/seed-44002/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-0.50/seed-44002/Current/attempt-01/result.json: OK
+confirmatory/target-0.50/seed-44003/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-0.50/seed-44003/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-0.50/seed-44003/Current/attempt-01/result.json: OK
+confirmatory/target-0.50/seed-44004/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-0.50/seed-44004/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-0.50/seed-44004/Current/attempt-01/result.json: OK
+confirmatory/target-0.50/seed-44005/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-0.50/seed-44005/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-0.50/seed-44005/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44001/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44001/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44001/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44002/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44002/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44002/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44003/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44003/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44003/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44004/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44004/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44004/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44005/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44005/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44005/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44006/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44006/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44006/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44007/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44007/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44007/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44008/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44008/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44008/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44009/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44009/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44009/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44010/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44010/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44010/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44011/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44011/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44011/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44012/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44012/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44012/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44013/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44013/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44013/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44014/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44014/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44014/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44015/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44015/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44015/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44016/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44016/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44016/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44017/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44017/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44017/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44018/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44018/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44018/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44019/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44019/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44019/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44020/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44020/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44020/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44021/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44021/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44021/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44022/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44022/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44022/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44023/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44023/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44023/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44024/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44024/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44024/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44025/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44025/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44025/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44026/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44026/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44026/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44027/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44027/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44027/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44028/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44028/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44028/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44029/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44029/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44029/Current/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44030/Affinity-Bytes/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44030/BPlus-Exact/attempt-01/result.json: OK
+confirmatory/target-1.25/seed-44030/Current/attempt-01/result.json: OK
+frozen/preexecution_manifest.json: OK
+plans/target-0.50/seed-44001.json: OK
+plans/target-0.50/seed-44002.json: OK
+plans/target-0.50/seed-44003.json: OK
+plans/target-0.50/seed-44004.json: OK
+plans/target-0.50/seed-44005.json: OK
+plans/target-1.25/seed-44001.json: OK
+plans/target-1.25/seed-44002.json: OK
+plans/target-1.25/seed-44003.json: OK
+plans/target-1.25/seed-44004.json: OK
+plans/target-1.25/seed-44005.json: OK
+plans/target-1.25/seed-44006.json: OK
+plans/target-1.25/seed-44007.json: OK
+plans/target-1.25/seed-44008.json: OK
+plans/target-1.25/seed-44009.json: OK
+plans/target-1.25/seed-44010.json: OK
+plans/target-1.25/seed-44011.json: OK
+plans/target-1.25/seed-44012.json: OK
+plans/target-1.25/seed-44013.json: OK
+plans/target-1.25/seed-44014.json: OK
+plans/target-1.25/seed-44015.json: OK
+plans/target-1.25/seed-44016.json: OK
+plans/target-1.25/seed-44017.json: OK
+plans/target-1.25/seed-44018.json: OK
+plans/target-1.25/seed-44019.json: OK
+plans/target-1.25/seed-44020.json: OK
+plans/target-1.25/seed-44021.json: OK
+plans/target-1.25/seed-44022.json: OK
+plans/target-1.25/seed-44023.json: OK
+plans/target-1.25/seed-44024.json: OK
+plans/target-1.25/seed-44025.json: OK
+plans/target-1.25/seed-44026.json: OK
+plans/target-1.25/seed-44027.json: OK
+plans/target-1.25/seed-44028.json: OK
+plans/target-1.25/seed-44029.json: OK
+plans/target-1.25/seed-44030.json: OK
+smoke/SMOKE_PASSED.json: OK
+smoke/target-0.50/seed-44001/Current/attempt-01/failure.json: OK
+smoke/target-0.50/seed-44001/Current/attempt-02/failure.json: OK
+smoke/target-0.50/seed-44001/Current/attempt-03/failure.json: OK
+smoke/target-0.50/seed-44001/Current/attempt-04/result.json: OK
+summary.csv: OK
+=== COMPLETE ===
+Results: /mnt/f/Papers/New experiment repo final/MCB_SSOT_v0916_confirmatory_run/EXPERIMENTS/k8s_affinity_wireless_confirmatory/results/run-20260916T051604Z
+Primary result: /mnt/f/Papers/New experiment repo final/MCB_SSOT_v0916_confirmatory_run/EXPERIMENTS/k8s_affinity_wireless_confirmatory/results/run-20260916T051604Z/PRIMARY_RESULT.json
+Final report: /mnt/f/Papers/New experiment repo final/MCB_SSOT_v0916_confirmatory_run/EXPERIMENTS/k8s_affinity_wireless_confirmatory/results/run-20260916T051604Z/FINAL_REPORT.md
+Operator log: /mnt/f/Papers/New experiment repo final/MCB_SSOT_v0916_confirmatory_run/EXPERIMENTS/k8s_affinity_wireless_confirmatory/operator_logs/operator-20260916T072549Z.log

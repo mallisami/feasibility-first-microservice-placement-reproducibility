@@ -1,0 +1,22 @@
+{
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "mape-ns3-44028-0p5-affinity_bytes-202-a1",
+    "-v",
+    "/home/azureuser/mcb/EXPERIMENTS/ns3_affinity_wireless_confirmatory/results/run-20260920T043724Z/cells/seed44028-t0.50-affinity_bytes-rng202/attempt-1:/evidence",
+    "mape-cap-ns3-affinity-confirm:2026-09-16",
+    "/bin/bash",
+    "-lc",
+    "set -o pipefail; mkdir -p Traces; ./waf --run-no-build \"evaluate_bplus_affinity_dense --simulationTime=3.0 --packetSize=1448 --socketType=ns3::UdpSocketFactory --numSTAs=6 --ratesMbpsCsv=0.000000,0.000000,259.746284,205.311933,0.000000,0.000000 --csv=true --reportDataSnr=true --directory=/evidence/ --qdChannelFolder=DenseScenario --RngRun=202\""
+  ],
+  "completed_utc": "2026-09-20T06:47:51.559758Z",
+  "returncode": 0,
+  "runtime_seconds": 32.2133397510006,
+  "spec": "evaluate_bplus_affinity_dense --simulationTime=3.0 --packetSize=1448 --socketType=ns3::UdpSocketFactory --numSTAs=6 --ratesMbpsCsv=0.000000,0.000000,259.746284,205.311933,0.000000,0.000000 --csv=true --reportDataSnr=true --directory=/evidence/ --qdChannelFolder=DenseScenario --RngRun=202",
+  "stderr": "",
+  "stdout": "Waf: Entering directory `/sim/wigig-module/build'\n0.1,0,197.276,197.276\n0.2,243.148,205.153,448.301\n0.3,259.366,205.5,464.866\n0.4,259.829,205.268,465.098\n0.5,259.829,205.384,465.213\n0.6,259.829,205.037,464.866\n0.7,259.713,205.268,464.982\n0.8,259.945,205.384,465.329\n0.9,259.597,205.384,464.982\n1.0,259.829,205.153,464.982\n1.1,259.597,205.384,464.982\n1.2,259.482,205.5,464.982\n1.3,260.177,205.268,465.445\n1.4,259.597,205.037,464.634\n1.5,259.829,205.5,465.329\n1.6,259.482,205.384,464.866\n1.7,259.945,205.384,465.329\n1.8,259.597,205.384,464.982\n1.9,259.945,205.153,465.098\n2.0,259.945,205.153,465.098\n2.1,259.597,205.5,465.098\n2.2,259.713,205.268,464.982\n2.3,259.829,205.268,465.098\n2.4,259.597,205.268,464.866\n2.5,259.945,205.384,465.329\n2.6,259.713,205.268,464.982\n2.7,259.713,205.153,464.866\n2.8,259.713,205.384,465.098\n2.9,259.829,205.5,465.329\n3.0,259.597,205.5,465.098\n3.1,0.23168,0,0.23168\n",
+  "timed_out": false
+}

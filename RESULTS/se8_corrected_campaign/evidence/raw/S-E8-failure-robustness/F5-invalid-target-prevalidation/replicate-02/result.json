@@ -1,0 +1,885 @@
+{
+  "actual_placement": {
+    "adservice": "mcb-k137-worker",
+    "cartservice": "mcb-k137-worker2",
+    "checkoutservice": "mcb-k137-worker2",
+    "currencyservice": "mcb-k137-worker2",
+    "emailservice": "mcb-k137-worker3",
+    "frontend": "mcb-k137-worker2",
+    "paymentservice": "mcb-k137-worker",
+    "productcatalogservice": "mcb-k137-worker2",
+    "recommendationservice": "mcb-k137-worker2",
+    "redis-cart": "mcb-k137-worker",
+    "shippingservice": "mcb-k137-worker"
+  },
+  "candidate_placement": {
+    "adservice": "mcb-k137-worker",
+    "cartservice": "mcb-k137-worker2",
+    "checkoutservice": "nonexistent-node-se8-fault",
+    "currencyservice": "mcb-k137-worker2",
+    "emailservice": "mcb-k137-worker3",
+    "frontend": "mcb-k137-worker2",
+    "paymentservice": "mcb-k137-worker",
+    "productcatalogservice": "mcb-k137-worker2",
+    "recommendationservice": "mcb-k137-worker2",
+    "redis-cart": "mcb-k137-worker",
+    "shippingservice": "mcb-k137-worker"
+  },
+  "completed_utc": "2026-09-18T20:06:08.882083Z",
+  "detection_latency_s": 0.374589,
+  "detection_timestamp": "2026-09-18T20:05:52.655639Z",
+  "elapsed_s": 0.7019061189998865,
+  "experiment": "S-E8",
+  "failure_reason": "prevalidation_rejected: placement pre-execution validation failed: invalid target nodes: {'checkoutservice': 'nonexistent-node-se8-fault (node not found)'}",
+  "fallback_action": "prevalidation_reject_zero_mutation",
+  "fault_injection_timestamp": "2026-09-18T20:05:52.281050Z",
+  "fault_type": "F5-invalid-target-prevalidation",
+  "health": {
+    "healthy": true,
+    "pods": [
+      {
+        "app": "adservice",
+        "phase": "Running",
+        "pod": "adservice-76b7446874-5jb88",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "cartservice",
+        "phase": "Running",
+        "pod": "cartservice-9964497c7-f5sv6",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "checkoutservice",
+        "phase": "Running",
+        "pod": "checkoutservice-6786c4c7cb-sv5n8",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "currencyservice",
+        "phase": "Running",
+        "pod": "currencyservice-dc9988846-9v7dl",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "emailservice",
+        "phase": "Running",
+        "pod": "emailservice-5c775cc594-4wwcp",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "frontend",
+        "phase": "Running",
+        "pod": "frontend-56b5cf878-6s9fw",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-cc6c8697d-8kzv7",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "paymentservice",
+        "phase": "Running",
+        "pod": "paymentservice-7b58b858fd-8lg2k",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "productcatalogservice",
+        "phase": "Running",
+        "pod": "productcatalogservice-7b99b9f6cb-jbwt2",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "recommendationservice",
+        "phase": "Running",
+        "pod": "recommendationservice-5ff48f4494-2ktvv",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "redis-cart",
+        "phase": "Running",
+        "pod": "redis-cart-566d7b6c5-nj9jp",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "shippingservice",
+        "phase": "Running",
+        "pod": "shippingservice-7b467457d-z7n5d",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  "post_fault": {
+    "application": {
+      "application": {
+        "error_rate": 0.0,
+        "errors": 0,
+        "evidence_type": "frontend-structured-request-log",
+        "mean_ms": 26.384615384615383,
+        "operations": {
+          "GET /": 3,
+          "GET /cart": 13,
+          "GET /product/1YMWWN1N4O": 5,
+          "GET /product/2ZYFJ3GM2N": 2,
+          "GET /product/66VCHSJNUP": 1,
+          "GET /product/6E92ZMYYFZ": 3,
+          "GET /product/9SIQT8TOJO": 3,
+          "GET /product/L9ECAV7KIM": 1,
+          "GET /product/LS4PSXUNUM": 5,
+          "GET /product/OLJCESPC7Z": 3,
+          "POST /cart": 8,
+          "POST /cart/checkout": 3,
+          "POST /setCurrency": 2
+        },
+        "p50_ms": 11.0,
+        "p95_ms": 156.0,
+        "p99_ms": 201.0,
+        "requests": 52,
+        "response_bytes": 424709,
+        "throughput_requests_per_second": 3.466666666666667
+      },
+      "resources": {
+        "max_cpu_cores": 0.272406904,
+        "max_memory_mib": 377.11328125,
+        "mean_cpu_cores": 0.15154463175,
+        "mean_memory_mib": 373.1806640625,
+        "network_bytes_per_second": 98316.4,
+        "network_rx_bytes": 643926,
+        "network_tx_bytes": 830820
+      }
+    },
+    "resources": {
+      "captured_utc": "2026-09-18T20:05:52.982973Z",
+      "disk_free_gib": 111.30879974365234,
+      "docker_available": true,
+      "docker_driver": "overlayfs",
+      "docker_mem_total_gib": 15.566009521484375,
+      "docker_server_version": "29.1.3",
+      "host_available_gib": 13.031021118164062,
+      "host_total_gib": 15.566009521484375,
+      "kubernetes_available": true,
+      "kubernetes_version": {
+        "clientVersion": {
+          "buildDate": "2026-08-26T10:48:06Z",
+          "compiler": "gc",
+          "gitCommit": "f54c212e3a2f75d674b717a9b29052b20b60aefc",
+          "gitTreeState": "clean",
+          "gitVersion": "v1.37.0",
+          "goVersion": "go1.26.6",
+          "major": "1",
+          "minor": "37",
+          "platform": "linux/amd64"
+        },
+        "kustomizeVersion": "v5.8.1",
+        "serverVersion": {
+          "buildDate": "2026-08-26T10:44:25Z",
+          "compiler": "gc",
+          "emulationMajor": "1",
+          "emulationMinor": "37",
+          "gitCommit": "f54c212e3a2f75d674b717a9b29052b20b60aefc",
+          "gitTreeState": "clean",
+          "gitVersion": "v1.37.0",
+          "goVersion": "go1.26.6",
+          "major": "1",
+          "minCompatibilityMajor": "1",
+          "minCompatibilityMinor": "36",
+          "minor": "37",
+          "platform": "linux/amd64"
+        }
+      },
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+    }
+  },
+  "post_snapshot": {
+    "assignments": {
+      "adservice": "mcb-k137-worker",
+      "cartservice": "mcb-k137-worker2",
+      "checkoutservice": "mcb-k137-worker2",
+      "currencyservice": "mcb-k137-worker2",
+      "emailservice": "mcb-k137-worker3",
+      "frontend": "mcb-k137-worker2",
+      "loadgenerator": "mcb-k137-worker",
+      "paymentservice": "mcb-k137-worker",
+      "productcatalogservice": "mcb-k137-worker2",
+      "recommendationservice": "mcb-k137-worker2",
+      "redis-cart": "mcb-k137-worker",
+      "shippingservice": "mcb-k137-worker"
+    },
+    "deployments": {
+      "adservice": {
+        "available_replicas": 1,
+        "generation": 57,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker"
+        },
+        "observed_generation": 57,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64376"
+      },
+      "cartservice": {
+        "available_replicas": 1,
+        "generation": 37,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker2"
+        },
+        "observed_generation": 37,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64336"
+      },
+      "checkoutservice": {
+        "available_replicas": 1,
+        "generation": 35,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker2"
+        },
+        "observed_generation": 35,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64078"
+      },
+      "currencyservice": {
+        "available_replicas": 1,
+        "generation": 35,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker2"
+        },
+        "observed_generation": 35,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64309"
+      },
+      "emailservice": {
+        "available_replicas": 1,
+        "generation": 57,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker3"
+        },
+        "observed_generation": 57,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64202"
+      },
+      "frontend": {
+        "available_replicas": 1,
+        "generation": 36,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker2"
+        },
+        "observed_generation": 36,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64284"
+      },
+      "loadgenerator": {
+        "available_replicas": 1,
+        "generation": 6,
+        "node_selector": {},
+        "observed_generation": 6,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "48919"
+      },
+      "paymentservice": {
+        "available_replicas": 1,
+        "generation": 57,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker"
+        },
+        "observed_generation": 57,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64291"
+      },
+      "productcatalogservice": {
+        "available_replicas": 1,
+        "generation": 35,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker2"
+        },
+        "observed_generation": 35,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64150"
+      },
+      "recommendationservice": {
+        "available_replicas": 1,
+        "generation": 36,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker2"
+        },
+        "observed_generation": 36,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64296"
+      },
+      "redis-cart": {
+        "available_replicas": 1,
+        "generation": 37,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker"
+        },
+        "observed_generation": 37,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64139"
+      },
+      "shippingservice": {
+        "available_replicas": 1,
+        "generation": 57,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker"
+        },
+        "observed_generation": 57,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64082"
+      }
+    },
+    "nodes": [
+      {
+        "name": "mcb-k137-control-plane",
+        "ready": true,
+        "unschedulable": false
+      },
+      {
+        "name": "mcb-k137-worker",
+        "ready": true,
+        "unschedulable": false
+      },
+      {
+        "name": "mcb-k137-worker2",
+        "ready": true,
+        "unschedulable": false
+      },
+      {
+        "name": "mcb-k137-worker3",
+        "ready": true,
+        "unschedulable": false
+      }
+    ],
+    "pods": {
+      "adservice": [
+        {
+          "name": "adservice-76b7446874-5jb88",
+          "node": "mcb-k137-worker",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64359"
+        }
+      ],
+      "cartservice": [
+        {
+          "name": "cartservice-9964497c7-f5sv6",
+          "node": "mcb-k137-worker2",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64316"
+        }
+      ],
+      "checkoutservice": [
+        {
+          "name": "checkoutservice-6786c4c7cb-sv5n8",
+          "node": "mcb-k137-worker2",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64076"
+        }
+      ],
+      "currencyservice": [
+        {
+          "name": "currencyservice-dc9988846-9v7dl",
+          "node": "mcb-k137-worker2",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64246"
+        }
+      ],
+      "emailservice": [
+        {
+          "name": "emailservice-5c775cc594-4wwcp",
+          "node": "mcb-k137-worker3",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64167"
+        }
+      ],
+      "frontend": [
+        {
+          "name": "frontend-56b5cf878-6s9fw",
+          "node": "mcb-k137-worker2",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64268"
+        }
+      ],
+      "loadgenerator": [
+        {
+          "name": "loadgenerator-cc6c8697d-8kzv7",
+          "node": "mcb-k137-worker",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "49058"
+        }
+      ],
+      "paymentservice": [
+        {
+          "name": "paymentservice-7b58b858fd-8lg2k",
+          "node": "mcb-k137-worker",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64208"
+        }
+      ],
+      "productcatalogservice": [
+        {
+          "name": "productcatalogservice-7b99b9f6cb-jbwt2",
+          "node": "mcb-k137-worker2",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64142"
+        }
+      ],
+      "recommendationservice": [
+        {
+          "name": "recommendationservice-5ff48f4494-2ktvv",
+          "node": "mcb-k137-worker2",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64224"
+        }
+      ],
+      "redis-cart": [
+        {
+          "name": "redis-cart-566d7b6c5-nj9jp",
+          "node": "mcb-k137-worker",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64155"
+        }
+      ],
+      "shippingservice": [
+        {
+          "name": "shippingservice-7b467457d-z7n5d",
+          "node": "mcb-k137-worker",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64084"
+        }
+      ]
+    },
+    "timestamp_utc": "2026-09-18T20:05:52.838333Z"
+  },
+  "pre_fault": {
+    "application": {
+      "application": {
+        "error_rate": 0.0,
+        "errors": 0,
+        "evidence_type": "frontend-structured-request-log",
+        "mean_ms": 10.933333333333334,
+        "operations": {
+          "GET /": 3,
+          "GET /cart": 10,
+          "GET /product/0PUK6V6EV0": 4,
+          "GET /product/1YMWWN1N4O": 5,
+          "GET /product/2ZYFJ3GM2N": 3,
+          "GET /product/66VCHSJNUP": 4,
+          "GET /product/6E92ZMYYFZ": 1,
+          "GET /product/L9ECAV7KIM": 3,
+          "GET /product/LS4PSXUNUM": 2,
+          "POST /cart": 6,
+          "POST /cart/checkout": 2,
+          "POST /setCurrency": 2
+        },
+        "p50_ms": 11.0,
+        "p95_ms": 18.0,
+        "p99_ms": 34.0,
+        "requests": 45,
+        "response_bytes": 355911,
+        "throughput_requests_per_second": 3.0
+      },
+      "resources": {
+        "max_cpu_cores": 0.30250765,
+        "max_memory_mib": 371.6328125,
+        "mean_cpu_cores": 0.28169622525,
+        "mean_memory_mib": 367.2568359375,
+        "network_bytes_per_second": 72262.8,
+        "network_rx_bytes": 611816,
+        "network_tx_bytes": 472126
+      }
+    },
+    "resources": {
+      "captured_utc": "2026-09-18T20:05:36.487399Z",
+      "disk_free_gib": 111.30850219726562,
+      "docker_available": true,
+      "docker_driver": "overlayfs",
+      "docker_mem_total_gib": 15.566009521484375,
+      "docker_server_version": "29.1.3",
+      "host_available_gib": 13.045539855957031,
+      "host_total_gib": 15.566009521484375,
+      "kubernetes_available": true,
+      "kubernetes_version": {
+        "clientVersion": {
+          "buildDate": "2026-08-26T10:48:06Z",
+          "compiler": "gc",
+          "gitCommit": "f54c212e3a2f75d674b717a9b29052b20b60aefc",
+          "gitTreeState": "clean",
+          "gitVersion": "v1.37.0",
+          "goVersion": "go1.26.6",
+          "major": "1",
+          "minor": "37",
+          "platform": "linux/amd64"
+        },
+        "kustomizeVersion": "v5.8.1",
+        "serverVersion": {
+          "buildDate": "2026-08-26T10:44:25Z",
+          "compiler": "gc",
+          "emulationMajor": "1",
+          "emulationMinor": "37",
+          "gitCommit": "f54c212e3a2f75d674b717a9b29052b20b60aefc",
+          "gitTreeState": "clean",
+          "gitVersion": "v1.37.0",
+          "goVersion": "go1.26.6",
+          "major": "1",
+          "minCompatibilityMajor": "1",
+          "minCompatibilityMinor": "36",
+          "minor": "37",
+          "platform": "linux/amd64"
+        }
+      },
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+    }
+  },
+  "pre_snapshot": {
+    "assignments": {
+      "adservice": "mcb-k137-worker",
+      "cartservice": "mcb-k137-worker2",
+      "checkoutservice": "mcb-k137-worker2",
+      "currencyservice": "mcb-k137-worker2",
+      "emailservice": "mcb-k137-worker3",
+      "frontend": "mcb-k137-worker2",
+      "loadgenerator": "mcb-k137-worker",
+      "paymentservice": "mcb-k137-worker",
+      "productcatalogservice": "mcb-k137-worker2",
+      "recommendationservice": "mcb-k137-worker2",
+      "redis-cart": "mcb-k137-worker",
+      "shippingservice": "mcb-k137-worker"
+    },
+    "deployments": {
+      "adservice": {
+        "available_replicas": 1,
+        "generation": 57,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker"
+        },
+        "observed_generation": 57,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64376"
+      },
+      "cartservice": {
+        "available_replicas": 1,
+        "generation": 37,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker2"
+        },
+        "observed_generation": 37,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64336"
+      },
+      "checkoutservice": {
+        "available_replicas": 1,
+        "generation": 35,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker2"
+        },
+        "observed_generation": 35,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64078"
+      },
+      "currencyservice": {
+        "available_replicas": 1,
+        "generation": 35,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker2"
+        },
+        "observed_generation": 35,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64309"
+      },
+      "emailservice": {
+        "available_replicas": 1,
+        "generation": 57,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker3"
+        },
+        "observed_generation": 57,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64202"
+      },
+      "frontend": {
+        "available_replicas": 1,
+        "generation": 36,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker2"
+        },
+        "observed_generation": 36,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64284"
+      },
+      "loadgenerator": {
+        "available_replicas": 1,
+        "generation": 6,
+        "node_selector": {},
+        "observed_generation": 6,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "48919"
+      },
+      "paymentservice": {
+        "available_replicas": 1,
+        "generation": 57,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker"
+        },
+        "observed_generation": 57,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64291"
+      },
+      "productcatalogservice": {
+        "available_replicas": 1,
+        "generation": 35,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker2"
+        },
+        "observed_generation": 35,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64150"
+      },
+      "recommendationservice": {
+        "available_replicas": 1,
+        "generation": 36,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker2"
+        },
+        "observed_generation": 36,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64296"
+      },
+      "redis-cart": {
+        "available_replicas": 1,
+        "generation": 37,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker"
+        },
+        "observed_generation": 37,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64139"
+      },
+      "shippingservice": {
+        "available_replicas": 1,
+        "generation": 57,
+        "node_selector": {
+          "kubernetes.io/hostname": "mcb-k137-worker"
+        },
+        "observed_generation": 57,
+        "ready_replicas": 1,
+        "replicas": 1,
+        "resource_version": "64082"
+      }
+    },
+    "nodes": [
+      {
+        "name": "mcb-k137-control-plane",
+        "ready": true,
+        "unschedulable": false
+      },
+      {
+        "name": "mcb-k137-worker",
+        "ready": true,
+        "unschedulable": false
+      },
+      {
+        "name": "mcb-k137-worker2",
+        "ready": true,
+        "unschedulable": false
+      },
+      {
+        "name": "mcb-k137-worker3",
+        "ready": true,
+        "unschedulable": false
+      }
+    ],
+    "pods": {
+      "adservice": [
+        {
+          "name": "adservice-76b7446874-5jb88",
+          "node": "mcb-k137-worker",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64359"
+        }
+      ],
+      "cartservice": [
+        {
+          "name": "cartservice-9964497c7-f5sv6",
+          "node": "mcb-k137-worker2",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64316"
+        }
+      ],
+      "checkoutservice": [
+        {
+          "name": "checkoutservice-6786c4c7cb-sv5n8",
+          "node": "mcb-k137-worker2",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64076"
+        }
+      ],
+      "currencyservice": [
+        {
+          "name": "currencyservice-dc9988846-9v7dl",
+          "node": "mcb-k137-worker2",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64246"
+        }
+      ],
+      "emailservice": [
+        {
+          "name": "emailservice-5c775cc594-4wwcp",
+          "node": "mcb-k137-worker3",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64167"
+        }
+      ],
+      "frontend": [
+        {
+          "name": "frontend-56b5cf878-6s9fw",
+          "node": "mcb-k137-worker2",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64268"
+        }
+      ],
+      "loadgenerator": [
+        {
+          "name": "loadgenerator-cc6c8697d-8kzv7",
+          "node": "mcb-k137-worker",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "49058"
+        }
+      ],
+      "paymentservice": [
+        {
+          "name": "paymentservice-7b58b858fd-8lg2k",
+          "node": "mcb-k137-worker",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64208"
+        }
+      ],
+      "productcatalogservice": [
+        {
+          "name": "productcatalogservice-7b99b9f6cb-jbwt2",
+          "node": "mcb-k137-worker2",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64142"
+        }
+      ],
+      "recommendationservice": [
+        {
+          "name": "recommendationservice-5ff48f4494-2ktvv",
+          "node": "mcb-k137-worker2",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64224"
+        }
+      ],
+      "redis-cart": [
+        {
+          "name": "redis-cart-566d7b6c5-nj9jp",
+          "node": "mcb-k137-worker",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64155"
+        }
+      ],
+      "shippingservice": [
+        {
+          "name": "shippingservice-7b467457d-z7n5d",
+          "node": "mcb-k137-worker",
+          "phase": "Running",
+          "ready": true,
+          "resource_version": "64084"
+        }
+      ]
+    },
+    "timestamp_utc": "2026-09-18T20:05:52.473620Z"
+  },
+  "previous_placement": {
+    "adservice": "mcb-k137-worker",
+    "cartservice": "mcb-k137-worker2",
+    "checkoutservice": "mcb-k137-worker2",
+    "currencyservice": "mcb-k137-worker2",
+    "emailservice": "mcb-k137-worker3",
+    "frontend": "mcb-k137-worker2",
+    "paymentservice": "mcb-k137-worker",
+    "productcatalogservice": "mcb-k137-worker2",
+    "recommendationservice": "mcb-k137-worker2",
+    "redis-cart": "mcb-k137-worker",
+    "shippingservice": "mcb-k137-worker"
+  },
+  "replicate": 2,
+  "run_id": "S-E8:F5-invalid-target-prevalidation:rep2",
+  "solver_state": {
+    "bogus_node": "nonexistent-node-se8-fault",
+    "post_generation": 35,
+    "post_resource_version": "64078",
+    "pre_generation": 35,
+    "pre_resource_version": "64078",
+    "rejection_message": "placement pre-execution validation failed: invalid target nodes: {'checkoutservice': 'nonexistent-node-se8-fault (node not found)'}",
+    "target_service": "checkoutservice",
+    "zero_mutations_verified": true
+  },
+  "verdict": {
+    "controller_recovered": true,
+    "failure_logged": true,
+    "infeasible_placement_executed": false,
+    "invalid_placement_executed": false,
+    "last_valid_placement_preserved": true,
+    "pre_execution_rejected": true,
+    "safe": true,
+    "unbounded_relocation_loop": false,
+    "zero_mutations": true
+  }
+}

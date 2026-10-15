@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/mape-cap-bplus/relocation_cost.schema.json",
+  "title": "MAPE-CAP B+ controlled pod-relocation cost records",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "records"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "event_id",
+          "replica_id",
+          "source_node",
+          "target_node",
+          "method",
+          "started_at",
+          "ready_at",
+          "old_removed_at",
+          "failed_requests",
+          "provenance"
+        ],
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "replica_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_node": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target_node": {
+            "type": "string",
+            "minLength": 1
+          },
+          "method": {
+            "enum": [
+              "create-ready-remove",
+              "stop-recreate"
+            ]
+          },
+          "started_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ready_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "old_removed_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "image_cached": {
+            "type": "boolean"
+          },
+          "image_size_bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "state_transfer_bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "failed_requests": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "recovery_seconds": {
+            "type": "number",
+            "minimum": 0
+          },
+          "provenance": {
+            "type": "string",
+            "minLength": 1
+          },
+          "ready_seconds": {
+            "type": "number",
+            "minimum": 0
+          },
+          "rollout_seconds": {
+            "type": "number",
+            "minimum": 0
+          },
+          "old_pod": {
+            "type": "string",
+            "minLength": 1
+          },
+          "new_pod": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

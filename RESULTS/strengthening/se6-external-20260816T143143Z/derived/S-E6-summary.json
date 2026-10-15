@@ -1,0 +1,116 @@
+{
+  "all_evidence_accepted": true,
+  "cells": 135,
+  "completed_utc": "2026-08-17T01:41:16.228332Z",
+  "conditions": [
+    "stable",
+    "persistent-degradation",
+    "partial-blockage",
+    "conflict-dense",
+    "outage-with-fallback",
+    "recovery",
+    "bursty",
+    "hotspot",
+    "structural-workload-change"
+  ],
+  "counterbalanced_orders": [
+    [
+      "Native",
+      "External",
+      "BPlus-Exact"
+    ],
+    [
+      "External",
+      "BPlus-Exact",
+      "Native"
+    ],
+    [
+      "BPlus-Exact",
+      "Native",
+      "External"
+    ],
+    [
+      "Native",
+      "BPlus-Exact",
+      "External"
+    ],
+    [
+      "External",
+      "Native",
+      "BPlus-Exact"
+    ]
+  ],
+  "experiment": "S-E6",
+  "external_scheduler": {
+    "chart_repo": "https://scheduler-plugins.sigs.k8s.io",
+    "chart_version": "0.33.5",
+    "controller_image": "registry.k8s.io/scheduler-plugins/controller:v0.33.5",
+    "helm_namespace": "scheduler-plugins",
+    "helm_release": "bplus-se6-networkaware",
+    "implementation": "Kubernetes SIG scheduler-plugins NetworkOverhead (Diktyo lineage)",
+    "networkoverhead_verified_in_config": true,
+    "scheduler_image": "registry.k8s.io/scheduler-plugins/kube-scheduler:v0.33.5",
+    "scheduler_name": "network-aware-scheduler",
+    "scheduler_plugins_version": "0.33.5",
+    "steps": [
+      {
+        "cmd": [
+          "kubectl",
+          "apply",
+          "-f",
+          "https://raw.githubusercontent.com/kubernetes-sigs/scheduler-plugins/v0.33.5/manifests/appgroup/crd.yaml"
+        ],
+        "stdout": "customresourcedefinition.apiextensions.k8s.io/appgroups.appgroup.diktyo.x-k8s.io unchanged\n"
+      },
+      {
+        "cmd": [
+          "kubectl",
+          "apply",
+          "-f",
+          "https://raw.githubusercontent.com/kubernetes-sigs/scheduler-plugins/v0.33.5/manifests/networktopology/crd.yaml"
+        ],
+        "stdout": "customresourcedefinition.apiextensions.k8s.io/networktopologies.networktopology.diktyo.x-k8s.io unchanged\n"
+      },
+      {
+        "cmd": [
+          "D:\\New experiment repo\\JOURNAL_REPRODUCIBILITY_REPOSITORY\\implementation\\strengthening\\tools\\helm\\v3.21.3\\helm.exe",
+          "upgrade",
+          "--install",
+          "bplus-se6-networkaware",
+          "scheduler-plugins",
+          "--repo",
+          "https://scheduler-plugins.sigs.k8s.io",
+          "--version",
+          "0.33.5",
+          "--namespace",
+          "scheduler-plugins",
+          "--create-namespace",
+          "--wait",
+          "--timeout",
+          "10m0s",
+          "-f",
+          "D:\\New experiment repo\\JOURNAL_REPRODUCIBILITY_REPOSITORY\\RESULTS\\strengthening\\se6-external-20260816T143143Z\\logs\\S-E6-environment\\scheduler-plugins-values.yaml"
+        ],
+        "stdout": "Release \"bplus-se6-networkaware\" does not exist. Installing it now.\nNAME: bplus-se6-networkaware\nLAST DEPLOYED: Mon Aug 17 03:32:53 2026\nNAMESPACE: scheduler-plugins\nSTATUS: deployed\nREVISION: 1\nTEST SUITE: None\n"
+      }
+    ]
+  },
+  "fallback_allowed": false,
+  "helm": {
+    "downloaded": false,
+    "observed_version": "v3.21.3+g1ad6e68",
+    "path": "D:\\New experiment repo\\JOURNAL_REPRODUCIBILITY_REPOSITORY\\implementation\\strengthening\\tools\\helm\\v3.21.3\\helm.exe",
+    "requested_version": "v3.21.3",
+    "source": "local-pinned-cache"
+  },
+  "methods": [
+    "Native",
+    "External-NetworkOverhead",
+    "BPlus-Exact"
+  ],
+  "output_csv": "derived\\S-E6-external-scheduler.csv",
+  "replicates": 5,
+  "results_append_only": true,
+  "status": "COMPLETED",
+  "target_cells": 135
+}

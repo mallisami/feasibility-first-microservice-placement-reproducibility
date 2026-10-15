@@ -1,0 +1,71 @@
+{
+  "accepted_evidence_n": 135,
+  "actual_method_order_matches_counterbalancing": true,
+  "audited_utc": "2026-08-17T18:29:34.088804Z",
+  "cells": 135,
+  "conditions": 9,
+  "errors": [],
+  "experiment": "S-E6 strict three-method completion",
+  "external_scheduler": {
+    "image": "registry.k8s.io/scheduler-plugins/kube-scheduler:v0.33.5",
+    "implementation": "Kubernetes SIG scheduler-plugins NetworkOverhead (Diktyo lineage)",
+    "profile_verified": true,
+    "smoke_test_passed": true,
+    "version": "0.33.5"
+  },
+  "feasibility_under_common_bplus_evaluator": {
+    "BPlus-Exact": {
+      "feasible_n": 45,
+      "n": 45
+    },
+    "External-NetworkOverhead": {
+      "feasible_n": 0,
+      "n": 45
+    },
+    "Native": {
+      "feasible_n": 0,
+      "n": 45
+    }
+  },
+  "manifest_entries_verified_before_audit_outputs": 475,
+  "methods": [
+    "Native",
+    "External-NetworkOverhead",
+    "BPlus-Exact"
+  ],
+  "metric_completeness_n_of_135": {
+    "P50": 135,
+    "P95": 135,
+    "P99": 135,
+    "downtime": 0,
+    "errors": 135,
+    "throughput_rps": 0
+  },
+  "outputs": [
+    "derived/S-E6-condition-summary.csv",
+    "derived/S-E6-paired-statistics.csv",
+    "derived/S-E6-validation-audit.json"
+  ],
+  "replicates_per_condition_method": 5,
+  "run_id": "se6-external-20260816T143143Z",
+  "statistical_analysis": {
+    "bplus_lower_sample_mean_p95_than_external_conditions": 6,
+    "external_vs_bplus_tests": 27,
+    "holm_family": "S-E6 strict three-method completion only; separate from primary and earlier strengthening families",
+    "holm_significant_0_05": 1,
+    "independent_unit": "matched condition-level replicate",
+    "metrics": [
+      "P95",
+      "P99",
+      "errors"
+    ],
+    "minimum_holm_p": 0.005210758122536384,
+    "minimum_raw_p": 6.433034719180721e-05,
+    "pairwise_tests": 81
+  },
+  "status": "PASS",
+  "warnings": [
+    "throughput_rps is unreported in all 135 cells and is excluded from inference",
+    "downtime is unreported in all 135 cells and is excluded from inference"
+  ]
+}

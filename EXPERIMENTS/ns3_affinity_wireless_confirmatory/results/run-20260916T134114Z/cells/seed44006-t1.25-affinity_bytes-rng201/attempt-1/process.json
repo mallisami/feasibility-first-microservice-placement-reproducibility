@@ -1,0 +1,22 @@
+{
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "mape-ns3-44006-1p25-affinity_bytes-201-a1",
+    "-v",
+    "/mnt/f/Papers/New experiment repo final/MCB_SSOT_v0916_confirmatory_run/EXPERIMENTS/ns3_affinity_wireless_confirmatory/results/run-20260916T134114Z/cells/seed44006-t1.25-affinity_bytes-rng201/attempt-1:/evidence",
+    "mape-cap-ns3-affinity-confirm:2026-09-16",
+    "/bin/bash",
+    "-lc",
+    "set -o pipefail; mkdir -p Traces; ./waf --run-no-build \"evaluate_bplus_affinity_dense --simulationTime=3.0 --packetSize=1448 --socketType=ns3::UdpSocketFactory --numSTAs=6 --ratesMbpsCsv=0.000000,0.000000,551.086957,647.026775,0.000000,0.000000 --csv=true --reportDataSnr=true --directory=/evidence/ --qdChannelFolder=DenseScenario --RngRun=201\""
+  ],
+  "completed_utc": "2026-09-17T00:56:56.633367Z",
+  "returncode": 0,
+  "runtime_seconds": 114.90394850099983,
+  "spec": "evaluate_bplus_affinity_dense --simulationTime=3.0 --packetSize=1448 --socketType=ns3::UdpSocketFactory --numSTAs=6 --ratesMbpsCsv=0.000000,0.000000,551.086957,647.026775,0.000000,0.000000 --csv=true --reportDataSnr=true --directory=/evidence/ --qdChannelFolder=DenseScenario --RngRun=201",
+  "stderr": "",
+  "stdout": "Waf: Entering directory `/sim/wigig-module/build'\n0.1,528.462,624.03,1152.49\n0.2,551.167,647.082,1198.25\n0.3,550.819,645.924,1196.74\n0.4,550.356,647.893,1198.25\n0.5,551.167,647.082,1198.25\n0.6,552.325,646.851,1199.18\n0.7,550.703,646.851,1197.55\n0.8,550.935,647.314,1198.25\n0.9,549.892,648.009,1197.9\n1.0,552.441,645.924,1198.36\n1.1,550.935,647.198,1198.13\n1.2,550.819,644.881,1195.7\n1.3,550.819,649.747,1200.57\n1.4,551.514,647.546,1199.06\n1.5,551.514,645.924,1197.44\n1.6,549.777,647.893,1197.67\n1.7,551.398,647.082,1198.48\n1.8,551.63,646.966,1198.6\n1.9,551.051,646.04,1197.09\n2.0,551.746,647.082,1198.83\n2.1,549.545,647.777,1197.32\n2.2,551.514,646.619,1198.13\n2.3,551.514,647.661,1199.18\n2.4,551.862,645.924,1197.79\n2.5,550.008,647.893,1197.9\n2.6,551.283,646.966,1198.25\n2.7,551.051,647.314,1198.36\n2.8,550.819,646.503,1197.32\n2.9,551.63,647.777,1199.41\n3.0,551.283,645.576,1196.86\n3.1,0.81088,1.96928,2.78016\n",
+  "timed_out": false
+}

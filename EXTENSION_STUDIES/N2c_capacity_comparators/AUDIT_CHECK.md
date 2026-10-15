@@ -1,0 +1,50 @@
+# N2c audit check: risk-aware ranking and direction sharing (post hoc)
+
+Script `audit_check_risk_ranking.py` (imports run_n2n3.py and run_n2c.py unchanged); cells in
+`audit_check_cells.csv`. Counts are graphs out of 150.
+- Gate 1: MAPE-CAP-WS under full admission reproduces the published N2/N3 placements in 900/900 cells.
+- Gate 2: the byte-affinity selections reproduce n2c_cells.csv in 13950/13950 cells.
+
+Columns:
+- B1 = MAPE-CAP-WS ranking with per-pair budgets only (comparator (b)): selections that exceed the full model
+  (all in the multi-pair conflict-dense group), and how many of those graphs have an admissible placement;
+- CD max = largest conflict-dense (multi-pair) utilization of the full-admission MAPE-CAP-WS / Affinity-Bytes placements;
+- B3 = byte-affinity ranking under (b): multi-pair violators, and how many of them are on graphs with no admissible placement;
+- B4 = plain Affinity-Bytes violations, and how many remain under a per-direction budget not shared by the two directions
+  (n/f = that comparator found no placement).
+
+| tau | admissible exists | B1 violators (avoidable) | B1 seeds (full-model util) | CD max MAPE / Aff | B3 violators / no admissible | B4 violations / remain (n/f) |
+|---|---|---|---|---|---|---|
+| 0.50 | 150 | 0 (0) |  | 0.387 / 0.352 | 0 / 0 | 0 / 0 (0) |
+| 0.55 | 150 | 0 (0) |  | 0.426 / 0.388 | 0 / 0 | 0 / 0 (0) |
+| 0.60 | 150 | 0 (0) |  | 0.464 / 0.423 | 0 / 0 | 0 / 0 (0) |
+| 0.65 | 150 | 0 (0) |  | 0.503 / 0.458 | 0 / 0 | 0 / 0 (0) |
+| 0.70 | 150 | 0 (0) |  | 0.542 / 0.493 | 0 / 0 | 0 / 0 (0) |
+| 0.75 | 150 | 0 (0) |  | 0.581 / 0.529 | 0 / 0 | 0 / 0 (0) |
+| 0.80 | 150 | 0 (0) |  | 0.619 / 0.564 | 0 / 0 | 0 / 0 (0) |
+| 0.85 | 150 | 0 (0) |  | 0.652 / 0.599 | 0 / 0 | 0 / 0 (0) |
+| 0.90 | 150 | 0 (0) |  | 0.690 / 0.634 | 0 / 0 | 1 / 1 (0) |
+| 0.95 | 150 | 0 (0) |  | 0.709 / 0.669 | 0 / 0 | 3 / 3 (0) |
+| 1.00 | 150 | 0 (0) |  | 0.767 / 0.705 | 0 / 0 | 7 / 6 (0) |
+| 1.05 | 150 | 0 (0) |  | 0.784 / 0.740 | 0 / 0 | 9 / 7 (0) |
+| 1.10 | 150 | 0 (0) |  | 0.817 / 0.775 | 0 / 0 | 12 / 9 (0) |
+| 1.15 | 150 | 0 (0) |  | 0.989 / 0.810 | 0 / 0 | 13 / 11 (0) |
+| 1.20 | 150 | 1 (1) | 33024 (1.03) | 0.992 / 0.846 | 0 / 0 | 18 / 15 (0) |
+| 1.25 | 150 | 3 (3) | 11037 (1.45), 33008 (1.03), 33024 (1.07) | 0.998 / 0.881 | 0 / 0 | 24 / 21 (0) |
+| 1.30 | 150 | 5 (5) | 11045 (1.04), 22032 (1.11), 33024 (1.12), 33026 (1.02), 33047 (1.02) | 0.992 / 0.916 | 0 / 0 | 26 / 24 (0) |
+| 1.35 | 148 | 7 (5) | (see cells) | 0.999 / 0.951 | 2 / 2 | 31 / 27 (0) |
+| 1.40 | 147 | 13 (10) | (see cells) | 0.997 / 0.987 | 3 / 3 | 33 / 26 (0) |
+| 1.45 | 146 | 17 (14) | (see cells) | 0.988 / 1.022 | 4 / 3 | 36 / 28 (0) |
+| 1.50 | 143 | 23 (17) | (see cells) | 0.997 / 1.057 | 7 / 6 | 42 / 31 (0) |
+| 1.55 | 138 | 31 (20) | (see cells) | 0.999 / 1.092 | 11 / 11 | 44 / 33 (0) |
+| 1.60 | 134 | 42 (27) | (see cells) | 0.994 / 1.128 | 17 / 15 | 45 / 36 (0) |
+| 1.65 | 129 | 49 (32) | (see cells) | 0.992 / 1.163 | 19 / 17 | 46 / 38 (0) |
+| 1.70 | 121 | 50 (25) | (see cells) | 0.997 / 1.198 | 27 / 25 | 52 / 45 (0) |
+| 1.75 | 116 | 56 (28) | (see cells) | 1.000 / 1.233 | 29 / 28 | 57 / 52 (0) |
+| 1.80 | 107 | 62 (26) | (see cells) | 0.999 / 1.268 | 36 / 36 | 62 / 57 (0) |
+| 1.85 | 102 | 64 (27) | (see cells) | 0.997 / 1.304 | 37 / 37 | 66 / 62 (0) |
+| 1.90 | 93 | 66 (21) | (see cells) | 1.000 / 1.339 | 46 / 45 | 72 / 69 (0) |
+| 1.95 | 88 | 67 (19) | (see cells) | 0.996 / 1.374 | 49 / 48 | 76 / 74 (0) |
+| 2.00 | 83 | 69 (19) | (see cells) | 0.998 / 1.409 | 51 / 50 | 78 / 77 (0) |
+
+Every B1 violator exceeds the conflict-dense (multi-pair) budget: True.

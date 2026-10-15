@@ -1,0 +1,221 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mape-cap-app-a
+  labels:
+    mape-cap-bplus/application: app-a
+    mape-cap-bplus/topology: frontend-api-db
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: mape-cap-app-a
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+        tier: frontend
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    app: frontend
+                topologyKey: kubernetes.io/hostname
+      containers:
+        - name: frontend
+          image: hashicorp/http-echo:1.0.0
+          args: ["-text=app-a-frontend"]
+          ports:
+            - containerPort: 5678
+          resources:
+            requests:
+              cpu: 25m
+              memory: 16Mi
+            limits:
+              cpu: 100m
+              memory: 64Mi
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 5678
+            initialDelaySeconds: 1
+            periodSeconds: 2
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  namespace: mape-cap-app-a
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: api
+        tier: backend
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    app: api
+                topologyKey: kubernetes.io/hostname
+      containers:
+        - name: api
+          image: hashicorp/http-echo:1.0.0
+          args: ["-text=app-a-api"]
+          ports:
+            - containerPort: 5678
+          resources:
+            requests:
+              cpu: 25m
+              memory: 16Mi
+            limits:
+              cpu: 100m
+              memory: 64Mi
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 5678
+            initialDelaySeconds: 1
+            periodSeconds: 2
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: database
+  namespace: mape-cap-app-a
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: database
+      tier: data
+  template:
+    metadata:
+      labels:
+        app: database
+        tier: data
+    spec:
+      containers:
+        - name: database
+          image: hashicorp/http-echo:1.0.0
+          args: ["-text=app-a-database"]
+          ports:
+            - containerPort: 5678
+          resources:
+            requests:
+              cpu: 25m
+              memory: 16Mi
+            limits:
+              cpu: 100m
+              memory: 64Mi
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 5678
+            initialDelaySeconds: 1
+            periodSeconds: 2
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cache
+  namespace: mape-cap-app-a
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cache
+      tier: data
+  template:
+    metadata:
+      labels:
+        app: cache
+        tier: data
+    spec:
+      containers:
+        - name: cache
+          image: hashicorp/http-echo:1.0.0
+          args: ["-text=app-a-cache"]
+          ports:
+            - containerPort: 5678
+          resources:
+            requests:
+              cpu: 25m
+              memory: 16Mi
+            limits:
+              cpu: 100m
+              memory: 64Mi
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 5678
+            initialDelaySeconds: 1
+            periodSeconds: 2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: mape-cap-app-a
+spec:
+  selector:
+    app: frontend
+  ports:
+    - port: 80
+      targetPort: 5678
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api
+  namespace: mape-cap-app-a
+spec:
+  selector:
+    app: api
+  ports:
+    - port: 80
+      targetPort: 5678
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: database
+  namespace: mape-cap-app-a
+spec:
+  selector:
+    app: database
+  ports:
+    - port: 80
+      targetPort: 5678
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cache
+  namespace: mape-cap-app-a
+spec:
+  selector:
+    app: cache
+  ports:
+    - port: 80
+      targetPort: 5678

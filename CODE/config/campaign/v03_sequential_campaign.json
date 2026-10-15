@@ -1,0 +1,159 @@
+{
+  "schema_version": "1.0",
+  "campaign_version": "B+ v0.3",
+  "evidence_policy": "append-only timestamped run roots; prior artifacts are never outputs",
+  "raw_root": "../RESULTS/primary",
+  "minimum_resources": {
+    "disk_free_gib": 20.0,
+    "docker_memory_gib": 11.0,
+    "light_phase_host_available_gib": 2.0,
+    "heavy_phase_host_available_gib": 4.0
+  },
+  "execution_order": [
+    "phase-0-audit",
+    "phase-1-correctness",
+    "phase-2-classifier",
+    "phase-3-r6",
+    "phase-4-r8",
+    "phase-5-r5-ns3",
+    "phase-6-kind",
+    "phase-7-r2",
+    "phase-8-r1",
+    "phase-9-r3",
+    "phase-10-r4",
+    "phase-11-r7",
+    "phase-12-regenerate",
+    "phase-13-statistics",
+    "phase-14-validation",
+    "phase-15-final"
+  ],
+  "mutual_exclusion": [
+    [
+      "kind",
+      "ns3"
+    ],
+    [
+      "online-boutique",
+      "deathstarbench"
+    ],
+    [
+      "large-exact",
+      "large-lns"
+    ]
+  ],
+  "matrices": {
+    "classifier": {
+      "methods": [
+        "hysteresis",
+        "ewma",
+        "persistence-change-point"
+      ],
+      "regimes": [
+        "stable",
+        "degradation",
+        "blockage",
+        "conflict",
+        "outage",
+        "recovery"
+      ]
+    },
+    "r6": {
+      "methods": [
+        "Deterministic",
+        "ExpectedValue",
+        "Minimax",
+        "BPlus-CVaR"
+      ],
+      "quantiles": [
+        0.5,
+        0.8,
+        0.9,
+        0.95
+      ],
+      "scenario_counts": [
+        3,
+        5,
+        10,
+        20,
+        50
+      ],
+      "probability_models": [
+        "equal",
+        "empirical",
+        "misspecified"
+      ]
+    },
+    "r8": {
+      "replicas": [
+        6,
+        8,
+        10,
+        12,
+        16,
+        20,
+        24,
+        40,
+        50
+      ],
+      "seeds": [
+        1,
+        2,
+        3
+      ],
+      "methods": [
+        "Exact",
+        "LNS"
+      ]
+    },
+    "r1": {
+      "conditions": [
+        "stable",
+        "persistent-degradation",
+        "partial-blockage",
+        "conflict-dense",
+        "outage-with-fallback",
+        "recovery",
+        "bursty",
+        "hotspot",
+        "structural-workload-change"
+      ],
+      "target_paired_replicates": 30
+    },
+    "r3": {
+      "independent_sequences": 5,
+      "minimum_windows": 11
+    },
+    "r4": {
+      "storage": [
+        "emptyDir",
+        "persistent-volume",
+        "application-replication"
+      ],
+      "image_cache": [
+        "cached",
+        "uncached"
+      ],
+      "state_size": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "network": [
+        "stable",
+        "degraded"
+      ],
+      "load": [
+        "idle",
+        "loaded"
+      ]
+    },
+    "r7": {
+      "conditions": [
+        "stable",
+        "degradation",
+        "conflict",
+        "recovery"
+      ]
+    }
+  }
+}

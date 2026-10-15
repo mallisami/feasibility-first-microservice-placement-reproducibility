@@ -1,0 +1,22 @@
+{
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "mape-ns3-44017-0p5-bplus_exact-201-a1",
+    "-v",
+    "/mnt/f/Papers/New experiment repo final/MCB_SSOT_v0916_confirmatory_run/EXPERIMENTS/ns3_affinity_wireless_confirmatory/results/run-20260916T134114Z/cells/seed44017-t0.50-bplus_exact-rng201/attempt-1:/evidence",
+    "mape-cap-ns3-affinity-confirm:2026-09-16",
+    "/bin/bash",
+    "-lc",
+    "set -o pipefail; mkdir -p Traces; ./waf --run-no-build \"evaluate_bplus_affinity_dense --simulationTime=3.0 --packetSize=1448 --socketType=ns3::UdpSocketFactory --numSTAs=6 --ratesMbpsCsv=577.138327,102.227402,0.000000,0.000000,0.000000,0.000000 --csv=true --reportDataSnr=true --directory=/evidence/ --qdChannelFolder=DenseScenario --RngRun=201\""
+  ],
+  "completed_utc": "2026-09-16T19:38:49.574162Z",
+  "returncode": 0,
+  "runtime_seconds": 183.26360068299982,
+  "spec": "evaluate_bplus_affinity_dense --simulationTime=3.0 --packetSize=1448 --socketType=ns3::UdpSocketFactory --numSTAs=6 --ratesMbpsCsv=577.138327,102.227402,0.000000,0.000000,0.000000,0.000000 --csv=true --reportDataSnr=true --directory=/evidence/ --qdChannelFolder=DenseScenario --RngRun=201",
+  "stderr": "",
+  "stdout": "Waf: Entering directory `/sim/wigig-module/build'\n0.1,556.611,98.0006,654.612\n0.2,576.999,102.287,679.286\n0.3,576.883,102.171,679.054\n0.4,577.462,102.171,679.633\n0.5,576.072,102.287,678.359\n0.6,578.273,102.171,680.444\n0.7,576.188,102.287,678.475\n0.8,578.042,102.171,680.212\n0.9,576.652,102.287,678.938\n1.0,577.694,102.171,679.865\n1.1,576.536,102.287,678.822\n1.2,577.81,102.055,679.865\n1.3,576.883,102.287,679.17\n1.4,577.231,102.403,679.633\n1.5,577.231,102.055,679.286\n1.6,577.115,102.403,679.517\n1.7,576.767,102.055,678.822\n1.8,576.652,102.287,678.938\n1.9,577.347,102.287,679.633\n2.0,577.81,102.287,680.097\n2.1,577.347,101.939,679.286\n2.2,576.999,102.518,679.517\n2.3,576.188,102.171,678.359\n2.4,578.042,102.171,680.212\n2.5,576.42,102.287,678.707\n2.6,577.926,102.171,680.097\n2.7,576.883,102.287,679.17\n2.8,576.999,102.171,679.17\n2.9,577.231,102.287,679.517\n3.0,577.347,102.171,679.517\n3.1,0.5792,0.11584,0.69504\n",
+  "timed_out": false
+}

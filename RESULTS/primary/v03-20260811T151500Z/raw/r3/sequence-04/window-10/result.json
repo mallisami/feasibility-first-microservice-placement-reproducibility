@@ -1,0 +1,214 @@
+{
+  "accepted": true,
+  "application": {
+    "error_rate": 0.0,
+    "errors": 0,
+    "evidence_type": "frontend-structured-request-log",
+    "mean_ms": 27.489795918367346,
+    "operations": {
+      "GET /": 7,
+      "GET /cart": 11,
+      "GET /product/0PUK6V6EV0": 2,
+      "GET /product/1YMWWN1N4O": 5,
+      "GET /product/2ZYFJ3GM2N": 2,
+      "GET /product/66VCHSJNUP": 2,
+      "GET /product/9SIQT8TOJO": 2,
+      "GET /product/L9ECAV7KIM": 1,
+      "GET /product/LS4PSXUNUM": 2,
+      "GET /product/OLJCESPC7Z": 2,
+      "POST /cart": 6,
+      "POST /cart/checkout": 1,
+      "POST /setCurrency": 6
+    },
+    "p50_ms": 17.0,
+    "p95_ms": 121.0,
+    "p99_ms": 197.0,
+    "requests": 49,
+    "response_bytes": 425029,
+    "throughput_requests_per_second": 3.2666666666666666
+  },
+  "classified_regime": "stable",
+  "classifier": {
+    "accuracy": 0.8783068783068783,
+    "configuration": "threshold-scale-1.0",
+    "detection_delay_windows": 0.37037037037037035,
+    "false_triggers": 3.2777777777777777,
+    "method": "hysteresis",
+    "missed_regimes": 0.0,
+    "noise_relocations": 5.722222222222222,
+    "score": 0.7518253968253968
+  },
+  "completed_utc": "2026-08-12T09:18:35.100565Z",
+  "controller_regime_after": "stable",
+  "controller_regime_before": "stable",
+  "detection_delay_windows": 0,
+  "downtime_seconds": null,
+  "failed_requests": 0,
+  "gate": {
+    "accepted": false,
+    "candidate_regime": "stable",
+    "economics": {
+      "candidate_cross_node_bytes_per_second": 705.7333333333333,
+      "current_cross_node_bytes_per_second": 1617.088888888889,
+      "forecast_seconds": 300.0,
+      "net_benefit_bytes": 255640.33333333334,
+      "relocation_cost_equivalent_bytes": 4096.0,
+      "service": "redis-cart",
+      "source_node": "mape-cap-bplus-worker3",
+      "target_node": "mape-cap-bplus-worker",
+      "uncertainty_margin_bytes": 13670.333333333336
+    },
+    "persistent_windows": 3,
+    "reason": "rejected: recovery/stable does not justify relocation",
+    "should_replan": true
+  },
+  "health": {
+    "healthy": true,
+    "pods": [
+      {
+        "app": "adservice",
+        "phase": "Running",
+        "pod": "adservice-64d89dc9c7-v5jwg",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "cartservice",
+        "phase": "Running",
+        "pod": "cartservice-6c7477f756-hcjpc",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "checkoutservice",
+        "phase": "Running",
+        "pod": "checkoutservice-55799bffc8-bgbkh",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "currencyservice",
+        "phase": "Running",
+        "pod": "currencyservice-75b8d4485f-wbdq4",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "emailservice",
+        "phase": "Running",
+        "pod": "emailservice-7669b5f696-n248w",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "frontend",
+        "phase": "Running",
+        "pod": "frontend-c876c5b97-7lbcz",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-b45cd8bd7-wvsrs",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "paymentservice",
+        "phase": "Running",
+        "pod": "paymentservice-6dcf9959d6-pk2s7",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "productcatalogservice",
+        "phase": "Running",
+        "pod": "productcatalogservice-d599476f7-p45xd",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "recommendationservice",
+        "phase": "Running",
+        "pod": "recommendationservice-76f944d978-q5d9r",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "redis-cart",
+        "phase": "Running",
+        "pod": "redis-cart-674b454757-bzvws",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "shippingservice",
+        "phase": "Running",
+        "pod": "shippingservice-5fbf5d84d6-dbmwn",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  "placement_after": {
+    "adservice": "mape-cap-bplus-worker",
+    "cartservice": "mape-cap-bplus-worker",
+    "checkoutservice": "mape-cap-bplus-worker",
+    "currencyservice": "mape-cap-bplus-worker",
+    "emailservice": "mape-cap-bplus-worker2",
+    "frontend": "mape-cap-bplus-worker",
+    "paymentservice": "mape-cap-bplus-worker3",
+    "productcatalogservice": "mape-cap-bplus-worker",
+    "recommendationservice": "mape-cap-bplus-worker",
+    "redis-cart": "mape-cap-bplus-worker3",
+    "shippingservice": "mape-cap-bplus-worker3"
+  },
+  "placement_before": {
+    "adservice": "mape-cap-bplus-worker",
+    "cartservice": "mape-cap-bplus-worker",
+    "checkoutservice": "mape-cap-bplus-worker",
+    "currencyservice": "mape-cap-bplus-worker",
+    "emailservice": "mape-cap-bplus-worker2",
+    "frontend": "mape-cap-bplus-worker",
+    "paymentservice": "mape-cap-bplus-worker3",
+    "productcatalogservice": "mape-cap-bplus-worker",
+    "recommendationservice": "mape-cap-bplus-worker",
+    "redis-cart": "mape-cap-bplus-worker3",
+    "shippingservice": "mape-cap-bplus-worker3"
+  },
+  "planning_time_seconds": 0.0,
+  "recovery_seconds": null,
+  "relocation": null,
+  "relocation_time_seconds": null,
+  "resources": {
+    "max_cpu_cores": 0.125842816,
+    "max_memory_mib": 505.34765625,
+    "mean_cpu_cores": 0.12285388925,
+    "mean_memory_mib": 504.490234375,
+    "network_bytes_per_second": 169169.93333333332,
+    "network_rx_bytes": 1174423,
+    "network_tx_bytes": 1363126
+  },
+  "seed": 7304,
+  "sequence_id": 4,
+  "shaping": {
+    "applied": {
+      "availability": 1.0,
+      "conflict_ratio": 0.05,
+      "latency_ms": 2.0,
+      "loss_percent": 0.1,
+      "rate_mbit": 1000.0
+    },
+    "tc_qdisc": {
+      "mape-cap-bplus-worker": "qdisc noqueue 0: root refcnt 2 \n",
+      "mape-cap-bplus-worker2": "qdisc noqueue 0: root refcnt 2 \n",
+      "mape-cap-bplus-worker3": "qdisc noqueue 0: root refcnt 2 \n"
+    }
+  },
+  "trace_id": "r3-seed-7304-trace-04",
+  "truth_regime": "stable",
+  "window_duration_seconds": 15,
+  "window_id": "r3-seed-7304-trace-04:window-10",
+  "window_index": 10
+}

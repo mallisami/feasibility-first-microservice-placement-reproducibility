@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "description": "Uncached vs cached image relocation measurements on Kind cluster",
+  "date": "2026-08-07",
+  "cluster": "mape-cap-bplus",
+  "image": "nginx:1.27-alpine",
+  "image_size_bytes": 20984244,
+  "method": "create-ready-remove rolling update",
+  "protocol": "Image loaded to source node only via docker save | ctr import; target node pulls from Docker Hub (uncached). Cached measurements use same image after it has been pulled.",
+  "records": [
+    {
+      "measurement": 1,
+      "type": "uncached",
+      "source_node": "mape-cap-bplus-worker",
+      "target_node": "mape-cap-bplus-worker2",
+      "ready_seconds": 60.163377,
+      "rollout_seconds": 62.681642,
+      "file": "measurement_1_uncached_worker2.json"
+    },
+    {
+      "measurement": 2,
+      "type": "uncached",
+      "source_node": "mape-cap-bplus-worker2",
+      "target_node": "mape-cap-bplus-worker3",
+      "ready_seconds": 63.60986,
+      "rollout_seconds": 66.014955,
+      "file": "measurement_2_uncached_worker3.json"
+    },
+    {
+      "measurement": 3,
+      "type": "cached",
+      "source_node": "mape-cap-bplus-worker3",
+      "target_node": "mape-cap-bplus-worker",
+      "ready_seconds": 5.642303,
+      "rollout_seconds": 6.889777,
+      "file": "measurement_3_cached_worker.json"
+    },
+    {
+      "measurement": 4,
+      "type": "cached",
+      "source_node": "mape-cap-bplus-worker",
+      "target_node": "mape-cap-bplus-worker2",
+      "ready_seconds": 2.934865,
+      "rollout_seconds": 4.171111,
+      "file": "measurement_4_cached_worker2.json"
+    }
+  ],
+  "summary": {
+    "uncached_mean_ready_s": 61.886619,
+    "uncached_range_ready_s": [60.163377, 63.60986],
+    "cached_mean_ready_s": 4.288584,
+    "cached_range_ready_s": [2.934865, 5.642303],
+    "uncached_to_cached_ratio": 14.43,
+    "finding": "Uncached image pull adds ~57s to relocation cost for a 21MB image, making it ~14x more expensive than cached relocation"
+  },
+  "provenance": "controller-observed-kubernetes-rolling-update"
+}

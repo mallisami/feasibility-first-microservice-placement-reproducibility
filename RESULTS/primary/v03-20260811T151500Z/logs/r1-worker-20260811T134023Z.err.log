@@ -1,0 +1,43 @@
+Traceback (most recent call last):
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r1.py", line 634, in execute_campaign
+    row = run_cell(run_root, condition, replicate, method, problem, args.duration_seconds)
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r1.py", line 532, in run_cell
+    measured, samples, frontend_log = measure(condition, replicate, duration)
+                                      ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r1.py", line 461, in measure
+    condition_event = configure_condition(condition, replicate)
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r1.py", line 165, in configure_condition
+    all_egress(25, 100, 1.0)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r1.py", line 139, in all_egress
+    docker(
+    ~~~~~~^
+        worker, "tc", "qdisc", "replace", "dev", "eth0", "root", "netem",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "delay", f"{delay_ms}ms", "rate", f"{rate_mbit}mbit", "loss", f"{loss_pct}%",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r1.py", line 129, in docker
+    return run(["docker", "exec", node, *args], check=check, timeout=30)
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r1.py", line 124, in run
+    raise RuntimeError(f"command failed ({result.returncode}): {' '.join(args)}\n{result.stderr[-2000:]}")
+RuntimeError: command failed (1): docker exec mape-cap-bplus-worker tc qdisc replace dev eth0 root netem delay 25ms rate 100mbit loss 1.0%
+permission denied while trying to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r1.py", line 687, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r1.py", line 683, in main
+    return execute_campaign(args, conditions, methods, run_root)
+  File "D:\Sami\MAPE_BPLUS_MASTER_2026-08-07\02_BPLUS_SYSTEM\code\run_v03_r1.py", line 647, in execute_campaign
+    raise RuntimeError(
+    ...<2 lines>...
+    ) from last_error
+RuntimeError: R1 cell exhausted 3 attempts: persistent-degradation/rep1/DeterministicNetworkAware: command failed (1): docker exec mape-cap-bplus-worker tc qdisc replace dev eth0 root netem delay 25ms rate 100mbit loss 1.0%
+permission denied while trying to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine
+

@@ -1,0 +1,202 @@
+{
+  "calibration": {
+    "base_current_emulated_scenario_utilization": 0.025967519165623527,
+    "calibrated_current_emulated_scenario_utilization": 1.2500000000000004,
+    "calibrated_current_worst_robust_utilization": 1.2500000000000004,
+    "goodput_scale": 0.02077401533249882,
+    "max_rate_mbit": 36.25418833781697,
+    "min_rate_mbit": 24.04862336936061
+  },
+  "plans": {
+    "Affinity-Bytes": {
+      "cross_rack_bits": 287531632.0,
+      "evaluation": {
+        "cvar_delay_cost": 14742.599999999999,
+        "expected_delay_cost": 8869.832142857143,
+        "feasible": true,
+        "reasons": [],
+        "relocation_cost": 8124.0,
+        "scenario_airtime_by_group": {
+          "conflict-dense": {
+            "cg-shared": 10.090734525951415
+          },
+          "partial-blockage": {
+            "cg-ab": 1.7435599329643658,
+            "cg-ac": 15.705767620221362,
+            "cg-bc": 2.085869385523985
+          },
+          "persistent-degradation": {
+            "cg-ab": 5.437581293324852,
+            "cg-ac": 15.705767620221362,
+            "cg-bc": 12.074500623396943
+          }
+        },
+        "scenario_delay_costs": {
+          "conflict-dense": 3337.3500000000004,
+          "partial-blockage": 8642.975,
+          "persistent-degradation": 14742.599999999999
+        },
+        "slo_slack": 0.0,
+        "total_objective": 39107.732142857145
+      },
+      "moves": 2,
+      "placement": {
+        "replica-0": "mape-cap-confirm-worker",
+        "replica-1": "mape-cap-confirm-worker",
+        "replica-2": "mape-cap-confirm-worker",
+        "replica-3": "mape-cap-confirm-worker",
+        "replica-4": "mape-cap-confirm-worker2",
+        "replica-5": "mape-cap-confirm-worker3"
+      },
+      "planned_feasible": true,
+      "planner": {
+        "cluster_feasible_placements_enumerated": 64,
+        "cross_rack_bits": 287531632.0,
+        "moves": 2,
+        "solver": "deterministic-enumeration",
+        "wireless_information_visible": false
+      },
+      "planner_abstained": false,
+      "planner_status": "optimal",
+      "worst_conflict_utilization": 0.6727156350634277
+    },
+    "BPlus-Exact": {
+      "cross_rack_bits": 347544464.0,
+      "evaluation": {
+        "cvar_delay_cost": 13508.800000000001,
+        "expected_delay_cost": 7434.657142857144,
+        "feasible": true,
+        "reasons": [],
+        "relocation_cost": 8124.0,
+        "scenario_airtime_by_group": {
+          "conflict-dense": {
+            "cg-shared": 12.431225559026025
+          },
+          "partial-blockage": {
+            "cg-ab": 2.7563083652516003,
+            "cg-ac": 16.64211762299937,
+            "cg-bc": 2.3273429395161505
+          },
+          "persistent-degradation": {
+            "cg-ab": 12.057733907754594,
+            "cg-ac": 16.64211762299937,
+            "cg-bc": 13.472321886054694
+          }
+        },
+        "scenario_delay_costs": {
+          "conflict-dense": 3216.7,
+          "partial-blockage": 6197.2,
+          "persistent-degradation": 13508.800000000001
+        },
+        "slo_slack": 0.0,
+        "total_objective": 35821.857142857145
+      },
+      "moves": 2,
+      "placement": {
+        "replica-0": "mape-cap-confirm-worker2",
+        "replica-1": "mape-cap-confirm-worker2",
+        "replica-2": "mape-cap-confirm-worker3",
+        "replica-3": "mape-cap-confirm-worker",
+        "replica-4": "mape-cap-confirm-worker2",
+        "replica-5": "mape-cap-confirm-worker2"
+      },
+      "planned_feasible": true,
+      "planner": {
+        "constraint_count": 453,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "mip_dual_bound": 35821.85714285714,
+        "mip_gap": 0.0,
+        "mip_node_count": 1,
+        "placement_evaluation": {
+          "cvar_delay_cost": 13508.800000000001,
+          "expected_delay_cost": 7434.657142857144,
+          "feasible": true,
+          "reasons": [],
+          "relocation_cost": 8124.0,
+          "scenario_airtime_by_group": {
+            "conflict-dense": {
+              "cg-shared": 12.431225559026025
+            },
+            "partial-blockage": {
+              "cg-ab": 2.7563083652516003,
+              "cg-ac": 16.64211762299937,
+              "cg-bc": 2.3273429395161505
+            },
+            "persistent-degradation": {
+              "cg-ab": 12.057733907754594,
+              "cg-ac": 16.64211762299937,
+              "cg-bc": 13.472321886054694
+            }
+          },
+          "scenario_delay_costs": {
+            "conflict-dense": 3216.7,
+            "partial-blockage": 6197.2,
+            "persistent-degradation": 13508.800000000001
+          },
+          "slo_slack": 0.0,
+          "total_objective": 35821.857142857145
+        },
+        "proven_optimal": true,
+        "solver": "scipy.optimize.milp/HiGHS",
+        "solver_objective": 35821.85714285714,
+        "status": 0,
+        "variable_count": 167
+      },
+      "planner_abstained": false,
+      "planner_status": "optimal",
+      "worst_conflict_utilization": 0.828748370601735
+    },
+    "Current": {
+      "cross_rack_bits": 534032608.0,
+      "evaluation": {
+        "cvar_delay_cost": Infinity,
+        "expected_delay_cost": Infinity,
+        "feasible": false,
+        "reasons": [
+          "airtime budget cg-shared exceeded in conflict-dense: 18.750000s > 15.000000s"
+        ],
+        "relocation_cost": 0.0,
+        "scenario_airtime_by_group": {
+          "conflict-dense": {
+            "cg-shared": 18.750000000000007
+          },
+          "partial-blockage": {
+            "cg-ab": 4.086364269055099,
+            "cg-ac": 22.149863244540974,
+            "cg-bc": 4.2737344936476624
+          },
+          "persistent-degradation": {
+            "cg-ab": 16.205734194330343,
+            "cg-ac": 22.149863244540974,
+            "cg-bc": 24.739425280369915
+          }
+        },
+        "scenario_delay_costs": {
+          "conflict-dense": 5042.85,
+          "partial-blockage": 9284.849999999999,
+          "persistent-degradation": 21781.8
+        },
+        "slo_slack": 0.0,
+        "total_objective": Infinity
+      },
+      "moves": 0,
+      "placement": {
+        "replica-0": "mape-cap-confirm-worker",
+        "replica-1": "mape-cap-confirm-worker2",
+        "replica-2": "mape-cap-confirm-worker3",
+        "replica-3": "mape-cap-confirm-worker",
+        "replica-4": "mape-cap-confirm-worker2",
+        "replica-5": "mape-cap-confirm-worker3"
+      },
+      "planned_feasible": false,
+      "planner": {
+        "solver": "identity"
+      },
+      "planner_abstained": false,
+      "planner_status": "identity",
+      "worst_conflict_utilization": 1.2500000000000004
+    }
+  },
+  "seed": 44014,
+  "target": 1.25
+}

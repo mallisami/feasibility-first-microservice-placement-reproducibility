@@ -1,0 +1,34 @@
+{
+  "original_cells": 63,
+  "original_complete_cells": 45,
+  "original_failed_cells": 18,
+  "final_complete_cells": 63,
+  "repaired_cells": 18,
+  "repair_scenarios": [
+    "service-period-1600us",
+    "service-period-3200us",
+    "service-period-6400us",
+    "spatial-sharing-4-links",
+    "traffic-allocation-long",
+    "traffic-allocation-short"
+  ],
+  "original_only_scenarios": 15,
+  "original_only_complete_cells": 45,
+  "original_only_coverage_tokens": [
+    "alignment-overhead",
+    "beam-scheduling",
+    "beam-training",
+    "conflict-groups",
+    "distance",
+    "full-blockage",
+    "interference",
+    "los",
+    "partial-blockage",
+    "recovery",
+    "simultaneous-transmissions",
+    "spatial-reuse",
+    "time-varying"
+  ],
+  "publication_selection_rule": "For each predeclared scenario/seed, use the original run if complete; otherwise use an append-only successful retry/repair mapped to the same scenario and seed. Original failures remain retained. Repair acceptance is based on successful execution and expected output structure/positive communication streams, not on achieving a favorable throughput magnitude.",
+  "selection_bias_boundary": "Unrepaired original cells independently cover LoS/distance, partial/full blockage and recovery, beam training/refinement, multi-service-period scheduling, dense interference, and spatial sharing. The service-period-duration quantitative trend, traffic-allocation scenarios, and four-link spatial-sharing cell rely on repaired executions and must be labeled accordingly."
+}

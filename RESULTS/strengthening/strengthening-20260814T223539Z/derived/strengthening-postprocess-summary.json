@@ -1,0 +1,85 @@
+{
+  "completed_utc": "2026-08-15T08:48:38.766415Z",
+  "holm_family": "strengthening experiments only; not merged with frozen v0.3 primary family",
+  "inventory": [
+    {
+      "family": "S-E4-topology-spread-baseline",
+      "pair": "KubeTopologySpread vs BPlus-Exact",
+      "tests": 27
+    },
+    {
+      "family": "S-E5-live-multi-replica",
+      "pair": "Current-MultiReplica vs BPlus-Exact-MultiReplica",
+      "tests": 6
+    },
+    {
+      "family": "S-GRACE-recovery-guard",
+      "pair": "Immediate vs GraceGuard",
+      "tests": 9
+    },
+    {
+      "family": "S-E6-external-scheduler",
+      "pair": "Native vs BPlus-Exact",
+      "tests": 27
+    },
+    {
+      "family": "S-E6-external-scheduler",
+      "pair": "External vs BPlus-Exact",
+      "tests": 0
+    },
+    {
+      "family": "S-E6-external-scheduler",
+      "pair": "Native vs External",
+      "tests": 0
+    },
+    {
+      "family": "S-E7-isolated-overhead",
+      "pair": "mode contrasts",
+      "tests": 15
+    }
+  ],
+  "paired_tests": 84,
+  "safety_analysis": {
+    "all_safe": false,
+    "available": true,
+    "faults": {
+      "F1-missing-telemetry": {
+        "all_safe": true,
+        "cells": 5,
+        "failure_handling_rate": 1.0,
+        "recovery_rate": 1.0,
+        "safe_count": 5
+      },
+      "F2-stale-telemetry": {
+        "all_safe": true,
+        "cells": 5,
+        "failure_handling_rate": 1.0,
+        "recovery_rate": 1.0,
+        "safe_count": 5
+      },
+      "F3-solver-timeout": {
+        "all_safe": true,
+        "cells": 5,
+        "failure_handling_rate": 1.0,
+        "recovery_rate": 1.0,
+        "safe_count": 5
+      },
+      "F4-infeasible-instance": {
+        "all_safe": true,
+        "cells": 5,
+        "failure_handling_rate": 1.0,
+        "recovery_rate": 1.0,
+        "safe_count": 5
+      },
+      "F5-k8s-action-failure": {
+        "all_safe": false,
+        "cells": 5,
+        "failure_handling_rate": 1.0,
+        "recovery_rate": 1.0,
+        "safe_count": 0
+      }
+    },
+    "total_cells": 25
+  },
+  "statistics_csv": "derived\\strengthening_paired_statistics.csv"
+}

@@ -1,0 +1,49 @@
+{
+  "artifact": "ns3-wigig-build",
+  "timestamp": "2026-08-08T12:52:32Z",
+  "image": {
+    "repository": "ns3-wigig",
+    "tag": "v0.5",
+    "id": "sha256:c640d50cf275fe050f901d3b1a2974b59ae878b696936748c4f7487f371c5d90",
+    "size_bytes": 478813445,
+    "base": "ubuntu:20.04"
+  },
+  "source": {
+    "repository": "wigig-tools/wigig-module",
+    "release": "v0.5",
+    "commit": "f3404236d05eb1da1cab80eec06c56ea8ab43f7d",
+    "ns3_version": "3-dev",
+    "standard": "IEEE 802.11ad/ay"
+  },
+  "build": {
+    "dockerfile": "kubernetes/simulator/Dockerfile.ns3-wigig-local",
+    "method": "COPY local clone (avoids Docker build network issues)",
+    "waf_configure_flags": "--disable-examples --disable-tests --disable-python --enable-modules=applications,core,internet,point-to-point,wifi,flow-monitor,spectrum -d optimized",
+    "waf_build_flags": "-j1",
+    "total_steps": 1588,
+    "build_time": "24m44.526s",
+    "modules_built": [
+      "antenna", "applications", "bridge", "config-store", "core",
+      "energy", "flow-monitor", "internet", "mobility", "mpi",
+      "network", "point-to-point", "propagation", "spectrum",
+      "stats", "traffic-control", "wifi"
+    ],
+    "modules_not_built": ["brite", "click", "openflow", "visualizer"],
+    "errors": 0
+  },
+  "simulator_output": {
+    "binary": "build/scratch/evaluate_achievable_throughput",
+    "binary_size_bytes": 3513088,
+    "print_help": {
+      "payloadSize": "Application payload size in bytes [1472]",
+      "msduAggSize": "The maximum aggregation size for A-MSDU in Bytes [max]",
+      "mpduAggSize": "The maximum aggregation size for A-MPDU in Bytes [max]",
+      "enableRts": "Enable or disable RTS/CTS handshake [false]",
+      "queueSize": "The maximum size of the Wifi MAC Queue [4000p]",
+      "standard": "The WiGig standard being utilized (ad/ay) [ad]",
+      "channel": "WiGig channel number [2]",
+      "simulationTime": "Simulation time in Seconds per MCS [1]"
+    }
+  },
+  "verdict": "BUILD_SUCCESS_BINARY_EXECUTABLE"
+}

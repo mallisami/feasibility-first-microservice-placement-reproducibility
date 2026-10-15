@@ -1,0 +1,22 @@
+apiVersion: kubescheduler.config.k8s.io/v1
+kind: KubeSchedulerConfiguration
+leaderElection:
+  leaderElect: false
+  resourceNamespace: scheduler-plugins
+  resourceName: network-aware-scheduler
+profiles:
+# Compose all plugins in one profile
+- schedulerName: network-aware-scheduler
+  plugins:
+    multiPoint:
+      enabled:
+      - name: NetworkOverhead
+      disabled:
+      - name: NodeResourcesFit
+  pluginConfig: 
+  - args:
+      namespaces:
+      - online-boutique
+      networkTopologyName: bplus-se6-topology
+      weightsName: UserDefined
+    name: NetworkOverhead

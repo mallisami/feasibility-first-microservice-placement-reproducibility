@@ -1,0 +1,62 @@
+{
+  "apiVersion": "networktopology.diktyo.x-k8s.io/v1alpha1",
+  "kind": "NetworkTopology",
+  "metadata": {
+    "name": "bplus-se6-topology",
+    "namespace": "online-boutique"
+  },
+  "spec": {
+    "configmapName": "bplus-se6-user-defined",
+    "weights": [
+      {
+        "name": "UserDefined",
+        "topologyList": [
+          {
+            "originList": [
+              {
+                "costList": [
+                  {
+                    "destination": "rack-b",
+                    "networkCost": 2
+                  },
+                  {
+                    "destination": "rack-c",
+                    "networkCost": 2
+                  }
+                ],
+                "origin": "rack-a"
+              },
+              {
+                "costList": [
+                  {
+                    "destination": "rack-a",
+                    "networkCost": 2
+                  },
+                  {
+                    "destination": "rack-c",
+                    "networkCost": 58
+                  }
+                ],
+                "origin": "rack-b"
+              },
+              {
+                "costList": [
+                  {
+                    "destination": "rack-a",
+                    "networkCost": 2
+                  },
+                  {
+                    "destination": "rack-b",
+                    "networkCost": 2
+                  }
+                ],
+                "origin": "rack-c"
+              }
+            ],
+            "topologyKey": "topology.kubernetes.io/zone"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "mape-ns3-44024-1p25-bplus_exact-203-a1",
+    "-v",
+    "/home/azureuser/mcb/EXPERIMENTS/ns3_affinity_wireless_confirmatory/results/run-20260920T043724Z/cells/seed44024-t1.25-bplus_exact-rng203/attempt-1:/evidence",
+    "mape-cap-ns3-affinity-confirm:2026-09-16",
+    "/bin/bash",
+    "-lc",
+    "set -o pipefail; mkdir -p Traces; ./waf --run-no-build \"evaluate_bplus_affinity_dense --simulationTime=3.0 --packetSize=1448 --socketType=ns3::UdpSocketFactory --numSTAs=6 --ratesMbpsCsv=1094.158175,412.032994,0.000000,0.000000,0.000000,0.000000 --csv=true --reportDataSnr=true --directory=/evidence/ --qdChannelFolder=DenseScenario --RngRun=203\""
+  ],
+  "completed_utc": "2026-09-20T08:37:55.800188Z",
+  "returncode": 0,
+  "runtime_seconds": 25.46762777299955,
+  "spec": "evaluate_bplus_affinity_dense --simulationTime=3.0 --packetSize=1448 --socketType=ns3::UdpSocketFactory --numSTAs=6 --ratesMbpsCsv=1094.158175,412.032994,0.000000,0.000000,0.000000,0.000000 --csv=true --reportDataSnr=true --directory=/evidence/ --qdChannelFolder=DenseScenario --RngRun=203",
+  "stderr": "",
+  "stdout": "Waf: Entering directory `/sim/wigig-module/build'\n0.1,1043.83,394.667,1438.5\n0.2,1091.68,412.854,1504.53\n0.3,1090.05,412.043,1502.1\n0.4,1100.13,410.074,1510.21\n0.5,1092.95,414.476,1507.43\n0.6,1093.41,411.58,1504.99\n0.7,1094.69,412.506,1507.19\n0.8,1093.88,412.159,1506.04\n0.9,1093.41,411.58,1504.99\n1.0,1095.04,412.043,1507.08\n1.1,1093.88,410.884,1504.76\n1.2,1096.43,412.506,1508.93\n1.3,1095.04,411.927,1506.96\n1.4,1093.3,411.58,1504.88\n1.5,1092.6,413.317,1505.92\n1.6,1095.73,411.464,1507.19\n1.7,1093.07,412.506,1505.57\n1.8,1095.15,411.695,1506.85\n1.9,1092.72,412.506,1505.22\n2.0,1095.61,409.842,1505.46\n2.1,1091.68,414.244,1505.92\n2.2,1094.92,410.884,1505.8\n2.3,1092.6,413.201,1505.8\n2.4,1089.71,411.232,1500.94\n2.5,1102.22,411.695,1513.91\n2.6,1089.24,412.738,1501.98\n2.7,1095.61,412.159,1507.77\n2.8,1092.6,412.043,1504.65\n2.9,1096.31,412.275,1508.58\n3.0,1096.19,412.39,1508.58\n3.1,2.43264,0.23168,2.66432\n",
+  "timed_out": false
+}

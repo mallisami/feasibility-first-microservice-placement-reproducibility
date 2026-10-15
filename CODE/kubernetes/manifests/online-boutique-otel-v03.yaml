@@ -1,0 +1,258 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: otel-v03-config
+  namespace: online-boutique
+data:
+  collector.yaml: |
+    receivers:
+      otlp:
+        protocols:
+          grpc:
+            endpoint: 0.0.0.0:4317
+    processors:
+      batch:
+        timeout: 1s
+    exporters:
+      file/traces:
+        path: /data/traces.json
+        rotation:
+          max_megabytes: 100
+          max_days: 1
+          max_backups: 2
+    service:
+      pipelines:
+        traces:
+          receivers: [otlp]
+          processors: [batch]
+          exporters: [file/traces]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opentelemetrycollector
+  namespace: online-boutique
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: opentelemetrycollector
+  template:
+    metadata:
+      labels:
+        app: opentelemetrycollector
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: mape-cap-bplus-worker2
+      securityContext:
+        fsGroup: 1000
+        runAsGroup: 1000
+        runAsNonRoot: true
+        runAsUser: 1000
+      containers:
+      - name: collector
+        image: otel/opentelemetry-collector-contrib:0.104.0@sha256:e07e325e303e86f4a87a617491e921b579a92da6d404007394757ac910bf9587
+        imagePullPolicy: IfNotPresent
+        args: ["--config=/conf/collector.yaml"]
+        ports:
+        - name: otlp-grpc
+          containerPort: 4317
+        resources:
+          requests:
+            cpu: 25m
+            memory: 64Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["ALL"]
+          readOnlyRootFilesystem: true
+        volumeMounts:
+        - name: config
+          mountPath: /conf
+          readOnly: true
+        - name: traces
+          mountPath: /data
+      - name: trace-reader
+        image: busybox:latest
+        imagePullPolicy: IfNotPresent
+        command: ["/bin/sh", "-c", "sleep 2147483647"]
+        resources:
+          requests:
+            cpu: 1m
+            memory: 2Mi
+          limits:
+            cpu: 10m
+            memory: 16Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["ALL"]
+          readOnlyRootFilesystem: true
+        volumeMounts:
+        - name: traces
+          mountPath: /data
+          readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          name: otel-v03-config
+      - name: traces
+        emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: opentelemetrycollector
+  namespace: online-boutique
+spec:
+  selector:
+    app: opentelemetrycollector
+  ports:
+  - name: grpc-otlp
+    port: 4317
+    targetPort: 4317
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bplus-controller-v03
+  namespace: online-boutique
+data:
+  controller.py: |
+    import json, os, ssl, time, urllib.request
+    api = "https://kubernetes.default.svc"
+    ns = "online-boutique"
+    token = open("/var/run/secrets/kubernetes.io/serviceaccount/token").read()
+    ca = "/var/run/secrets/kubernetes.io/serviceaccount/ca.crt"
+    context = ssl.create_default_context(cafile=ca)
+    headers = {"Authorization": "Bearer " + token, "Content-Type": "application/merge-patch+json"}
+    stable = {}
+    relocated = False
+    def request(path, method="GET", body=None):
+        data = None if body is None else json.dumps(body).encode()
+        req = urllib.request.Request(api + path, data=data, headers=headers, method=method)
+        with urllib.request.urlopen(req, context=context, timeout=10) as res:
+            return json.loads(res.read() or b"{}")
+    while True:
+        try:
+            cm = request(f"/api/v1/namespaces/{ns}/configmaps/bplus-live-telemetry")
+            sample = json.loads(cm.get("data", {}).get("flows.json", "{}"))
+            flows = sample.get("flows", [])
+            pods = sample.get("pod_nodes", {})
+            candidates = {}
+            for flow in flows:
+                src, dst = flow.get("source"), flow.get("destination")
+                rate = float(flow.get("total_bytes_per_second", 0.0))
+                if src in pods and dst in pods and rate > 0:
+                    candidates.setdefault(dst, []).append((src, rate))
+            decision = {"timestamp": sample.get("timestamp_utc"), "action": "no-op", "reason": "no beneficial persistent move"}
+            for dst, incoming in sorted(candidates.items()):
+                if dst not in {"frontend", "productcatalogservice", "recommendationservice"}:
+                    continue
+                current_node = pods[dst]
+                current = sum(rate for src, rate in incoming if pods[src] != current_node)
+                by_node = {}
+                for src, rate in incoming:
+                    by_node[pods[src]] = by_node.get(pods[src], 0.0) + rate
+                target = max(by_node, key=by_node.get)
+                candidate = sum(rate for src, rate in incoming if pods[src] != target)
+                benefit = (current - candidate) * 300.0
+                relocation_cost = sum(rate for _, rate in incoming) * 8.0
+                net = benefit - relocation_cost - max(4096.0, benefit * 0.05)
+                key = f"{dst}:{target}"
+                stable[key] = stable.get(key, 0) + 1 if net > 0 and target != current_node else 0
+                decision = {"timestamp": sample.get("timestamp_utc"), "deployment": dst, "source_node": current_node, "target_node": target, "current_cross_node_Bps": current, "candidate_cross_node_Bps": candidate, "net_benefit_bytes": net, "persistent_windows": stable[key], "action": "observe"}
+                if stable[key] >= 3 and not relocated:
+                    patch = {"spec": {"template": {"metadata": {"annotations": {"mape-cap-bplus/r2-controller-at": str(time.time())}}, "spec": {"nodeSelector": {"kubernetes.io/hostname": target}}}}}
+                    request(f"/apis/apps/v1/namespaces/{ns}/deployments/{dst}", "PATCH", patch)
+                    decision["action"] = "relocate"
+                    relocated = True
+                break
+            print(json.dumps(decision), flush=True)
+        except Exception as exc:
+            print(json.dumps({"action": "error", "error": str(exc)}), flush=True)
+        time.sleep(5)
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bplus-controller-v03
+  namespace: online-boutique
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: bplus-controller-v03
+  namespace: online-boutique
+rules:
+- apiGroups: [""]
+  resources: ["configmaps"]
+  verbs: ["get"]
+- apiGroups: ["apps"]
+  resources: ["deployments"]
+  verbs: ["get", "patch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: bplus-controller-v03
+  namespace: online-boutique
+subjects:
+- kind: ServiceAccount
+  name: bplus-controller-v03
+  namespace: online-boutique
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: bplus-controller-v03
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bplus-controller-v03
+  namespace: online-boutique
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: bplus-controller-v03
+  template:
+    metadata:
+      labels:
+        app: bplus-controller-v03
+    spec:
+      serviceAccountName: bplus-controller-v03
+      nodeSelector:
+        kubernetes.io/hostname: mape-cap-bplus-worker2
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+      containers:
+      - name: controller
+        image: gcr.io/google-samples/microservices-demo/loadgenerator:v0.10.1
+        imagePullPolicy: IfNotPresent
+        command: ["python", "/controller/controller.py"]
+        resources:
+          requests:
+            cpu: 10m
+            memory: 24Mi
+          limits:
+            cpu: 200m
+            memory: 128Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["ALL"]
+          readOnlyRootFilesystem: true
+        volumeMounts:
+        - name: code
+          mountPath: /controller
+          readOnly: true
+      volumes:
+      - name: code
+        configMap:
+          name: bplus-controller-v03

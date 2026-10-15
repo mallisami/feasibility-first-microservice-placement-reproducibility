@@ -1,0 +1,201 @@
+{
+  "accepted_evidence": true,
+  "application": {
+    "error_rate": 0.0,
+    "errors": 0,
+    "evidence_type": "frontend-structured-request-log",
+    "mean_ms": 76.53181818181818,
+    "operations": {
+      "GET /": 17,
+      "GET /cart": 44,
+      "GET /product/0PUK6V6EV0": 7,
+      "GET /product/1YMWWN1N4O": 11,
+      "GET /product/2ZYFJ3GM2N": 12,
+      "GET /product/66VCHSJNUP": 16,
+      "GET /product/6E92ZMYYFZ": 9,
+      "GET /product/9SIQT8TOJO": 15,
+      "GET /product/L9ECAV7KIM": 20,
+      "GET /product/LS4PSXUNUM": 9,
+      "GET /product/OLJCESPC7Z": 12,
+      "POST /cart": 26,
+      "POST /cart/checkout": 9,
+      "POST /setCurrency": 13
+    },
+    "p50_ms": 76.0,
+    "p95_ms": 216.0,
+    "p99_ms": 366.0,
+    "requests": 220,
+    "response_bytes": 1877117,
+    "throughput_requests_per_second": 2.75
+  },
+  "completed_utc": "2026-08-15T07:22:58.971538Z",
+  "execution_accepted": false,
+  "experiment": "S-GRACE",
+  "health": {
+    "healthy": true,
+    "pods": [
+      {
+        "app": "adservice",
+        "phase": "Running",
+        "pod": "adservice-7bd5dd855c-d4wsn",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "cartservice",
+        "phase": "Running",
+        "pod": "cartservice-6f7fb6fdf5-s4vkd",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "checkoutservice",
+        "phase": "Running",
+        "pod": "checkoutservice-7bcc949bb-6gql6",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "currencyservice",
+        "phase": "Running",
+        "pod": "currencyservice-6bc5475974-dfjg4",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "emailservice",
+        "phase": "Running",
+        "pod": "emailservice-84bb9754c9-6vvr4",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "frontend",
+        "phase": "Running",
+        "pod": "frontend-7f4d8bd5fb-s2bt9",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "loadgenerator",
+        "phase": "Running",
+        "pod": "loadgenerator-756566cb75-qt7dx",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "paymentservice",
+        "phase": "Running",
+        "pod": "paymentservice-5f8989cfb7-fm5gn",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "productcatalogservice",
+        "phase": "Running",
+        "pod": "productcatalogservice-ff7448b8b-7zqkj",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "recommendationservice",
+        "phase": "Running",
+        "pod": "recommendationservice-746bf94f98-bt25l",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "redis-cart",
+        "phase": "Running",
+        "pod": "redis-cart-78c68896f4-6zxsf",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "app": "shippingservice",
+        "phase": "Running",
+        "pod": "shippingservice-55c9444697-9kqgf",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  "horizon_guard_pass": true,
+  "horizon_seconds": 60.0,
+  "method": "GraceGuard",
+  "planning": {
+    "candidate_objective": 903.9333333333333,
+    "current_objective": 10344.6,
+    "economic_accept": false,
+    "expected_relocation_seconds": 4.062,
+    "move_cost_units": 16248.0,
+    "moved": [
+      "adservice",
+      "emailservice",
+      "paymentservice",
+      "shippingservice"
+    ],
+    "net_benefit": -9567.333333333332,
+    "reason": "insufficient conservative net benefit",
+    "solver": {
+      "constraint_count": 455,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "mip_dual_bound": 903.933333333333,
+      "mip_gap": 0.0,
+      "mip_node_count": 1,
+      "placement_evaluation": {
+        "cvar_delay_cost": 361.60333333333335,
+        "expected_delay_cost": 361.5283333333333,
+        "feasible": true,
+        "reasons": [],
+        "relocation_cost": 16248.0,
+        "scenario_airtime_by_group": {
+          "degradation": {},
+          "stable": {}
+        },
+        "scenario_delay_costs": {
+          "degradation": 361.60333333333335,
+          "stable": 361.35333333333335
+        },
+        "slo_slack": 0.0,
+        "total_objective": 903.9333333333333
+      },
+      "proven_optimal": true,
+      "solver": "scipy.optimize.milp/HiGHS",
+      "solver_objective": 903.933333333333,
+      "status": 0,
+      "variable_count": 186
+    },
+    "uncertainty_units": 2760.0
+  },
+  "recovery_event": {
+    "fired": true,
+    "fired_utc": "2026-08-15T07:22:37.695675Z",
+    "scheduled_after_seconds": 60.0
+  },
+  "relocation": null,
+  "replicate": 4,
+  "resources": {
+    "max_cpu_cores": 0.089282334,
+    "max_memory_mib": 408.58203125,
+    "mean_cpu_cores": 0.069504423625,
+    "mean_memory_mib": 401.677978515625,
+    "network_bytes_per_second": 108345.7875,
+    "network_rx_bytes": 4275153,
+    "network_tx_bytes": 4392510
+  },
+  "shaping": {
+    "applied": {
+      "availability": 1.0,
+      "conflict_ratio": 0.186,
+      "latency_ms": 16.461,
+      "loss_percent": 1.606,
+      "rate_mbit": 102.977
+    },
+    "tc_qdisc": {
+      "mape-cap-bplus-worker": "qdisc netem 8181: root refcnt 9 limit 1000 delay 16.5ms loss 1.606% rate 102977Kbit seed 11372221660439137477\n",
+      "mape-cap-bplus-worker2": "qdisc netem 8182: root refcnt 9 limit 1000 delay 16.5ms loss 1.606% rate 102977Kbit seed 5571085590245889633\n",
+      "mape-cap-bplus-worker3": "qdisc netem 8183: root refcnt 9 limit 1000 delay 16.5ms loss 1.606% rate 102977Kbit seed 15355690286739926737\n"
+    }
+  }
+}

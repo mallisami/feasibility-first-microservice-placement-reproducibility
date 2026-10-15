@@ -1,0 +1,70 @@
+{
+  "accepted": true,
+  "action_started_utc": "2026-09-18T08:57:51.674583Z",
+  "completed_utc": "2026-09-18T08:58:21.285734Z",
+  "create_ready_remove_rollout_seconds": 6.815966260000096,
+  "create_to_ready_seconds": 6.0,
+  "event_id": "aeee3f4a-d1a7-422c-af27-60ff2f80ff4b",
+  "final_pod_ready": true,
+  "image": {
+    "image_id": "sha256:04fa556e62bddac2a783622a3cccc35d6d5c599199eecf75b6b4f2bc76c8c825",
+    "reference": "hashicorp/http-echo:1.0.0",
+    "repo_digests": [
+      "docker.io/hashicorp/http-echo@sha256:fcb75f691c8b0414d670ae570240cbf95502cc18a9ba57e982ecac589760a186"
+    ],
+    "repo_tags": [
+      "docker.io/hashicorp/http-echo:1.0.0"
+    ],
+    "size_bytes": "4631705"
+  },
+  "image_absence_precheck": {
+    "after_by_id": false,
+    "after_by_ref": false,
+    "before_by_id": true,
+    "before_by_ref": true,
+    "checked_utc": "2026-09-18T08:57:50.674014Z",
+    "removals": [
+      {
+        "identity": "docker.io/hashicorp/http-echo@sha256:fcb75f691c8b0414d670ae570240cbf95502cc18a9ba57e982ecac589760a186",
+        "output": "Deleted: docker.io/hashicorp/http-echo:1.0.0\n",
+        "returncode": 0
+      },
+      {
+        "identity": "hashicorp/http-echo:1.0.0",
+        "output": "time=\"2026-09-18T08:57:50Z\" level=fatal msg=\"no such image hashicorp/http-echo:1.0.0\"\n",
+        "returncode": 1
+      }
+    ],
+    "verified_absent": true
+  },
+  "new_pod": "relocation-echo-fd974987d-5zvrm",
+  "observation": 5,
+  "old_pod": "relocation-echo-6575dfbc64-qdldj",
+  "pull_events": [
+    {
+      "count": 1,
+      "first_timestamp": "2026-09-18T08:57:52Z",
+      "last_timestamp": "2026-09-18T08:57:52Z",
+      "message": "Pulling image \"hashicorp/http-echo:1.0.0\"",
+      "reason": "Pulling"
+    },
+    {
+      "count": 1,
+      "first_timestamp": "2026-09-18T08:57:57Z",
+      "last_timestamp": "2026-09-18T08:57:57Z",
+      "message": "Successfully pulled image \"hashicorp/http-echo:1.0.0\" in 5.011s (5.011s including waiting). Image size: 4631705 bytes.",
+      "reason": "Pulled"
+    }
+  ],
+  "request_probe": {
+    "errors": [
+      "URLError",
+      "URLError"
+    ],
+    "failed_requests": 2,
+    "successful_requests": 271
+  },
+  "schema_version": "1.0",
+  "source_node": "mcb-k137-worker3",
+  "target_node": "mcb-k137-worker"
+}

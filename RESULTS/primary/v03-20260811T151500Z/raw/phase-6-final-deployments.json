@@ -1,0 +1,1895 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"adservice\"},\"name\":\"adservice\",\"namespace\":\"online-boutique\"},\"spec\":{\"selector\":{\"matchLabels\":{\"app\":\"adservice\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"adservice\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"PORT\",\"value\":\"9555\"}],\"image\":\"gcr.io/google-samples/microservices-demo/adservice:v0.10.1\",\"imagePullPolicy\":\"Always\",\"livenessProbe\":{\"grpc\":{\"port\":9555},\"initialDelaySeconds\":20,\"periodSeconds\":15},\"name\":\"server\",\"ports\":[{\"containerPort\":9555}],\"readinessProbe\":{\"grpc\":{\"port\":9555},\"initialDelaySeconds\":20,\"periodSeconds\":15},\"resources\":{\"limits\":{\"cpu\":\"300m\",\"memory\":\"300Mi\"},\"requests\":{\"cpu\":\"200m\",\"memory\":\"180Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"privileged\":false,\"readOnlyRootFilesystem\":true}}],\"securityContext\":{\"fsGroup\":1000,\"runAsGroup\":1000,\"runAsNonRoot\":true,\"runAsUser\":1000},\"serviceAccountName\":\"adservice\",\"terminationGracePeriodSeconds\":5}}}}\n"
+        },
+        "creationTimestamp": "2026-08-11T10:35:24Z",
+        "generation": 2,
+        "labels": {
+          "app": "adservice"
+        },
+        "name": "adservice",
+        "namespace": "online-boutique",
+        "resourceVersion": "4254",
+        "uid": "0eb0a929-a873-4b85-91e1-e3100d30c03c"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "adservice"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "kubectl.kubernetes.io/restartedAt": "2026-08-11T16:00:07+05:00"
+            },
+            "creationTimestamp": null,
+            "labels": {
+              "app": "adservice"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "PORT",
+                    "value": "9555"
+                  }
+                ],
+                "image": "gcr.io/google-samples/microservices-demo/adservice:v0.10.1",
+                "imagePullPolicy": "Always",
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "grpc": {
+                    "port": 9555,
+                    "service": ""
+                  },
+                  "initialDelaySeconds": 20,
+                  "periodSeconds": 15,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "name": "server",
+                "ports": [
+                  {
+                    "containerPort": 9555,
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "grpc": {
+                    "port": 9555,
+                    "service": ""
+                  },
+                  "initialDelaySeconds": 20,
+                  "periodSeconds": 15,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "300m",
+                    "memory": "300Mi"
+                  },
+                  "requests": {
+                    "cpu": "200m",
+                    "memory": "180Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "privileged": false,
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 1000,
+              "runAsGroup": 1000,
+              "runAsNonRoot": true,
+              "runAsUser": 1000
+            },
+            "serviceAccount": "adservice",
+            "serviceAccountName": "adservice",
+            "terminationGracePeriodSeconds": 5
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-08-11T10:51:53Z",
+            "lastUpdateTime": "2026-08-11T10:51:53Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          },
+          {
+            "lastTransitionTime": "2026-08-11T10:35:24Z",
+            "lastUpdateTime": "2026-08-11T11:00:41Z",
+            "message": "ReplicaSet \"adservice-67f895d89b\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"cartservice\"},\"name\":\"cartservice\",\"namespace\":\"online-boutique\"},\"spec\":{\"selector\":{\"matchLabels\":{\"app\":\"cartservice\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"cartservice\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"REDIS_ADDR\",\"value\":\"redis-cart:6379\"}],\"image\":\"gcr.io/google-samples/microservices-demo/cartservice:v0.10.1\",\"imagePullPolicy\":\"Always\",\"livenessProbe\":{\"grpc\":{\"port\":7070},\"initialDelaySeconds\":15,\"periodSeconds\":10},\"name\":\"server\",\"ports\":[{\"containerPort\":7070}],\"readinessProbe\":{\"grpc\":{\"port\":7070},\"initialDelaySeconds\":15},\"resources\":{\"limits\":{\"cpu\":\"300m\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"200m\",\"memory\":\"64Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"privileged\":false,\"readOnlyRootFilesystem\":true}}],\"securityContext\":{\"fsGroup\":1000,\"runAsGroup\":1000,\"runAsNonRoot\":true,\"runAsUser\":1000},\"serviceAccountName\":\"cartservice\",\"terminationGracePeriodSeconds\":5}}}}\n"
+        },
+        "creationTimestamp": "2026-08-11T10:35:22Z",
+        "generation": 2,
+        "labels": {
+          "app": "cartservice"
+        },
+        "name": "cartservice",
+        "namespace": "online-boutique",
+        "resourceVersion": "4333",
+        "uid": "36081f6d-677e-4552-9a80-33f4ffcc4ca1"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "cartservice"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "kubectl.kubernetes.io/restartedAt": "2026-08-11T16:00:41+05:00"
+            },
+            "creationTimestamp": null,
+            "labels": {
+              "app": "cartservice"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "REDIS_ADDR",
+                    "value": "redis-cart:6379"
+                  }
+                ],
+                "image": "gcr.io/google-samples/microservices-demo/cartservice:v0.10.1",
+                "imagePullPolicy": "Always",
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "grpc": {
+                    "port": 7070,
+                    "service": ""
+                  },
+                  "initialDelaySeconds": 15,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "name": "server",
+                "ports": [
+                  {
+                    "containerPort": 7070,
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "grpc": {
+                    "port": 7070,
+                    "service": ""
+                  },
+                  "initialDelaySeconds": 15,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "300m",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "200m",
+                    "memory": "64Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "privileged": false,
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 1000,
+              "runAsGroup": 1000,
+              "runAsNonRoot": true,
+              "runAsUser": 1000
+            },
+            "serviceAccount": "cartservice",
+            "serviceAccountName": "cartservice",
+            "terminationGracePeriodSeconds": 5
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-08-11T10:51:36Z",
+            "lastUpdateTime": "2026-08-11T10:51:36Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          },
+          {
+            "lastTransitionTime": "2026-08-11T10:35:22Z",
+            "lastUpdateTime": "2026-08-11T11:01:04Z",
+            "message": "ReplicaSet \"cartservice-7dcdcdc86c\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"checkoutservice\"},\"name\":\"checkoutservice\",\"namespace\":\"online-boutique\"},\"spec\":{\"selector\":{\"matchLabels\":{\"app\":\"checkoutservice\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"checkoutservice\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"PORT\",\"value\":\"5050\"},{\"name\":\"PRODUCT_CATALOG_SERVICE_ADDR\",\"value\":\"productcatalogservice:3550\"},{\"name\":\"SHIPPING_SERVICE_ADDR\",\"value\":\"shippingservice:50051\"},{\"name\":\"PAYMENT_SERVICE_ADDR\",\"value\":\"paymentservice:50051\"},{\"name\":\"EMAIL_SERVICE_ADDR\",\"value\":\"emailservice:5000\"},{\"name\":\"CURRENCY_SERVICE_ADDR\",\"value\":\"currencyservice:7000\"},{\"name\":\"CART_SERVICE_ADDR\",\"value\":\"cartservice:7070\"}],\"image\":\"gcr.io/google-samples/microservices-demo/checkoutservice:v0.10.1\",\"imagePullPolicy\":\"Always\",\"livenessProbe\":{\"grpc\":{\"port\":5050}},\"name\":\"server\",\"ports\":[{\"containerPort\":5050}],\"readinessProbe\":{\"grpc\":{\"port\":5050}},\"resources\":{\"limits\":{\"cpu\":\"200m\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"100m\",\"memory\":\"64Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"privileged\":false,\"readOnlyRootFilesystem\":true}}],\"securityContext\":{\"fsGroup\":1000,\"runAsGroup\":1000,\"runAsNonRoot\":true,\"runAsUser\":1000},\"serviceAccountName\":\"checkoutservice\"}}}}\n"
+        },
+        "creationTimestamp": "2026-08-11T10:35:21Z",
+        "generation": 2,
+        "labels": {
+          "app": "checkoutservice"
+        },
+        "name": "checkoutservice",
+        "namespace": "online-boutique",
+        "resourceVersion": "4383",
+        "uid": "e0a46934-3218-466d-82ee-6a1b3dad588a"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "checkoutservice"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "kubectl.kubernetes.io/restartedAt": "2026-08-11T16:01:09+05:00"
+            },
+            "creationTimestamp": null,
+            "labels": {
+              "app": "checkoutservice"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "PORT",
+                    "value": "5050"
+                  },
+                  {
+                    "name": "PRODUCT_CATALOG_SERVICE_ADDR",
+                    "value": "productcatalogservice:3550"
+                  },
+                  {
+                    "name": "SHIPPING_SERVICE_ADDR",
+                    "value": "shippingservice:50051"
+                  },
+                  {
+                    "name": "PAYMENT_SERVICE_ADDR",
+                    "value": "paymentservice:50051"
+                  },
+                  {
+                    "name": "EMAIL_SERVICE_ADDR",
+                    "value": "emailservice:5000"
+                  },
+                  {
+                    "name": "CURRENCY_SERVICE_ADDR",
+                    "value": "currencyservice:7000"
+                  },
+                  {
+                    "name": "CART_SERVICE_ADDR",
+                    "value": "cartservice:7070"
+                  }
+                ],
+                "image": "gcr.io/google-samples/microservices-demo/checkoutservice:v0.10.1",
+                "imagePullPolicy": "Always",
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "grpc": {
+                    "port": 5050,
+                    "service": ""
+                  },
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "name": "server",
+                "ports": [
+                  {
+                    "containerPort": 5050,
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "grpc": {
+                    "port": 5050,
+                    "service": ""
+                  },
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "200m",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "100m",
+                    "memory": "64Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "privileged": false,
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 1000,
+              "runAsGroup": 1000,
+              "runAsNonRoot": true,
+              "runAsUser": 1000
+            },
+            "serviceAccount": "checkoutservice",
+            "serviceAccountName": "checkoutservice",
+            "terminationGracePeriodSeconds": 30
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-08-11T10:35:39Z",
+            "lastUpdateTime": "2026-08-11T10:35:39Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          },
+          {
+            "lastTransitionTime": "2026-08-11T10:35:22Z",
+            "lastUpdateTime": "2026-08-11T11:01:11Z",
+            "message": "ReplicaSet \"checkoutservice-6bf457d465\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"currencyservice\"},\"name\":\"currencyservice\",\"namespace\":\"online-boutique\"},\"spec\":{\"selector\":{\"matchLabels\":{\"app\":\"currencyservice\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"currencyservice\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"PORT\",\"value\":\"7000\"},{\"name\":\"DISABLE_PROFILER\",\"value\":\"1\"}],\"image\":\"gcr.io/google-samples/microservices-demo/currencyservice:v0.10.1\",\"imagePullPolicy\":\"Always\",\"livenessProbe\":{\"grpc\":{\"port\":7000}},\"name\":\"server\",\"ports\":[{\"containerPort\":7000,\"name\":\"grpc\"}],\"readinessProbe\":{\"grpc\":{\"port\":7000}},\"resources\":{\"limits\":{\"cpu\":\"200m\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"100m\",\"memory\":\"64Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"privileged\":false,\"readOnlyRootFilesystem\":true}}],\"securityContext\":{\"fsGroup\":1000,\"runAsGroup\":1000,\"runAsNonRoot\":true,\"runAsUser\":1000},\"serviceAccountName\":\"currencyservice\",\"terminationGracePeriodSeconds\":5}}}}\n"
+        },
+        "creationTimestamp": "2026-08-11T10:35:21Z",
+        "generation": 2,
+        "labels": {
+          "app": "currencyservice"
+        },
+        "name": "currencyservice",
+        "namespace": "online-boutique",
+        "resourceVersion": "4445",
+        "uid": "013763bb-5c50-4e0a-b283-3a729f503e2b"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "currencyservice"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "kubectl.kubernetes.io/restartedAt": "2026-08-11T16:01:11+05:00"
+            },
+            "creationTimestamp": null,
+            "labels": {
+              "app": "currencyservice"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "PORT",
+                    "value": "7000"
+                  },
+                  {
+                    "name": "DISABLE_PROFILER",
+                    "value": "1"
+                  }
+                ],
+                "image": "gcr.io/google-samples/microservices-demo/currencyservice:v0.10.1",
+                "imagePullPolicy": "Always",
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "grpc": {
+                    "port": 7000,
+                    "service": ""
+                  },
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "name": "server",
+                "ports": [
+                  {
+                    "containerPort": 7000,
+                    "name": "grpc",
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "grpc": {
+                    "port": 7000,
+                    "service": ""
+                  },
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "200m",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "100m",
+                    "memory": "64Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "privileged": false,
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 1000,
+              "runAsGroup": 1000,
+              "runAsNonRoot": true,
+              "runAsUser": 1000
+            },
+            "serviceAccount": "currencyservice",
+            "serviceAccountName": "currencyservice",
+            "terminationGracePeriodSeconds": 5
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-08-11T10:35:40Z",
+            "lastUpdateTime": "2026-08-11T10:35:40Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          },
+          {
+            "lastTransitionTime": "2026-08-11T10:35:21Z",
+            "lastUpdateTime": "2026-08-11T11:01:24Z",
+            "message": "ReplicaSet \"currencyservice-7f94fc444d\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"emailservice\"},\"name\":\"emailservice\",\"namespace\":\"online-boutique\"},\"spec\":{\"selector\":{\"matchLabels\":{\"app\":\"emailservice\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"emailservice\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"PORT\",\"value\":\"8080\"},{\"name\":\"DISABLE_PROFILER\",\"value\":\"1\"}],\"image\":\"gcr.io/google-samples/microservices-demo/emailservice:v0.10.1\",\"imagePullPolicy\":\"Always\",\"livenessProbe\":{\"grpc\":{\"port\":8080},\"initialDelaySeconds\":30,\"periodSeconds\":10},\"name\":\"server\",\"ports\":[{\"containerPort\":8080}],\"readinessProbe\":{\"grpc\":{\"port\":8080},\"periodSeconds\":5},\"resources\":{\"limits\":{\"cpu\":\"200m\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"100m\",\"memory\":\"64Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"privileged\":false,\"readOnlyRootFilesystem\":true}}],\"securityContext\":{\"fsGroup\":1000,\"runAsGroup\":1000,\"runAsNonRoot\":true,\"runAsUser\":1000},\"serviceAccountName\":\"emailservice\",\"terminationGracePeriodSeconds\":5}}}}\n"
+        },
+        "creationTimestamp": "2026-08-11T10:35:22Z",
+        "generation": 2,
+        "labels": {
+          "app": "emailservice"
+        },
+        "name": "emailservice",
+        "namespace": "online-boutique",
+        "resourceVersion": "4510",
+        "uid": "6072a44a-93a3-426a-a497-ba0a502ffef7"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "emailservice"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "kubectl.kubernetes.io/restartedAt": "2026-08-11T16:01:30+05:00"
+            },
+            "creationTimestamp": null,
+            "labels": {
+              "app": "emailservice"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "PORT",
+                    "value": "8080"
+                  },
+                  {
+                    "name": "DISABLE_PROFILER",
+                    "value": "1"
+                  }
+                ],
+                "image": "gcr.io/google-samples/microservices-demo/emailservice:v0.10.1",
+                "imagePullPolicy": "Always",
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "grpc": {
+                    "port": 8080,
+                    "service": ""
+                  },
+                  "initialDelaySeconds": 30,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "name": "server",
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "grpc": {
+                    "port": 8080,
+                    "service": ""
+                  },
+                  "periodSeconds": 5,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "200m",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "100m",
+                    "memory": "64Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "privileged": false,
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 1000,
+              "runAsGroup": 1000,
+              "runAsNonRoot": true,
+              "runAsUser": 1000
+            },
+            "serviceAccount": "emailservice",
+            "serviceAccountName": "emailservice",
+            "terminationGracePeriodSeconds": 5
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-08-11T10:35:55Z",
+            "lastUpdateTime": "2026-08-11T10:35:55Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          },
+          {
+            "lastTransitionTime": "2026-08-11T10:35:22Z",
+            "lastUpdateTime": "2026-08-11T11:01:38Z",
+            "message": "ReplicaSet \"emailservice-55c9f46b86\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"frontend\"},\"name\":\"frontend\",\"namespace\":\"online-boutique\"},\"spec\":{\"selector\":{\"matchLabels\":{\"app\":\"frontend\"}},\"template\":{\"metadata\":{\"annotations\":{\"sidecar.istio.io/rewriteAppHTTPProbers\":\"true\"},\"labels\":{\"app\":\"frontend\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"PORT\",\"value\":\"8080\"},{\"name\":\"PRODUCT_CATALOG_SERVICE_ADDR\",\"value\":\"productcatalogservice:3550\"},{\"name\":\"CURRENCY_SERVICE_ADDR\",\"value\":\"currencyservice:7000\"},{\"name\":\"CART_SERVICE_ADDR\",\"value\":\"cartservice:7070\"},{\"name\":\"RECOMMENDATION_SERVICE_ADDR\",\"value\":\"recommendationservice:8080\"},{\"name\":\"SHIPPING_SERVICE_ADDR\",\"value\":\"shippingservice:50051\"},{\"name\":\"CHECKOUT_SERVICE_ADDR\",\"value\":\"checkoutservice:5050\"},{\"name\":\"AD_SERVICE_ADDR\",\"value\":\"adservice:9555\"},{\"name\":\"SHOPPING_ASSISTANT_SERVICE_ADDR\",\"value\":\"shoppingassistantservice:80\"},{\"name\":\"ENABLE_PROFILER\",\"value\":\"0\"}],\"image\":\"gcr.io/google-samples/microservices-demo/frontend:v0.10.1\",\"imagePullPolicy\":\"Always\",\"livenessProbe\":{\"httpGet\":{\"httpHeaders\":[{\"name\":\"Cookie\",\"value\":\"shop_session-id=x-liveness-probe\"}],\"path\":\"/_healthz\",\"port\":8080},\"initialDelaySeconds\":10},\"name\":\"server\",\"ports\":[{\"containerPort\":8080}],\"readinessProbe\":{\"httpGet\":{\"httpHeaders\":[{\"name\":\"Cookie\",\"value\":\"shop_session-id=x-readiness-probe\"}],\"path\":\"/_healthz\",\"port\":8080},\"initialDelaySeconds\":10},\"resources\":{\"limits\":{\"cpu\":\"200m\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"100m\",\"memory\":\"64Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"privileged\":false,\"readOnlyRootFilesystem\":true}}],\"securityContext\":{\"fsGroup\":1000,\"runAsGroup\":1000,\"runAsNonRoot\":true,\"runAsUser\":1000},\"serviceAccountName\":\"frontend\"}}}}\n"
+        },
+        "creationTimestamp": "2026-08-11T10:35:23Z",
+        "generation": 2,
+        "labels": {
+          "app": "frontend"
+        },
+        "name": "frontend",
+        "namespace": "online-boutique",
+        "resourceVersion": "4099",
+        "uid": "7c139bfc-53fe-4bd8-80d4-f69d275990d1"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "frontend"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "kubectl.kubernetes.io/restartedAt": "2026-08-11T15:59:33+05:00",
+              "sidecar.istio.io/rewriteAppHTTPProbers": "true"
+            },
+            "creationTimestamp": null,
+            "labels": {
+              "app": "frontend"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "PORT",
+                    "value": "8080"
+                  },
+                  {
+                    "name": "PRODUCT_CATALOG_SERVICE_ADDR",
+                    "value": "productcatalogservice:3550"
+                  },
+                  {
+                    "name": "CURRENCY_SERVICE_ADDR",
+                    "value": "currencyservice:7000"
+                  },
+                  {
+                    "name": "CART_SERVICE_ADDR",
+                    "value": "cartservice:7070"
+                  },
+                  {
+                    "name": "RECOMMENDATION_SERVICE_ADDR",
+                    "value": "recommendationservice:8080"
+                  },
+                  {
+                    "name": "SHIPPING_SERVICE_ADDR",
+                    "value": "shippingservice:50051"
+                  },
+                  {
+                    "name": "CHECKOUT_SERVICE_ADDR",
+                    "value": "checkoutservice:5050"
+                  },
+                  {
+                    "name": "AD_SERVICE_ADDR",
+                    "value": "adservice:9555"
+                  },
+                  {
+                    "name": "SHOPPING_ASSISTANT_SERVICE_ADDR",
+                    "value": "shoppingassistantservice:80"
+                  },
+                  {
+                    "name": "ENABLE_PROFILER",
+                    "value": "0"
+                  }
+                ],
+                "image": "gcr.io/google-samples/microservices-demo/frontend:v0.10.1",
+                "imagePullPolicy": "Always",
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "httpGet": {
+                    "httpHeaders": [
+                      {
+                        "name": "Cookie",
+                        "value": "shop_session-id=x-liveness-probe"
+                      }
+                    ],
+                    "path": "/_healthz",
+                    "port": 8080,
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 10,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "name": "server",
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "httpGet": {
+                    "httpHeaders": [
+                      {
+                        "name": "Cookie",
+                        "value": "shop_session-id=x-readiness-probe"
+                      }
+                    ],
+                    "path": "/_healthz",
+                    "port": 8080,
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 10,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "200m",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "100m",
+                    "memory": "64Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "privileged": false,
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 1000,
+              "runAsGroup": 1000,
+              "runAsNonRoot": true,
+              "runAsUser": 1000
+            },
+            "serviceAccount": "frontend",
+            "serviceAccountName": "frontend",
+            "terminationGracePeriodSeconds": 30
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-08-11T10:35:55Z",
+            "lastUpdateTime": "2026-08-11T10:35:55Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          },
+          {
+            "lastTransitionTime": "2026-08-11T10:35:23Z",
+            "lastUpdateTime": "2026-08-11T10:59:47Z",
+            "message": "ReplicaSet \"frontend-6dfd999dd4\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "3",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"loadgenerator\"},\"name\":\"loadgenerator\",\"namespace\":\"online-boutique\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"app\":\"loadgenerator\"}},\"template\":{\"metadata\":{\"annotations\":{\"sidecar.istio.io/rewriteAppHTTPProbers\":\"true\"},\"labels\":{\"app\":\"loadgenerator\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"FRONTEND_ADDR\",\"value\":\"frontend.online-boutique.svc.cluster.local:80\"},{\"name\":\"USERS\",\"value\":\"10\"}],\"image\":\"gcr.io/google-samples/microservices-demo/loadgenerator:v0.10.1\",\"imagePullPolicy\":\"IfNotPresent\",\"name\":\"main\",\"resources\":{\"limits\":{\"cpu\":\"500m\",\"memory\":\"512Mi\"},\"requests\":{\"cpu\":\"300m\",\"memory\":\"256Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"privileged\":false,\"readOnlyRootFilesystem\":true}}],\"initContainers\":[{\"command\":[\"/bin/sh\",\"-exc\",\"MAX_RETRIES=12\\nRETRY_INTERVAL=10\\nfor i in $(seq 1 $MAX_RETRIES); do\\n  echo \\\"Attempt $i: Pinging frontend: ${FRONTEND_ADDR}...\\\"\\n  if wget -q -O /dev/null http://${FRONTEND_ADDR}; then\\n      echo \\\"Frontend is reachable.\\\"\\n      exit 0\\n  fi\\n  echo \\\"Error: Could not reach frontend.\\\"\\n  sleep $RETRY_INTERVAL\\ndone\\necho \\\"Failed to reach frontend after $MAX_RETRIES attempts.\\\"\\nexit 1\\n\"],\"env\":[{\"name\":\"FRONTEND_ADDR\",\"value\":\"frontend.online-boutique.svc.cluster.local:80\"}],\"image\":\"busybox:latest\",\"imagePullPolicy\":\"IfNotPresent\",\"name\":\"frontend-check\",\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"privileged\":false,\"readOnlyRootFilesystem\":true}}],\"restartPolicy\":\"Always\",\"securityContext\":{\"fsGroup\":1000,\"runAsGroup\":1000,\"runAsNonRoot\":true,\"runAsUser\":1000},\"serviceAccountName\":\"loadgenerator\",\"terminationGracePeriodSeconds\":5}}}}\n"
+        },
+        "creationTimestamp": "2026-08-11T10:52:14Z",
+        "generation": 3,
+        "labels": {
+          "app": "loadgenerator"
+        },
+        "name": "loadgenerator",
+        "namespace": "online-boutique",
+        "resourceVersion": "4144",
+        "uid": "cc34916e-e897-4f0a-bb81-e66e8c723bd7"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "loadgenerator"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "sidecar.istio.io/rewriteAppHTTPProbers": "true"
+            },
+            "creationTimestamp": null,
+            "labels": {
+              "app": "loadgenerator"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "FRONTEND_ADDR",
+                    "value": "frontend.online-boutique.svc.cluster.local:80"
+                  },
+                  {
+                    "name": "USERS",
+                    "value": "10"
+                  }
+                ],
+                "image": "gcr.io/google-samples/microservices-demo/loadgenerator:v0.10.1",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "main",
+                "resources": {
+                  "limits": {
+                    "cpu": "500m",
+                    "memory": "512Mi"
+                  },
+                  "requests": {
+                    "cpu": "300m",
+                    "memory": "256Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "privileged": false,
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "initContainers": [
+              {
+                "command": [
+                  "/bin/sh",
+                  "-exc",
+                  "MAX_RETRIES=12\nRETRY_INTERVAL=10\nfor i in $(seq 1 $MAX_RETRIES); do\n  echo \"Attempt $i: Pinging frontend: ${FRONTEND_ADDR}...\"\n  if wget -q -O /dev/null http://${FRONTEND_ADDR}; then\n      echo \"Frontend is reachable.\"\n      exit 0\n  fi\n  echo \"Error: Could not reach frontend.\"\n  sleep $RETRY_INTERVAL\ndone\necho \"Failed to reach frontend after $MAX_RETRIES attempts.\"\nexit 1\n"
+                ],
+                "env": [
+                  {
+                    "name": "FRONTEND_ADDR",
+                    "value": "frontend.online-boutique.svc.cluster.local:80"
+                  }
+                ],
+                "image": "busybox:latest",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "frontend-check",
+                "resources": {},
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "privileged": false,
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 1000,
+              "runAsGroup": 1000,
+              "runAsNonRoot": true,
+              "runAsUser": 1000
+            },
+            "serviceAccount": "loadgenerator",
+            "serviceAccountName": "loadgenerator",
+            "terminationGracePeriodSeconds": 5
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-08-11T10:59:59Z",
+            "lastUpdateTime": "2026-08-11T10:59:59Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          },
+          {
+            "lastTransitionTime": "2026-08-11T10:52:14Z",
+            "lastUpdateTime": "2026-08-11T10:59:59Z",
+            "message": "ReplicaSet \"loadgenerator-7fc74fc69\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          }
+        ],
+        "observedGeneration": 3,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"paymentservice\"},\"name\":\"paymentservice\",\"namespace\":\"online-boutique\"},\"spec\":{\"selector\":{\"matchLabels\":{\"app\":\"paymentservice\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"paymentservice\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"PORT\",\"value\":\"50051\"},{\"name\":\"DISABLE_PROFILER\",\"value\":\"1\"}],\"image\":\"gcr.io/google-samples/microservices-demo/paymentservice:v0.10.1\",\"imagePullPolicy\":\"Always\",\"livenessProbe\":{\"grpc\":{\"port\":50051}},\"name\":\"server\",\"ports\":[{\"containerPort\":50051}],\"readinessProbe\":{\"grpc\":{\"port\":50051}},\"resources\":{\"limits\":{\"cpu\":\"200m\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"100m\",\"memory\":\"64Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"privileged\":false,\"readOnlyRootFilesystem\":true}}],\"securityContext\":{\"fsGroup\":1000,\"runAsGroup\":1000,\"runAsNonRoot\":true,\"runAsUser\":1000},\"serviceAccountName\":\"paymentservice\",\"terminationGracePeriodSeconds\":5}}}}\n"
+        },
+        "creationTimestamp": "2026-08-11T10:35:23Z",
+        "generation": 2,
+        "labels": {
+          "app": "paymentservice"
+        },
+        "name": "paymentservice",
+        "namespace": "online-boutique",
+        "resourceVersion": "4550",
+        "uid": "7d807345-c7c1-404b-82c8-f0124e5323bc"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "paymentservice"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "kubectl.kubernetes.io/restartedAt": "2026-08-11T16:01:38+05:00"
+            },
+            "creationTimestamp": null,
+            "labels": {
+              "app": "paymentservice"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "PORT",
+                    "value": "50051"
+                  },
+                  {
+                    "name": "DISABLE_PROFILER",
+                    "value": "1"
+                  }
+                ],
+                "image": "gcr.io/google-samples/microservices-demo/paymentservice:v0.10.1",
+                "imagePullPolicy": "Always",
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "grpc": {
+                    "port": 50051,
+                    "service": ""
+                  },
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "name": "server",
+                "ports": [
+                  {
+                    "containerPort": 50051,
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "grpc": {
+                    "port": 50051,
+                    "service": ""
+                  },
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "200m",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "100m",
+                    "memory": "64Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "privileged": false,
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 1000,
+              "runAsGroup": 1000,
+              "runAsNonRoot": true,
+              "runAsUser": 1000
+            },
+            "serviceAccount": "paymentservice",
+            "serviceAccountName": "paymentservice",
+            "terminationGracePeriodSeconds": 5
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-08-11T10:35:57Z",
+            "lastUpdateTime": "2026-08-11T10:35:57Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          },
+          {
+            "lastTransitionTime": "2026-08-11T10:35:23Z",
+            "lastUpdateTime": "2026-08-11T11:01:42Z",
+            "message": "ReplicaSet \"paymentservice-6d6c5fbdd9\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"productcatalogservice\"},\"name\":\"productcatalogservice\",\"namespace\":\"online-boutique\"},\"spec\":{\"selector\":{\"matchLabels\":{\"app\":\"productcatalogservice\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"productcatalogservice\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"PORT\",\"value\":\"3550\"},{\"name\":\"DISABLE_PROFILER\",\"value\":\"1\"}],\"image\":\"gcr.io/google-samples/microservices-demo/productcatalogservice:v0.10.1\",\"imagePullPolicy\":\"Always\",\"livenessProbe\":{\"grpc\":{\"port\":3550}},\"name\":\"server\",\"ports\":[{\"containerPort\":3550}],\"readinessProbe\":{\"grpc\":{\"port\":3550}},\"resources\":{\"limits\":{\"cpu\":\"200m\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"100m\",\"memory\":\"64Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"privileged\":false,\"readOnlyRootFilesystem\":true}}],\"securityContext\":{\"fsGroup\":1000,\"runAsGroup\":1000,\"runAsNonRoot\":true,\"runAsUser\":1000},\"serviceAccountName\":\"productcatalogservice\",\"terminationGracePeriodSeconds\":5}}}}\n"
+        },
+        "creationTimestamp": "2026-08-11T10:35:21Z",
+        "generation": 2,
+        "labels": {
+          "app": "productcatalogservice"
+        },
+        "name": "productcatalogservice",
+        "namespace": "online-boutique",
+        "resourceVersion": "4591",
+        "uid": "ae0554de-455a-4166-b243-0297bce5dff4"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "productcatalogservice"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "kubectl.kubernetes.io/restartedAt": "2026-08-11T16:01:42+05:00"
+            },
+            "creationTimestamp": null,
+            "labels": {
+              "app": "productcatalogservice"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "PORT",
+                    "value": "3550"
+                  },
+                  {
+                    "name": "DISABLE_PROFILER",
+                    "value": "1"
+                  }
+                ],
+                "image": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.10.1",
+                "imagePullPolicy": "Always",
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "grpc": {
+                    "port": 3550,
+                    "service": ""
+                  },
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "name": "server",
+                "ports": [
+                  {
+                    "containerPort": 3550,
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "grpc": {
+                    "port": 3550,
+                    "service": ""
+                  },
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "200m",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "100m",
+                    "memory": "64Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "privileged": false,
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 1000,
+              "runAsGroup": 1000,
+              "runAsNonRoot": true,
+              "runAsUser": 1000
+            },
+            "serviceAccount": "productcatalogservice",
+            "serviceAccountName": "productcatalogservice",
+            "terminationGracePeriodSeconds": 5
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-08-11T10:35:39Z",
+            "lastUpdateTime": "2026-08-11T10:35:39Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          },
+          {
+            "lastTransitionTime": "2026-08-11T10:35:21Z",
+            "lastUpdateTime": "2026-08-11T11:01:44Z",
+            "message": "ReplicaSet \"productcatalogservice-7fc6d4c5dd\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"recommendationservice\"},\"name\":\"recommendationservice\",\"namespace\":\"online-boutique\"},\"spec\":{\"selector\":{\"matchLabels\":{\"app\":\"recommendationservice\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"recommendationservice\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"PORT\",\"value\":\"8080\"},{\"name\":\"PRODUCT_CATALOG_SERVICE_ADDR\",\"value\":\"productcatalogservice:3550\"},{\"name\":\"DISABLE_PROFILER\",\"value\":\"1\"}],\"image\":\"gcr.io/google-samples/microservices-demo/recommendationservice:v0.10.1\",\"imagePullPolicy\":\"Always\",\"livenessProbe\":{\"grpc\":{\"port\":8080},\"periodSeconds\":5},\"name\":\"server\",\"ports\":[{\"containerPort\":8080}],\"readinessProbe\":{\"grpc\":{\"port\":8080},\"periodSeconds\":5},\"resources\":{\"limits\":{\"cpu\":\"200m\",\"memory\":\"450Mi\"},\"requests\":{\"cpu\":\"100m\",\"memory\":\"220Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"privileged\":false,\"readOnlyRootFilesystem\":true}}],\"securityContext\":{\"fsGroup\":1000,\"runAsGroup\":1000,\"runAsNonRoot\":true,\"runAsUser\":1000},\"serviceAccountName\":\"recommendationservice\",\"terminationGracePeriodSeconds\":5}}}}\n"
+        },
+        "creationTimestamp": "2026-08-11T10:35:24Z",
+        "generation": 2,
+        "labels": {
+          "app": "recommendationservice"
+        },
+        "name": "recommendationservice",
+        "namespace": "online-boutique",
+        "resourceVersion": "4652",
+        "uid": "f1846681-4752-4453-aff2-a94d3f3e6869"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "recommendationservice"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "kubectl.kubernetes.io/restartedAt": "2026-08-11T16:01:49+05:00"
+            },
+            "creationTimestamp": null,
+            "labels": {
+              "app": "recommendationservice"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "PORT",
+                    "value": "8080"
+                  },
+                  {
+                    "name": "PRODUCT_CATALOG_SERVICE_ADDR",
+                    "value": "productcatalogservice:3550"
+                  },
+                  {
+                    "name": "DISABLE_PROFILER",
+                    "value": "1"
+                  }
+                ],
+                "image": "gcr.io/google-samples/microservices-demo/recommendationservice:v0.10.1",
+                "imagePullPolicy": "Always",
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "grpc": {
+                    "port": 8080,
+                    "service": ""
+                  },
+                  "periodSeconds": 5,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "name": "server",
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "grpc": {
+                    "port": 8080,
+                    "service": ""
+                  },
+                  "periodSeconds": 5,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "200m",
+                    "memory": "450Mi"
+                  },
+                  "requests": {
+                    "cpu": "100m",
+                    "memory": "220Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "privileged": false,
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 1000,
+              "runAsGroup": 1000,
+              "runAsNonRoot": true,
+              "runAsUser": 1000
+            },
+            "serviceAccount": "recommendationservice",
+            "serviceAccountName": "recommendationservice",
+            "terminationGracePeriodSeconds": 5
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-08-11T10:35:51Z",
+            "lastUpdateTime": "2026-08-11T10:35:51Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          },
+          {
+            "lastTransitionTime": "2026-08-11T10:35:24Z",
+            "lastUpdateTime": "2026-08-11T11:01:54Z",
+            "message": "ReplicaSet \"recommendationservice-584fcfc84f\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"redis-cart\"},\"name\":\"redis-cart\",\"namespace\":\"online-boutique\"},\"spec\":{\"selector\":{\"matchLabels\":{\"app\":\"redis-cart\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"redis-cart\"}},\"spec\":{\"containers\":[{\"image\":\"redis:7-alpine\",\"imagePullPolicy\":\"Always\",\"livenessProbe\":{\"periodSeconds\":5,\"tcpSocket\":{\"port\":6379}},\"name\":\"redis\",\"ports\":[{\"containerPort\":6379}],\"readinessProbe\":{\"periodSeconds\":5,\"tcpSocket\":{\"port\":6379}},\"resources\":{\"limits\":{\"cpu\":\"125m\",\"memory\":\"256Mi\"},\"requests\":{\"cpu\":\"70m\",\"memory\":\"200Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"privileged\":false,\"readOnlyRootFilesystem\":true},\"volumeMounts\":[{\"mountPath\":\"/data\",\"name\":\"redis-data\"}]}],\"securityContext\":{\"fsGroup\":1000,\"runAsGroup\":1000,\"runAsNonRoot\":true,\"runAsUser\":1000},\"volumes\":[{\"emptyDir\":{},\"name\":\"redis-data\"}]}}}}\n"
+        },
+        "creationTimestamp": "2026-08-11T10:35:22Z",
+        "generation": 2,
+        "labels": {
+          "app": "redis-cart"
+        },
+        "name": "redis-cart",
+        "namespace": "online-boutique",
+        "resourceVersion": "4736",
+        "uid": "7d5649ea-66d1-4ddb-a31c-f8e0d47b65d3"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "redis-cart"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "kubectl.kubernetes.io/restartedAt": "2026-08-11T16:01:56+05:00"
+            },
+            "creationTimestamp": null,
+            "labels": {
+              "app": "redis-cart"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "image": "redis:7-alpine",
+                "imagePullPolicy": "Always",
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "periodSeconds": 5,
+                  "successThreshold": 1,
+                  "tcpSocket": {
+                    "port": 6379
+                  },
+                  "timeoutSeconds": 1
+                },
+                "name": "redis",
+                "ports": [
+                  {
+                    "containerPort": 6379,
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "periodSeconds": 5,
+                  "successThreshold": 1,
+                  "tcpSocket": {
+                    "port": 6379
+                  },
+                  "timeoutSeconds": 1
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "125m",
+                    "memory": "256Mi"
+                  },
+                  "requests": {
+                    "cpu": "70m",
+                    "memory": "200Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "privileged": false,
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "volumeMounts": [
+                  {
+                    "mountPath": "/data",
+                    "name": "redis-data"
+                  }
+                ]
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 1000,
+              "runAsGroup": 1000,
+              "runAsNonRoot": true,
+              "runAsUser": 1000
+            },
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "emptyDir": {},
+                "name": "redis-data"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-08-11T10:35:41Z",
+            "lastUpdateTime": "2026-08-11T10:35:41Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          },
+          {
+            "lastTransitionTime": "2026-08-11T10:35:22Z",
+            "lastUpdateTime": "2026-08-11T11:01:59Z",
+            "message": "ReplicaSet \"redis-cart-94bc9d5b\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"shippingservice\"},\"name\":\"shippingservice\",\"namespace\":\"online-boutique\"},\"spec\":{\"selector\":{\"matchLabels\":{\"app\":\"shippingservice\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"shippingservice\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"PORT\",\"value\":\"50051\"},{\"name\":\"DISABLE_PROFILER\",\"value\":\"1\"}],\"image\":\"gcr.io/google-samples/microservices-demo/shippingservice:v0.10.1\",\"imagePullPolicy\":\"Always\",\"livenessProbe\":{\"grpc\":{\"port\":50051}},\"name\":\"server\",\"ports\":[{\"containerPort\":50051}],\"readinessProbe\":{\"grpc\":{\"port\":50051},\"periodSeconds\":5},\"resources\":{\"limits\":{\"cpu\":\"200m\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"100m\",\"memory\":\"64Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"privileged\":false,\"readOnlyRootFilesystem\":true}}],\"securityContext\":{\"fsGroup\":1000,\"runAsGroup\":1000,\"runAsNonRoot\":true,\"runAsUser\":1000},\"serviceAccountName\":\"shippingservice\"}}}}\n"
+        },
+        "creationTimestamp": "2026-08-11T10:35:22Z",
+        "generation": 2,
+        "labels": {
+          "app": "shippingservice"
+        },
+        "name": "shippingservice",
+        "namespace": "online-boutique",
+        "resourceVersion": "4693",
+        "uid": "b20994cc-967b-472b-978d-6b3f261e6218"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "shippingservice"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "kubectl.kubernetes.io/restartedAt": "2026-08-11T16:01:54+05:00"
+            },
+            "creationTimestamp": null,
+            "labels": {
+              "app": "shippingservice"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "PORT",
+                    "value": "50051"
+                  },
+                  {
+                    "name": "DISABLE_PROFILER",
+                    "value": "1"
+                  }
+                ],
+                "image": "gcr.io/google-samples/microservices-demo/shippingservice:v0.10.1",
+                "imagePullPolicy": "Always",
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "grpc": {
+                    "port": 50051,
+                    "service": ""
+                  },
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "name": "server",
+                "ports": [
+                  {
+                    "containerPort": 50051,
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "grpc": {
+                    "port": 50051,
+                    "service": ""
+                  },
+                  "periodSeconds": 5,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "200m",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "100m",
+                    "memory": "64Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "privileged": false,
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 1000,
+              "runAsGroup": 1000,
+              "runAsNonRoot": true,
+              "runAsUser": 1000
+            },
+            "serviceAccount": "shippingservice",
+            "serviceAccountName": "shippingservice",
+            "terminationGracePeriodSeconds": 30
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-08-11T10:35:38Z",
+            "lastUpdateTime": "2026-08-11T10:35:38Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          },
+          {
+            "lastTransitionTime": "2026-08-11T10:35:22Z",
+            "lastUpdateTime": "2026-08-11T11:01:56Z",
+            "message": "ReplicaSet \"shippingservice-556459bcb9\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "updatedReplicas": 1
+      }
+    }
+  ],
+  "kind": "List",
+  "metadata": {
+    "resourceVersion": ""
+  }
+}

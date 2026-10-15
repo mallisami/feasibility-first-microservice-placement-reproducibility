@@ -1,0 +1,80 @@
+{
+  "application_id": "bplus-controlled-demo",
+  "flows": [
+    {
+      "bits_per_window": 15000000,
+      "criticality": 1.0,
+      "destination_replica": "profile-0",
+      "flow_id": "ingress-profile",
+      "max_expected_latency_ms": 20.0,
+      "requests_per_window": 100,
+      "source_replica": "ingress-0"
+    },
+    {
+      "bits_per_window": 8000000,
+      "criticality": 1.0,
+      "destination_replica": "orders-0",
+      "flow_id": "profile-orders",
+      "max_expected_latency_ms": 25.0,
+      "requests_per_window": 60,
+      "source_replica": "profile-0"
+    },
+    {
+      "bits_per_window": 15000000,
+      "criticality": 1.0,
+      "destination_replica": "database-0",
+      "flow_id": "orders-database",
+      "max_expected_latency_ms": 20.0,
+      "requests_per_window": 100,
+      "source_replica": "orders-0"
+    },
+    {
+      "bits_per_window": 2000000,
+      "criticality": 0.8,
+      "destination_replica": "orders-0",
+      "flow_id": "ingress-orders",
+      "max_expected_latency_ms": 30.0,
+      "requests_per_window": 20,
+      "source_replica": "ingress-0"
+    }
+  ],
+  "replicas": [
+    {
+      "allowed_nodes": [
+        "node-a"
+      ],
+      "anti_affinity_group": null,
+      "cpu_request": 2.0,
+      "memory_request_mb": 512,
+      "replica_id": "ingress-0",
+      "service_id": "ingress"
+    },
+    {
+      "allowed_nodes": [],
+      "anti_affinity_group": null,
+      "cpu_request": 2.0,
+      "memory_request_mb": 512,
+      "replica_id": "profile-0",
+      "service_id": "profile"
+    },
+    {
+      "allowed_nodes": [],
+      "anti_affinity_group": null,
+      "cpu_request": 2.0,
+      "memory_request_mb": 512,
+      "replica_id": "orders-0",
+      "service_id": "orders"
+    },
+    {
+      "allowed_nodes": [
+        "node-c"
+      ],
+      "anti_affinity_group": null,
+      "cpu_request": 2.0,
+      "memory_request_mb": 1024,
+      "replica_id": "database-0",
+      "service_id": "database"
+    }
+  ],
+  "schema_version": "1.0"
+}

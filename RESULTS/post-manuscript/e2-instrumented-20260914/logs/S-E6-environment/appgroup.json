@@ -1,0 +1,271 @@
+{
+  "apiVersion": "appgroup.diktyo.x-k8s.io/v1alpha1",
+  "kind": "AppGroup",
+  "metadata": {
+    "name": "bplus-se6-online-boutique",
+    "namespace": "online-boutique"
+  },
+  "spec": {
+    "numMembers": 11,
+    "topologySortingAlgorithm": "AlternateKahn",
+    "workloads": [
+      {
+        "workload": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "adservice",
+          "namespace": "online-boutique",
+          "selector": "adservice"
+        }
+      },
+      {
+        "dependencies": [
+          {
+            "maxNetworkCost": 80,
+            "workload": {
+              "apiVersion": "apps/v1",
+              "kind": "Deployment",
+              "name": "redis-cart",
+              "namespace": "online-boutique",
+              "selector": "redis-cart"
+            }
+          }
+        ],
+        "workload": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "cartservice",
+          "namespace": "online-boutique",
+          "selector": "cartservice"
+        }
+      },
+      {
+        "dependencies": [
+          {
+            "maxNetworkCost": 80,
+            "workload": {
+              "apiVersion": "apps/v1",
+              "kind": "Deployment",
+              "name": "cartservice",
+              "namespace": "online-boutique",
+              "selector": "cartservice"
+            }
+          },
+          {
+            "maxNetworkCost": 80,
+            "workload": {
+              "apiVersion": "apps/v1",
+              "kind": "Deployment",
+              "name": "currencyservice",
+              "namespace": "online-boutique",
+              "selector": "currencyservice"
+            }
+          },
+          {
+            "maxNetworkCost": 80,
+            "workload": {
+              "apiVersion": "apps/v1",
+              "kind": "Deployment",
+              "name": "emailservice",
+              "namespace": "online-boutique",
+              "selector": "emailservice"
+            }
+          },
+          {
+            "maxNetworkCost": 80,
+            "workload": {
+              "apiVersion": "apps/v1",
+              "kind": "Deployment",
+              "name": "paymentservice",
+              "namespace": "online-boutique",
+              "selector": "paymentservice"
+            }
+          },
+          {
+            "maxNetworkCost": 80,
+            "workload": {
+              "apiVersion": "apps/v1",
+              "kind": "Deployment",
+              "name": "productcatalogservice",
+              "namespace": "online-boutique",
+              "selector": "productcatalogservice"
+            }
+          },
+          {
+            "maxNetworkCost": 80,
+            "workload": {
+              "apiVersion": "apps/v1",
+              "kind": "Deployment",
+              "name": "shippingservice",
+              "namespace": "online-boutique",
+              "selector": "shippingservice"
+            }
+          }
+        ],
+        "workload": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "checkoutservice",
+          "namespace": "online-boutique",
+          "selector": "checkoutservice"
+        }
+      },
+      {
+        "workload": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "currencyservice",
+          "namespace": "online-boutique",
+          "selector": "currencyservice"
+        }
+      },
+      {
+        "workload": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "emailservice",
+          "namespace": "online-boutique",
+          "selector": "emailservice"
+        }
+      },
+      {
+        "dependencies": [
+          {
+            "maxNetworkCost": 80,
+            "workload": {
+              "apiVersion": "apps/v1",
+              "kind": "Deployment",
+              "name": "adservice",
+              "namespace": "online-boutique",
+              "selector": "adservice"
+            }
+          },
+          {
+            "maxNetworkCost": 80,
+            "workload": {
+              "apiVersion": "apps/v1",
+              "kind": "Deployment",
+              "name": "cartservice",
+              "namespace": "online-boutique",
+              "selector": "cartservice"
+            }
+          },
+          {
+            "maxNetworkCost": 80,
+            "workload": {
+              "apiVersion": "apps/v1",
+              "kind": "Deployment",
+              "name": "checkoutservice",
+              "namespace": "online-boutique",
+              "selector": "checkoutservice"
+            }
+          },
+          {
+            "maxNetworkCost": 80,
+            "workload": {
+              "apiVersion": "apps/v1",
+              "kind": "Deployment",
+              "name": "currencyservice",
+              "namespace": "online-boutique",
+              "selector": "currencyservice"
+            }
+          },
+          {
+            "maxNetworkCost": 80,
+            "workload": {
+              "apiVersion": "apps/v1",
+              "kind": "Deployment",
+              "name": "productcatalogservice",
+              "namespace": "online-boutique",
+              "selector": "productcatalogservice"
+            }
+          },
+          {
+            "maxNetworkCost": 80,
+            "workload": {
+              "apiVersion": "apps/v1",
+              "kind": "Deployment",
+              "name": "recommendationservice",
+              "namespace": "online-boutique",
+              "selector": "recommendationservice"
+            }
+          },
+          {
+            "maxNetworkCost": 80,
+            "workload": {
+              "apiVersion": "apps/v1",
+              "kind": "Deployment",
+              "name": "shippingservice",
+              "namespace": "online-boutique",
+              "selector": "shippingservice"
+            }
+          }
+        ],
+        "workload": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "frontend",
+          "namespace": "online-boutique",
+          "selector": "frontend"
+        }
+      },
+      {
+        "workload": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "paymentservice",
+          "namespace": "online-boutique",
+          "selector": "paymentservice"
+        }
+      },
+      {
+        "workload": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "productcatalogservice",
+          "namespace": "online-boutique",
+          "selector": "productcatalogservice"
+        }
+      },
+      {
+        "dependencies": [
+          {
+            "maxNetworkCost": 80,
+            "workload": {
+              "apiVersion": "apps/v1",
+              "kind": "Deployment",
+              "name": "productcatalogservice",
+              "namespace": "online-boutique",
+              "selector": "productcatalogservice"
+            }
+          }
+        ],
+        "workload": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "recommendationservice",
+          "namespace": "online-boutique",
+          "selector": "recommendationservice"
+        }
+      },
+      {
+        "workload": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "redis-cart",
+          "namespace": "online-boutique",
+          "selector": "redis-cart"
+        }
+      },
+      {
+        "workload": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "shippingservice",
+          "namespace": "online-boutique",
+          "selector": "shippingservice"
+        }
+      }
+    ]
+  }
+}

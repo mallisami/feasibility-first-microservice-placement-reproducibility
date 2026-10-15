@@ -1,0 +1,20 @@
+{
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "bplus-v03-r5-service-period-6400us-s2",
+    "-v",
+    "D:\\Sami\\MAPE_BPLUS_MASTER_2026-08-07\\02_BPLUS_SYSTEM\\results\\v0.3\\runs\\v03-20260811T151500Z\\raw\\phase-5-r5-ns3\\service-period-6400us-seed2:/evidence",
+    "ns3-wigig:v0.3-full",
+    "/bin/bash",
+    "-lc",
+    "set -o pipefail; ./waf --run-no-build 'evaluate_simple_service_period --simulationTime=2 --spDuration=6400 --RngRun=2'; rc=$?; for f in ./*.csv; do [ -f \"$f\" ] && cp \"$f\" /evidence/; done; exit $rc"
+  ],
+  "completed_utc": "2026-08-11T10:19:55.252869Z",
+  "returncode": 1,
+  "runtime_seconds": 1.0999294000212103,
+  "stderr": "aborted. cond=\"!(os->is_open ())\", msg=\"AsciiTraceHelper::CreateFileStream():  Unable to Open Traces/AccessPointMacQueueOccupany.txt for mode 16\", file=../src/network/utils/output-stream-wrapper.cc, line=37\nterminate called without an active exception\nCommand ['/sim/wigig-module/build/scratch/evaluate_simple_service_period', '--simulationTime=2', '--spDuration=6400', '--RngRun=2'] terminated with signal SIGIOT. Run it under a debugger to get more information (./waf --run <program> --command-template=\"gdb --args %s <args>\").\n",
+  "stdout": "Waf: Entering directory `/sim/wigig-module/build'\n"
+}
